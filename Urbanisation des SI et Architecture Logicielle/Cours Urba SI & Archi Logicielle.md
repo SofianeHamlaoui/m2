@@ -157,171 +157,189 @@ L'urbanisation des SI est en complément de la gouvernance des SI.
 
 ## Introduction au processus d'urbanisation
 
-Ce process d'urbac'est l'ensemble des activité nécessaires pour otnir syst d'info urbanisé.  C'est pas un process figé : il est continu, on a un cerlce de transformation. Au bout de 3 ans, le schéma directeur est remis à jour et remet à jour carto de process. >> Processus permanent, pas limité dnas le tmeps.
+### Définition
 
-L'objectif est de simplifier et optimiser la valeur ajoutée du SI, rendre SI plus adaptable et flexibl, saisir les nouvelles opportunité technologiques pour mettre à jour SI. Aussi participer à la gouvernance des SI : une fois le SI performant, il faut le contrôler et le piloter. Le managmenet permet de le rendre efficac,e la gouvernance de le piloter.
+Le processus d'urbanisation c'est l'ensemble des activités nécessaires pour obtenir un SI urbanisé. Il ne s'agit pas d'un processus figé : il est continu, on a un cercle de transformation. Au bout de 3 ans, le schéma directeur est remis à jour et remet à jour la cartographie des process >> C'est un processus permanent, pas limité dans le temps.
 
-Urba SI : vision orientée process. On en a des microscopiques et des macroscopiques : polusoieurs vues dans urba SI.
+L'objectif est de simplifier et d'optimiser la valeur ajoutée du SI, de rendre le SI plus adaptable et flexible, de saisir les nouvelles opportunités technologiques pour mettre à jour le SI. Mais également de participer à la gouvernance des SI : une fois le SI performant, il faut le contrôler et le piloter. Le management permet de le rendre efficace, la gouvernance de le piloter.
 
-Il s'agit d'un projet du SI. C'edst donc colplexe à g&rer. Il faut donc en premier lieu penser au pilotage. Grace à ça on réduit l pourcentage d'échec du projet. On va donc rapidmeent ragerder quels process prioriser pour l'optimisation. 
+### Processus & niveaux de préoccupation
 
-## Les processus opérationnels
+Urba des SI : vision orientée process. On en a des microscopiques et des macroscopiques : plusieurs vues dans urba SI.
 
-qu'est-ce qui a de la valeur dans le SI ? Le cervice. quand on vuet optimiser, il faut aller direct sur ls process qui ont de la valeur, donc l sprocess opérationnels, donc ls process métierS. p6pdf pour quoi faire. 
+Trois niveaux principaux : 
 
-Il faut un chef d'orchestre pour tout ça : c'est l'urbaniste. Il doit avoir une connaissance métier. il doit être fonctionnel, technique, et un peu de business/stratégie >> vision urbanistique. Urbanisation évite les projets "d'urgence" : c'est anticipé avant qu'on arrive sur une arhci obsolète. 
+- métier
+- fonctionnel
+- technologique
 
-## Support et communicaiton
+## Les sous-processus
 
-déconcentré
+### Le pilotage
 
-## Temporalité
+Il s'agit d'un projet du SI. C'est donc complexe à gérer. Il faut donc en premier lieu penser au pilotage. Grâce à ça on réduit le pourcentage d'échec du projet. On va donc rapidement regarder quels process prioriser pour l'optimisation. 
 
-C'est un process permanent, il va donc être prospectif par rapport à l'évolution du SI. Attention à la cohérence par rapport à la strat d'entreprise, il doit aussi etre stabl,e modulaire, et se baser tjrs sur process métier entreprisE. 
+### Les processus opérationnels
 
-L'aspct cadastral : faire des carto par couche. On obtien des carte de ref de l'actuel, ancien et ce qu'on veut fairE.
+Qu'est-ce qui a de la valeur dans le SI ? Le service.  
+Quand on veut optimiser, il faut aller directement sur les process qui ont de la valeur, donc les process opérationnels, donc les process métiers (p6pdf). 
 
-Aspect opérationnel : impact, scnenarii du projet, lien avec équipe opé.
+Il faut un chef d'orchestre pour tout ça : c'est l'urbaniste. Il doit avoir une connaissance métier. Il doit être fonctionnel, technique, et avoir un peu de connaissances en business/stratégie >> vision urbanistique.  
+Urbanisation évite les projets "d'urgence" : c'est anticipé avant qu'on arrive sur une archi obsolète. 
 
-## Acteurs
+### Support et communicaiiton
 
-dans un process d'urba des SI :
+La communication est importante, elle doit être présente auprès de tous les acteurs. établir et diffuser des documents et cartographies permet de diffuser les connaissances.
 
-Urbanisates (ou architecte d'netreprise)
+### Temporalité
 
-direction SI
+Trois aspects à prendre en compte :
 
-direction métier
+- Prospectif : C'est un process permanent, il va donc être prospectif par rapport à l'évolution du SI. Attention à la cohérence par rapport à la stratégie d'entreprise : il doit aussi être stable, modulaire, et se baser toujours sur les process métier de l'entreprise. 
+- Cadastral : faire des cartographies par couche. On obtient des carte de reférence de l'actuel, de l'ancien et de ce qu'on veut faire.
+- Opérationnel : impact, scenarii du projet, lien avec équipe opérationnelle. On est dans la réalité informatique.
 
-responsable domaine fonctionnel
+## Les acteurs de l'urbanisation
 
-responsable projrnt( couche exécutif et fonctionnel)
+### Acteurs
 
-mais aussi architecte technique, consultant BPR, expert en conduite du changement (pour réfractaires à nouveau SI), expert métier (donnent besons). BPR =  Business Process Reengineering
+Dans un process d'urba des SI on retrouve :
 
-trois types de reenginering : 
+- Urbanistes (ou architecte d'entreprise)
+- Direction des SI
+- Direction métier
+- Responsable domaine fonctionnel
+- Responsable projet (couche exécutive et fonctionnelle)
 
-- radical : on rase tout, on repart de 0. Coute ultra cher
-- opportuniste : profite de sprojets qui arrivnent, dnas l'urgent
-- progressiste, par évolution, la meileur version.
+Mais aussi (plus en périphérie) : architecte technique, consultant BPR, expert en conduite du changement (pour les réfractaires au nouveau SI), expert métier (donnent les besoins).  
+BPR =  Business Process Reengineering
 
-## Instances
+Trois types de reenginering : 
 
-on vint de voir les ressources humaines, mais onva toucher aussi les départements de l'entrreprise, on appelle ça des instanceS. Plus un acteur, mais une équipe, une unité organisationnelle. p11pdf
+- radical : on rase tout, on repart de 0. Coûte ultra cher
+- opportuniste : profite des projets qui arrivent, est dans l'urgence
+- progressiste : fonctionne par évolutions, le meilleur type.
 
-## Compétences
+### Instances
 
-Liste des compétences p12pdf
+On vient de voir les ressources humaines, mais on va toucher aussi les départements de l'entreprise, on appelle ça des instances. Il ne s'agit plus d'un acteur mais d'une équipe, une unité organisationnelle (détail p11pdf).
 
-- analyse risque : doit etre auditeur avant tout, car il doit analyser l'existant pour faire architecture cible.
-- connaissance stratétique car c'est un architecte.
-- qualité rédac : notamment en anflais si internationale
+### Compétences
 
-L'urbanisate est donc une perle rare.
+Liste des compétences requises chez l'urbaniste : p12pdf
 
-## Indice d'urbanisation 
+- pour l'analyse de risques : il doit être auditeur avant tout, car il doit analyser l'existant pour faire l'architecture cible.
+- la connaissance stratégique est là car car c'est un architecte.
+- la qualité rédactionnelle est notamment en anglais si le projet est à portée internationale
 
-### Introduction 
+L'urbaniste est donc une perle rare.
 
-c'est l'établissement de l'état de l'urba du SI actuellement. pour tout ou partie de la boite. 
+## L'indice d'urbanisation
 
-définition et suivi des actions menées. c'est un outil de gouvernance. 
+### Introduction
+
+C'est l'établissement de l'état de l'urba du SI actuellement, pour tout ou partie de l'organisation'. 
+
+Il définit et suit les actions menées, c'est un outil de gouvernance. 
 
 ### Axes d'analyse
 
-Ce sont ls axes qu'on retrouve dans référentiel TOGAF. 
+Ce sont les axes qu'on retrouve dans le référentiel TOGAF. 
 
-1. Connaitre SI existant et cible
-2. pour ensuite réger référentiel entreprise
-3. Voir carto entreprise
-4. accompagner projets
-5. maitriser la complexité des flux d'échange (carto des process)
-6. piloter urba des SI
-7. faire communication sur urab et developper compétences
+1. Connaître les SI existant et cible
+2. Pour ensuite gérer les référentiels d'entreprise
+3. Voir les cartographies de l'entreprise
+4. Accompagner les projets
+5. Maîtriser la complexité des flux d'échange (cartographie des process)
+6. Piloter l'urba des SI
+7. Faire la communication sur l'urba et développer les compétences
 
-Pour chaque axe, il faut donner criète entre 2 et 8, et noter chauqe criète entre 0 t 4. on a une grille prédifinie et on se base sur un radar. 
+Pour chaque axe, il faut donner critère entre 2 et 8, et noter chaque criète entre 0 et 4. On obtient une grille prédifinie et on se base sur un radar. 
 
-Il y a un lien étroit entre indice et process. 
+Il y a un lien étroit entre indice et process : les processus sont les critères des indices qui sont notés
 
-## Influence de l'orga sur les projets SO
+## Influence de l'organisation sur les projets SI
 
-### Les proijets dans le processus
+### Les projets dans le processus
 
-p17pdf : 3 composantes, et ls autres.
+p17pdf : 3 composantes principales, et les autres.
 
 Pour pouvoir gérer ces 3 composantes, l'urba doit être impliqué et communiquant. 
 
-### apport de l'urbanisation aux projets
+### Apport de l'urbanisation aux projets
 
-pouruqoi on fait de l'urba ? le process prmet plusieurs apports en externe de la moerniasation du SI. 
+Oouruqoi on fait de l'urba ? Le process permet plusieurs apports en externe de la modernisation du SI. 
 
-- Srtout dans le dev applicatif. Car la couche applicative est impacté pr urba
-- dans choix du logiciel, y a souvent derrière un progiciel un erp qui va évoluer
-- la maintenance va être améliorée
-- l'architecture va être plus modulaire et dépoussiérée
+- Surtout dans le dev applicatif. Car la couche applicative est impacté par l'urba
+- Aussi dans le choix du logiciel, il y a souvent derrière un progiciel, un ERP qui va évoluer
+- Également la maintenance va être améliorée
+- Enfin l'architecture va être plus modulaire et dépoussiérée
 
-Avantages :
+Les avantages :
 
-- limiter projets redondants
-- simplifier les intégrations en limitant les impact : meileure solution = microservices. (on maitris eles ipacts)
-- maitrise périmètre de projet : pas d'effet tunnel. 
-- garantir cohérence, eolutivité, flexibilité applicative et technie : on est sur meme technoi langages...
-- arbitrer choix progiciel et techinque: meilleure solution pour prjets
-- prioriser projets
+- limiter les projets redondants
+- simplifier les intégrations en limitant les impacts : pour cela la meilleure solution = les microservices.
+- maitrise le périmètre de projet : pas d'effet tunnel. 
+- garantir la cohérence, l'evolutivité, la flexibilité applicative et technique : on est sur la même techno de langages (par exemple)...
+- arbitrer les choix progiciels vs développement spécifique : sélectionner la meilleure solution pour les projets
+- prioriser les projets
 
 On limite donc coutrs liés aux projet, on maitris ele sporjets
 
-### Couts de l'urbanisme
+### Coûts de l'urbanisme
 
-les couts = tousls efofrts qui vont être faits pour mettre en place projet. Il faut voir retour sur investissmeent qu'on va faire. Tache pour après (voutivité ?) sont pas chiffrables, mais doivent être quand même prise se compte. 
+Les coûts prennent en compte tous les efforts qui vont être faits pour mettre en place le projet. Il faut voir également le retour sur investissement que l'on va faire. Les tâche pour "après" (liés à l'évolutivité) ne sont pas chiffrables, mais doivent être quand même prises en compte.
 
-## Lerôle de l'urbnaiste
+## Le rôle de l'urbaniste
 
-risques : trop impliqué ou trop peu comuniquant, as assez dedans prjet. l'iurba doit trouver positionnement correct entre trop d'iplication et pas assez.
+4 rôles :
 
-## Les èlges d'rubanisme
+- formation
+- conseil
+- validation
+- contrôle
+
+Les risques sont d'être trop impliqué ou trop peu communiquant et pas assez dans le projet. L'urbaniste doit trouver le positionnement correct entre trop d'implication et pas assez.
+
+## Les règles d'urbanisme
 
 ### Définition
 
-Les rèlges permettentde formuler ce qui est interdit et exigé. 
+Les rèlges permettent de formuler ce qui est interdit et exigé. 
 
-doivent être définies dès le dpéart, validée, acceptées, controlés, par direction notamment
+Elles doivent être définies dès le départ, validée, acceptées, controlées, notamment par la par direction.
 
-### typologie des règles
+### Typologie des règles
 
-on en trouve pour les pahses en amont du projet et pour les phases de la suite. n en trouve pour chauqe. Ces règles sont parfois assimilées à des bonnes pratiqus
+On en trouve pour les phases en amont du projet et pour les phases de la suite. Ces règles sont parfois assimilées à des bonnes pratiques
 
-ce qu'on va y faire p23 pdf
+Ce qu'on va y faire p23pdf
 
 ## L'urbanisme VS COBIT/ITIL
 
+Pourquoi ajouter des règles d'urba à COBIT et ITIL ? 
+
 ### COBIT
 
-Pourquoi ajouter des règles d'urba à es merdes comme cobit et itil ? 
+On retrouve l'urbanisme dans PO et AI de COBIT. Donc l'urba participe à ces deux domaines du référentiel de COBIT. 
 
-on retrouve l'urba dans PO et AI de Cobit. donc l'urba participe à ces deux domaines du référentiel de cobit. 
-
-On a donc des liens entre les composants des process de ces deux approches : pas en conflit. 
+On a donc des liens entre les composants des process de ces deux approches : ils ne sont pas en conflit. 
 
 ### ITIL
 
-Couche serice, pas process. Pas de lien direct avec urba. Mais lrosuq'n utilise ITL, on va avoir besoib d'inices de process, qui sont de sindicateurs d'urbanisme. Lien indirect donc, ura donne moyne pour optimiser services d'itil. Ubra peut servir de support à ITIL.
-
-
+C'est une couche service, pas process. Il n'y a donc pas de lien direct avec l'urba. Mais lorsqu'on utilise ITIL, on va avoir besoin d'indices de process, qui sont des indicateurs de l'urbanisme. Il exite donc un lien indirect : l'urba donne les moyens pour optimiser les services d'ITIL. L'urba peut ainsi servir de support à ITIL.
 
 ## Synthèse
 
-chercher acteurs
+D'abord hercher les acteurs
 
-3 composantes dnas process:  pilotage, étude en amont, pilter/prioriser porjet
+3 composantes dans les process:  pilotage, étude en amont, spliter/prioriser les projets
 
-pour ça, de l'aide : grace à support, référentiels (données/servcie), proposer architecture
+Pour ça, de l'aide : grace à support, référentiels (données/service), proposer l'architecture
 
 ## TD 2 : Renault
 
 ### 1. Enjeux
-
-Les enjeux de l'étude d'urbanisation sont d'optimiser les process à  plusieurs niveaux. Unifier les différents échanges, les tehcnos utilisés pour cela, et les logiciels ASP/ERP ainsi que leurs rapports interne/externe. Améliorer le SI pour le rendre évolutif. 
 
 Améliorer le temps de réponse des requêtes entre fournisseurs, partenaires, clients.  
 On va assurer la cohérence et la qualité d'échange.  
@@ -332,15 +350,11 @@ Fonctionnement du SI plus performant.
 
 **Pour direction métier :**
 
-Optimiser les process en lien avec les partnaires externes afin d'atteindre plus d'efficacité. 
-
 description de l'existant en termes de process (carto)  
 Description de la vision cible (carto qui va permettre réegeninring) 
 Oriente les responsables ver sla refonte ud SI
 
 **Pour direction informatique :**
-
-Unifier les outils et technologies utilisées dnas les différents types de d'échanges.
 
 Vue applicative  
 Avoir une vision tehcnique sur c qu'il doit aborder comme technologie et mettre à niveau  
@@ -351,3 +365,4 @@ La démarche mise en œuvre a déjà été rodée sur des chantiers précédents
 La première étape vise à faire un état des stratégies **métier**, des stratégies **SI** et des dysfonctionnements par rapport à ces stratégies. Elle conduit avec une approche **macroscopique** sur un champ limité, essentiellement sur l'ingénierie et la logistique. L' **existant** et la **cible** sont décrits, la demande est formalisée. Les **résultats** sont publiés et font l'objet de discussions avec les interlocuteurs concernés. Cette étape permet de comprendre la problématique de l'étude. À la différence des études **métier** classiques, l'étude n'est pas un chantier métiers. Elle ne concerne pas un métier en tant que tel ; le **B2B **n'est pas un métier. L’étude ne peut pas embrasser l'ensemble des métiers concernés mais il faut faire partager les classiques, résultats et les **recommandations** par tout le monde.
 La deuxième étape a comme objectif d'établir un **plan** d'action, en priorisant les actions en fonction de leur valeur métier, de leurs **risques** informatiques et des difficultés ou des **schémas directeur** à faire. Ici, le champ de l'étude est élargi et approfondi, sans être ciblé sur un métier. Cette étape produit un ensemble de recommandations. Pour s'assurer de la **complétude** est croisée avec les domaines **fonctionnels** et **applicatifs** de ses recommandations, la liste des activités de l'entreprise est réalisée. La deuxième étape produit également une **méthode** et une analyse des **données** utilisable dans les études d'urbanisation des relations directions métiers avec les **fournisseurs**. (Comment l'entreprise peut concevoir le travail avec les fournisseurs ? Quel support mettre en œuvre ? Quels outils utiliser...)
 
+## 4. 
