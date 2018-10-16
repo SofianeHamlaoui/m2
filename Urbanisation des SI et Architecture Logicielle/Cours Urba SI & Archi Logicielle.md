@@ -16,7 +16,7 @@ Elle permet d'apporter plus d'information pour la gouvernance.
 Max couverture : besoin fonctionnel  
 Max DI : Taux de couverture = chaque besoin fonctionnel de l'entreprise doit être couvert.
 
-L'idée de l'urba est d'utiliser la métaphore avec l'urbanisation ds villes pour l'appliquer au SI, car on a une complexité similaire entre un SI et une ville.
+L'idée de l'urba est d'utiliser la métaphore avec l'urbanisation des villes pour l'appliquer au SI, car on a une complexité similaire entre un SI et une ville.
 
 En urba, 2 mots clefs : **cohérence** et **agilité**.  
 Le but est de rendre le SI **cohérent** par rapport à la stratégie de l'entreprise.  Il faut aussi le rendre **agile** par rapport au besoin du marché
@@ -54,7 +54,7 @@ Le contexte dans les entreprises, c'est plusieurs besoins (p5pdf) :
 
 Contexte stratégique : on retrouve dans l'entreprise une demande croissante d'évolution. S'ajoute à ça le gros bordel de l'entreprise : des versions différentes, des langages diférents, logiciels différents. Ça rend le système rigide, l'acquis est lourd. On peut pas tout changer en partant du principe que c'est pourri, il faut tenir compte de l'ancienneté de la boite et effectuer une évolution, pas une révolution. Faire une refonte complète a trop de désavantages : cher, risqué, manque de valeur ajoutée. 
 
-L'objectif est d'améliorer l'adaptabilité du SI et de son parc applicatif. On ne réagit pas directement face à un besoin, mais on évolue de façon permanente. On est dans le progessif. simplification max de l'architecture, optimisation de la valeur ajouté, rendre le SI plus flexible.
+L'objectif est d'améliorer l'adaptabilité du SI et de son parc applicatif. On ne réagit pas directement face à un besoin, mais on évolue de façon permanente. On est dans le progessif. Simplification maximum de l'architecture, optimisation de la valeur ajouté, rendre le SI plus flexible.
 
 Dans ce contexte stratégique on retrouve les mots clefs :
 
@@ -102,7 +102,7 @@ On utilise des modèles de l'urbanisme pour adapter le SI.
 
 Ce qu'on peut assurer avec l'urbanistation du SI c'est :
 
-- Gagner en souplesse et en réctivité
+- Gagner en souplesse et en réactivité
 - Réussir l'ouverture du SI à de multiples et même nouveaux acteurs
 - Assurer la capitalisation et la valorisation des acquis de l'expertise métier
 
@@ -114,7 +114,7 @@ Urbanisation = application d'un plan d'urbanisation sur le SI.
 Comment fonctionne l'urbanisation ?  
 On part d'une architecture non organisée, et on applique les règles d'urbanisation pour arriver à une architecture cible, qui sera, elle, organisée. 
 
-La nouvelle architecture urbanisée participe au dispositif de gouvernance. Elle est évolutive, peut accueillir de nouvaux composants.
+La nouvelle architecture urbanisée participe au dispositif de gouvernance. Elle est évolutive, peut accueillir de nouveaux composants.
 
 ### Apports 
 
@@ -122,7 +122,7 @@ L'urbanisation est un apport dans gestion des risques parce qu'on peut les étab
 
 ### L'outil cartographique
 
-Sans outil de cartopgraphie, on peut rien faire. On a besoin de l'architecture actuelle et de l'architecture cible, c'est pour ça qu'on a besoin de l'outil de cartograhie. Il faut établir 4 cartographies (p34pdf). 
+Sans outil de cartographie, on peut rien faire. On a besoin de l'architecture actuelle et de l'architecture cible, c'est pour ça qu'on a besoin de l'outil de cartographie. Il faut établir 4 cartographies (p34pdf). 
 
 p34pdf : liste des étapes du bon déroulement d'un plan d'urbanisation.
 
@@ -133,7 +133,9 @@ Il y a différentes motivations à l'urbanisation des SI (p36pdf)
 
 Il y a un métamodèle de l'urbanisation des SI. Il faut remplir les trous de Barhi avec les concepts de base de l'urbanisation des SI.
 Le métamodèle est basé sur concepts de base de l'urbanisme : zones, quartiers, îlots... avec une notion de hiérarchie et d'appartenance.
-Voir metamodele.png
+Voir metamodele.png (Ressources)
+
+![metamodèle des concepts](Ressources/metamodele.png)
 
 Le métamodèle permet d'organiser la vue fonctionnelle et applicative de notre urbanisation. C'est un référentiel : un guide de bonnes pratiques. 
 
@@ -144,7 +146,7 @@ Le métamodèle permet d'organiser la vue fonctionnelle et applicative de notre 
 2. Il y a 5 composantes : stratégique, métier, fonctionnelle, applicative et technique.  
    Le process d'urbanisation c'est passer d'une EA existante à une EA cible. Pour ça 4 vues : métier, fonctionnelle, applicative et technique
 
-3. Il est impératif de cartopgraphier les 4 vues du système. Également avoir une carto existante et une cible.
+3. Il est impératif de cartographier les 4 vues du système. Également avoir une carto existante et une cible.
 
 4. Modularité : permise par le découpage en briques. On a ainsi une architecture très modulaire pour permettre l'évolutivité (pour ça qu'on parle de quartiers, d'îlots de blocs).
    Subsidiarité : Car on découpe en zones, en quartiers, en îlots, en blocs. Il y a une hiérarchie forte entre des éléments. Ça permet d'être agile, réactif.
