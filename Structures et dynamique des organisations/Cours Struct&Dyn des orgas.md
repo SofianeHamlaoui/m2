@@ -163,3 +163,74 @@ On se base sur le contexte socio-économique des États-Unis.
 Face à ça, le patronnat a cherché des méthodes de rationnalisation, des techniques de travails permettant. Ils veulent en effet garder le pouvoir, qu'ils sont en train de perdre. Ces méthodes permettent de déposséder les ouvriers qualifiés "essentiels" pour les remplacer par des méthodes de travail que chacun peut faire. 
 
 L'évolution de la mécanisation et de l'automatisation se fait également dans ce sens en limitant des modifications possibles sur les machines par les ouvriers qualifiés
+
+## 2 - L'école classique
+
+### 2.1 - Frédéric Winslow TAYLOR
+
+On va gentiment découvrir que c'était un bon gros batard. Le gars démarre simple manœuvre et finit chef de service, puis consultant en fin de carrière. Il développe des techniques partir d'un incompétent et le rendre rapidement efficace. Il pose pour cela 6 principes fondamentaux :
+
+1. **L'optimisation de la manière de travailler au cours du temps** : observer pour trouver, à terme, la meilleure pratique pour chaque tâche
+2. **L'analyse scientifique du travail** : poser un œil scientifique pour remplacer les connaissances empriques des ouvriers. Amène à décomposer chaque tâche en un nombre précis de gestes avec temps assigné à chacun.
+   Force les gens à travailler selon la méthode qui parait la plus efficace.
+3. **La division des tâches** : décomposition puis spécialisation. L'ouvrier spécialisé est une quiche, c'est l'inverse d'un ouvrier qualifié. Avec le développement du taylorisme on trouve de plus en plus d'ouvriers spécialisés, ils ont une vie misérable. Les ouvriers deviennent facilement remplaçables.
+   C'est une forme de déshumanisation du travail, il est avilissant. Le taylorisme est alors poussé à l'extrême.
+4. **La séparation de la conception et de l'exécution du travail** : des employés qualifiés conçoivent des méthodes, puis des petits bras les exécutent. Imposer une méthode et la faire appliquer implique toutefois un contrôle : on en arrive au développement d'une hiérarchie intermédiaire. La discipline est importante, et induite avec le taylorisme.
+   C'est un système qui a perduré, avec une amélioration des conditions de travail des petits bras pour quelque chose moins avilissant.
+   Il se développe ainsi de nombreux experts, mais sur des domaines très précis.
+5. **La sélection scientifique** : réflexion pour typer le candidat idéal au poste. Ça permet de cibler, sans ça on va se retrouver avec n'importe quels candidats qui postulent. Plusieurs fomres de test en ont découlé, l'un fameux : le test IPV (à la base pour les commerciaux).
+   Dans notre contexte, c'est le moment où il faut se tourner vers la RH qui va pouvoir nous aider à faire cette sélection.
+6. **La rétribution et la conception économique de la motivation au travail** : Mise en place d'un système incitatif, plutôt que linéaire. La rétribution est basée sur un système différentiel en fonction de la production, basé sur un chiffre idéal à obtenir des ouvriers. 
+   Attention cependant, les emplyés peuvent se griller à vouloir trop se dépasser par appat du gain, et il ne faut pas non plus mettre un chiffre toujours de plus en plus haut.
+
+On retrouve le taylorisme chez Mc Donald : plein de petits étudiants qui sont autant d'ouvriers non qualifiés qui viennent pour exécuter des tâches simples. Notion de hiérarchie intermédiaire très forte là-bas.
+
+### 2.2 - Henri FORD et le travail à la chaine
+
+Utilisation du principe des tâches individualisées, de la division du travail. Henri Ford impose dans la chaine une cadence automatique. Les ouvriers ne sont plus acteurs de la cadence de la chaine.
+
+Grâce à ça Ford baisse drastiquement son prix de revient et donc son prix de vente, et chaque américain ou presque est en mesure de se payer une Ford.
+
+### 2.3 - Jules Henri FAYOL et l'Administraiton
+
+C'est le **père du management moderne**. Il publie un ouvrage _Administration industrielle et générale_ où il fait part de son expérience. Ses concepts peuvent être repris dans de nombreux domaines. Contrairement à Taylor, la plupart de ses concepts sont encore d'actualité.
+
+Il se base sur 14 principes d'administration :
+
+1. La division du travail
+2. L'autorité et la responsabilité (assumer ses ordres)
+3. La discipline; l'indiscipline pouvant être reprochée au chef
+4. L'unité de commandement : chaque personne a un chef et un seul
+5. L'unité de direction : un seul chef pour l'ensemble des opérations afin de tendre vers un même but
+6. La subordination des intérêts particuliers : tout ce qui nous intéresse en tant que personne passe après l'intérêt collectif, celui de l'entreprise.
+7. La rémunération : au prix du service rendu. La valeur est subjective et dépend des besoins immédiats de l'entreprise. Il n'y a aucune norme existante.
+8. La centralisation
+9. La hiérarchie
+10. L'ordre : matériel ET social
+11. L'équité : fondamentale pour des bonnes relations avec le personnel
+12. La stabilité du personnel : possibilité de faire des cycles (genre en trois ans : 1 je découvre, 2 je performe, 3 je bouge)
+13. L'initiative : liberté de proposer et d'exécuter. Les chefs doivent accepter les propositions et suggestions
+14. L'union du personnel : via une bonne communication, pour éviter les conflits
+
+La vision du chef de Fayol est encore d'actualité. Ils doivent posséder des compétences acquises par l'expérience et la formation. Être chef se mérite. Il recommande les qualités suivantes :
+
+- Santé et résistance physique
+- Intelligence et vigueur intellectuelle
+- Qualités morales (volonté, persévérance, audace...)
+- Forte culture générale
+- Large compétence dans la profession spécifique de l'entreprise : il n'est pas spécialisé, au contraire !
+- Connaissances de gestion
+- Art de manier les hommes
+
+Fayol pose aussi 5 éléments d'administration, le POCCC :
+
+- Planifier
+- Organiser
+- Commander
+- Coordoner
+- Contrôler
+
+Enfin il propose tout un outillage administratif (voir sur PDF), qui sont des outils de gestion permettant d'administrer l'organisation.
+
+En comparaison avec Taylor qui est dans l'univers productif, le microscopique, Fayol est tourné vers l'humain, le macroscopique et recommande la mesure, l'adaptabilité permanente.  
+Fayol est humaniste, il investit sur les gens alors que Taylor cherche à les rendre remplaçables, il les déshumanise.
