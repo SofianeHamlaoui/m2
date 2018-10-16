@@ -88,3 +88,42 @@ L'affect englobe humeur et émotion. Il peut être l'un ou l'autre.
 ## 1.3 Caractéristiques des émotions
 
 L'émotion se crée par confrontation à une situation, et à l'interprétation de la réalité. Elle a plusieurs composantes : situationnelle, cognitive, physiologique.
+
+La peur est définie comme une aversion irrationnelle à un danger inattendu. En conséquence, donner une réalité à ce que l'on imagine fait défendre la peur.
+
+On retrouve 4 phases dans ce processus émotionnel :
+
+- L'anticipation : en espérant prévenir un danger ou améliorer situation
+- La provocation de l'émotion : met en marche un processus d'évaluation des stimulis. Le
+- La préparation de l'action : l'émotion provquée suscite une tendance à l'action et à diverses conduites d'adaptation
+- L'état émotionnel : reflète évaluation de la relation entre personne et son environnement
+
+Le stimuli peut venir de quelqu'un d'autre qui communique sa peur. >> Il faut prévenir ça avant que la personne ne communique sa peur à tout le monde.
+
+On retrouve l'état d'équilibre à la fin de la phase 4.
+
+## 1.4 La fonction des émotions
+
+Les émotions permettent de donc de s'adapter aux changements environnementaux et aux enjeux sociaux.  
+Les émotions sont les mêmes dans toutes les cultures, néanmoins la façon dont on y arrive (le déclenchement) est différente.
+
+Liste des émotions et roue intéressante sur PDF.  On abserve sur la roue des émotions de bases, et d'autres issues de la copmbinaison de deux émotions.  
+La timidité est différente de la pudeur !  
+
+L'émotion est contagieuse, c'est son but d'être communiquée.  
+Exemple avec le syndrome du survivant quand on est le seul à rester alors que tout le monde démissionne : **aveuglement**, on se convainc insidieusement que nous ausis on aurait du partir alors qu'en fait non, rien à voir. L'émotion trompe notre entendement.
+
+## 1.5 La roue des émotions de robert Plutchik
+
+À voir sur PDF. de l'extérieur vers l'intérieur : du moins fort au plus forT. On observe donc une notion de nuance.  
+Plusieurs combinaisons possibles, tableau assez riche. En cas d'opposition, on retoruve un conflit émotionnel : ces deux émotions ne devraient pas être là ensemble. Il faut alors arriver à trouver laquelle des deux n'a rien à foutre là.
+
+## 1.6 Émotions et conscience
+
+Certaines émotions méritent d'être creusées. Leur niveau de conscience dépend du niveau d'introspection. Cette dernière permet d'éviter les préjugés et de s'améliorer sur ce qui déclenche chez nous des réactions inadéquates.
+
+On observe un cercle vertueux entre émotions positives des employés et résultats financiers de la boite. On peut avoir des résultats sans mais le risque de turn-over augmente.
+
+Le quotien intellectuel st souvent surévalué. Le Quotien Émotionnel, par contre, est nécessaire. Il en faut avec le QI : mieux vaut un plus petit QI avec du QE qu'un gros QI seul.
+
+Dux styles de manager derrière : le gestionnaire (QI), le leader (QI + QE)
