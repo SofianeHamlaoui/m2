@@ -365,72 +365,73 @@ La démarche mise en œuvre a déjà été rodée sur des chantiers précédents
 La première étape vise à faire un état des stratégies **métier**, des stratégies **SI** et des dysfonctionnements par rapport à ces stratégies. Elle conduit avec une approche **macroscopique** sur un champ limité, essentiellement sur l'ingénierie et la logistique. L' **existant** et la **cible** sont décrits, la demande est formalisée. Les **résultats** sont publiés et font l'objet de discussions avec les interlocuteurs concernés. Cette étape permet de comprendre la problématique de l'étude. À la différence des études **métier** classiques, l'étude n'est pas un chantier métiers. Elle ne concerne pas un métier en tant que tel ; le **B2B **n'est pas un métier. L’étude ne peut pas embrasser l'ensemble des métiers concernés mais il faut faire partager les classiques, résultats et les **recommandations** par tout le monde.
 La deuxième étape a comme objectif d'établir un **plan** d'action, en priorisant les actions en fonction de leur valeur métier, de leurs **risques** informatiques et des difficultés ou des **schémas directeur** à faire. Ici, le champ de l'étude est élargi et approfondi, sans être ciblé sur un métier. Cette étape produit un ensemble de recommandations. Pour s'assurer de la **complétude** est croisée avec les domaines **fonctionnels** et **applicatifs** de ses recommandations, la liste des activités de l'entreprise est réalisée. La deuxième étape produit également une **méthode** et une analyse des **données** utilisable dans les études d'urbanisation des relations directions métiers avec les **fournisseurs**. (Comment l'entreprise peut concevoir le travail avec les fournisseurs ? Quel support mettre en œuvre ? Quels outils utiliser...)
 
+---
+
 _17/10/18_
 
-On va retrouver toujours les mêmes questions dans les études de cas : quel est le process métier ? Est un process métier ou support ? Comment on va l'optimiser ?
+On va retrouver toujours les mêmes questions dans les études de cas : quel est le process métier ? Est-ce un process métier ou support ? Comment on va l'optimiser ?
 
 Au partiel on va nous demander soit une archi fonctionnelle, soit une archi applicative.
 
-### 4. Schéma d'infrastructure  
-
-Schéma montré au tableau.
+### 4. Schéma d'infrastructure
 
 ![schéma d'infrastructure d'échange](Ressources/TD2-4.jpg)
 
-Plusieurs blocs dans des blocs. Plus petite unité = blocs fonctionnels. On les regroupe ensuite et les relie aux diffrtns acteurs / entité (blocs premier niveau).
+Plusieurs blocs dans des blocs. La plus petite unité de blocs représente les blocs fonctionnels. On les regroupe ensuite  en sections et les relie aux différents acteurs / entités (les blocs de premier niveau).
 
 La meilleure solution était de dissocier les blocs par domaine (métier, support et fonctionnel). 
 
-On peut en savoir plus en cherchant "Renault urbanisation", y a un article qui détaille tout.
+On peut en savoir plus en cherchant "Renault urbanisation" sur Internet, y a un article qui détaille tout.
 
 ## TD 3 : Société générale
+
+_// TODO : Choper une vraie correction de ce TP, j'ai pris ça vraiment à l'arrache. Si quelqu'un passe par là et me corrige c'est cool._
 
 ### 1
 
 Qu'est ce qu'on va gagner à avoir la direction impliquée ? 
 
 1. On va prioriser le projet et augmenter le degré d'importance. 
-2. implication et movbilisation de tous les acteurs de l'entreprise car poussé par direction
-3. fiancnement, car direction alloue un budget a potjet
-4. implication dans le pilotage du projet. 
+2. Implication et mobilisation de tous les acteurs de l'entreprise car le projet est poussé par la direction
+3. Un financement, car la direction alloue un budget au projet
+4. L'implication de la direction dans le pilotage du projet. 
 
-### 2 
+### 2
 
-La réforme permet de sécuriser le FO
+La réforme permet de sécuriser le (... ? j'ai entendu "FO" mais je sais que c'est pas ça.)
 
 ### 3 
 
-Renforcer la cohérence des investissment et les rationnaliser par le porcess de normes d'investissmenets.
+Renforcer la cohérence des investissements et les rationnaliser par le process de normes d'investissements.
 
-Capactié à lirvrer/modéliser plus rapiement les nouveaux process des normes
+Capactié à livrer/modéliser plus rapiement les nouveaux process des normes
 
-optmiser le porcess : plus de réactivité par rapport aux besoins métier.
+Optimiser le process : plus de réactivité par rapport aux besoins métier.
 
 ### 4
 
 1. Lancement
 2. Formalisation des objectifs métier
 3. Cartographie bilan de l'existant
-   Catro applicative xistant
+   Carto applicative existant
    Carto fonctionnelle existant
    Carto process existant
 4. Définition de la cible alignée sur les obj métier
-   Carto appli  cible
-   Carto fonctio  cible
-   Carto process clé  cible
+   Carto appli cible
+   Carto fonctio cible
+   Carto process clé cible
 5. Scénario de convergence vers la cible
 
 ### 5
 
-Rôles.... marqué dna sl diapo (20)
+Rôlesmarqué dans la diapo (p20pdf) :
 
-Conseil
-
-Controle
-
-Validation
+- Conseil
+- Contrôle
+- Validation
+- +1 je crois
 
 ### 6
 
-
+Dit en fin de cours mais mon esprit était déjà au bar. Et mon ordi rangé.
 
