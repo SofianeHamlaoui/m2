@@ -365,4 +365,72 @@ La démarche mise en œuvre a déjà été rodée sur des chantiers précédents
 La première étape vise à faire un état des stratégies **métier**, des stratégies **SI** et des dysfonctionnements par rapport à ces stratégies. Elle conduit avec une approche **macroscopique** sur un champ limité, essentiellement sur l'ingénierie et la logistique. L' **existant** et la **cible** sont décrits, la demande est formalisée. Les **résultats** sont publiés et font l'objet de discussions avec les interlocuteurs concernés. Cette étape permet de comprendre la problématique de l'étude. À la différence des études **métier** classiques, l'étude n'est pas un chantier métiers. Elle ne concerne pas un métier en tant que tel ; le **B2B **n'est pas un métier. L’étude ne peut pas embrasser l'ensemble des métiers concernés mais il faut faire partager les classiques, résultats et les **recommandations** par tout le monde.
 La deuxième étape a comme objectif d'établir un **plan** d'action, en priorisant les actions en fonction de leur valeur métier, de leurs **risques** informatiques et des difficultés ou des **schémas directeur** à faire. Ici, le champ de l'étude est élargi et approfondi, sans être ciblé sur un métier. Cette étape produit un ensemble de recommandations. Pour s'assurer de la **complétude** est croisée avec les domaines **fonctionnels** et **applicatifs** de ses recommandations, la liste des activités de l'entreprise est réalisée. La deuxième étape produit également une **méthode** et une analyse des **données** utilisable dans les études d'urbanisation des relations directions métiers avec les **fournisseurs**. (Comment l'entreprise peut concevoir le travail avec les fournisseurs ? Quel support mettre en œuvre ? Quels outils utiliser...)
 
-## 4. 
+_17/10/18_
+
+On va retrouver toujours les mêmes questions dans les études de cas : quel est le process métier ? Est un process métier ou support ? Comment on va l'optimiser ?
+
+Au partiel on va nous demander soit une archi fonctionnelle, soit une archi applicative.
+
+### 4. Schéma d'infrastructure  
+
+Schéma montré au tableau.
+
+![schéma d'infrastructure d'échange](Ressources/TD2-4.jpg)
+
+Plusieurs blocs dans des blocs. Plus petite unité = blocs fonctionnels. On les regroupe ensuite et les relie aux diffrtns acteurs / entité (blocs premier niveau).
+
+La meilleure solution était de dissocier les blocs par domaine (métier, support et fonctionnel). 
+
+On peut en savoir plus en cherchant "Renault urbanisation", y a un article qui détaille tout.
+
+## TD 3 : Société générale
+
+### 1
+
+Qu'est ce qu'on va gagner à avoir la direction impliquée ? 
+
+1. On va prioriser le projet et augmenter le degré d'importance. 
+2. implication et movbilisation de tous les acteurs de l'entreprise car poussé par direction
+3. fiancnement, car direction alloue un budget a potjet
+4. implication dans le pilotage du projet. 
+
+### 2 
+
+La réforme permet de sécuriser le FO
+
+### 3 
+
+Renforcer la cohérence des investissment et les rationnaliser par le porcess de normes d'investissmenets.
+
+Capactié à lirvrer/modéliser plus rapiement les nouveaux process des normes
+
+optmiser le porcess : plus de réactivité par rapport aux besoins métier.
+
+### 4
+
+1. Lancement
+2. Formalisation des objectifs métier
+3. Cartographie bilan de l'existant
+   Catro applicative xistant
+   Carto fonctionnelle existant
+   Carto process existant
+4. Définition de la cible alignée sur les obj métier
+   Carto appli  cible
+   Carto fonctio  cible
+   Carto process clé  cible
+5. Scénario de convergence vers la cible
+
+### 5
+
+Rôles.... marqué dna sl diapo (20)
+
+Conseil
+
+Controle
+
+Validation
+
+### 6
+
+
+
