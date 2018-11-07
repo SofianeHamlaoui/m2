@@ -1,7 +1,0 @@
-{
-  "name": "trompette",
-  "integrations": {
-    "cordova": {}
-  },
-  "type": "ionic-angular"
-}
