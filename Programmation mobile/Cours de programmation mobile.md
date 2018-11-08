@@ -58,5 +58,26 @@ boucle : `*ngFor="let variable of NomVariable"`
 
 Ionic DevApp permet de tester l'appli sur son téléphone
 
+---
+
+*08/11/2018*
+
+## Requêtes API
+
+On peut réutiliser celle de notre projet ou se faire un petit prog qui renvoie un json tranquille
+
+1. On crée un modèle pour chaque classe
+2. `ionic generate provider [nom]` 
+3. Ajouter le provider dans app.module si c'est pas déjà fait
+4. créer la fonction dans le provider
+5. inclure dans la page le provider dans le constructeur
+6. appleler la méthode avec this.[provider].[methode]
+
+Exemple de fonctionnemnt du provider : https://github.com/danielpaul69/Tpionic
+
+## Exercice carte en SVG
+
+Cartes en svg : http://www.amcharts.com/svg-maps/
+
 
 
