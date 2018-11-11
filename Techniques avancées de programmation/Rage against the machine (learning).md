@@ -8,7 +8,7 @@ Qu'est-ce que le machine learning ?
 - comprendre le passé -> amène à de la classification
 - déterminer le futur -> aide à la décision
 
-On va surtout s'intéresser au futur. En crypto, on a Bob et Alice, en machine learning on a "Vais-je aller faire du golf ?"
+Dans ce cours on va surtout s'intéresser au futur. En crypto, on a Bob et Alice, en machine learning on a "Vais-je aller faire du golf ?"
 
 On va utiliser ci-dessous le gros tableau suivant. On va s'en resservir souvent. 
 
@@ -29,7 +29,7 @@ On va utiliser ci-dessous le gros tableau suivant. On va s'en resservir souvent.
 | 13   | Nuage  | +           | ~        | Non  | Oui  |
 | 14   | Soleil | ~           | +        | Oui  | Non  |
 
-À partir de là, on commence par phase d'entrainement  :
+À partir de là, on commence par une phase d'entrainement  :
 
 Il existe différentes familles de machine learning qui vont avoir besoin de faits plus ou moins conséquents pour s'entraîner. On repère globalement le schéma suivant :
 
@@ -45,9 +45,9 @@ Attention à ne pas trop verrouiller le système qui ne marcherait plus si on so
 
 # Les algorithmes
 
-Est-ce que je vais faire golf ?
+Est-ce que je vais faire du golf ?
 
-Pour le déterminer, plusieurs algos 
+Pour le déterminer, il est possible d'utiliser plusieurs algos 
 
 ## One R
 
@@ -56,26 +56,26 @@ Le plus simple : une seule règle. Cherche à définir quel est le paramètre le
 #### Phase 1 : décompte des cas
 
 Parmi tous les critères, comment savoir quel est celui qui a le plus d'importance ?  
-On regarde pour chaque paramètre le résultat final : golf ou pas, et on énumère simplement : sur *n* paramètres, on en a *g* où on pas au golf et *pg* où on y va pas.
+On regarde pour chaque paramètre le résultat final : golf ou pas, et on énumère simplement : sur *n* paramètres, on en a *g* où on va au golf et *!g* où on y va pas.
 
 #### Phase 2 : trouver la règle générale
 
-Pour chaque décompte, on prend le plus grand entre *g* et *ng* et on se dit "si paramètre, alors {golf | pas golf}"
+Pour chaque décompte, on prend le plus grand entre *g* et *!g* et on se dit "si paramètre, alors {golf | pas golf}"
 
 #### Phase 3 : décompte des aberrations
 
-le problème des règles générales, c'est qu'elle peuvent être aberrantes. on compte donc la sommes des valeurs *g* ou *ng* ne correspondant pas à la règle générale. 
+le problème des règles générales, c'est qu'elle peuvent être aberrantes. on compte donc la sommes des valeurs *g* ou *!g* ne correspondant pas à la règle générale. 
 
 #### Phase 4 : détermination du critère
 
-Reprendre les phases 1 à 3 sur les différents critères restants, et comparer le nombre d'aberrations par système. Le critère avec le plus faibl niveau d'aberrations sera le critère déterminant
+Reprendre les phases 1 à 3 sur les différents critères restants, et comparer le nombre d'aberrations par système. Le critère avec le plus faible niveau d'aberrations sera le critère déterminant
 
 #### Exemple 
 
 | Climat | Golf  | Pas golf |
 | ------ | ----- | -------- |
 | Pluie  | *2*   | **3**    |
-| Nuag   | **4** | *0*      |
+| Nuage  | **4** | *0*      |
 | Soleil | **3** | *2*      |
 
 En gras, les règles générales, en italique, les aberrations
@@ -129,20 +129,19 @@ Le but pour créer l'arbre est de déterminer la quantité d'informations dans u
 Quelle est la quantité d'information dans une entité ?  
 C'est une question que c'est posé Shannon, qui pose la base de la théorie de l'information. 
 
-En philo, l'entropie est une mesure du chaos. Shannon s'st planté dans son interprétation : il a fait une mesure de l'ordre.   
+En philo, l'entropie est une mesure du chaos. Shannon s'est planté dans son interprétation : il a fait une mesure de l'ordre.   
 Shannon va adapter l'entropie au domaine IT pour déterminer quelle quantité d'information est présente dans un postulat. 
 
 Pour cela, on a une formule :
 
 
 $$
-E = \sum{i}-p_i log_2(p_i)
+E = \sum_{i=1}-p_i log_2(p_i)
 $$
 Rappel :
 $$
 log_b(x) = \frac{ln_x}{ln_b}
 $$
-
 
 #### Exemples
 
@@ -181,20 +180,20 @@ Il faut calculer l'entropie de chaque critère, puis déterminer le critère ave
 À savoir pour cela  :
 $$
 E_S = \sum_i - P_i log_2(p_i) \\
-E_{T,x} = \sum_{C \in x } P_C. E_C \\
-E_{T,x} étant "E de T sachant x"
+E_{T,x} = \sum_{C \in x } P_C. E_C
 $$
 
+$E_{T,x}$ étant "E de T sachant x"
 
 On calcule donc l'entropie de golf (total oui, total non, total des occurences ) : 0,94
 
 puis pour le climat on va calculer l'entropie de golf sachant climat (connaissant le climat, quelle est la quantité d'information dans "je vais au golf"/"je ne vais pas au golf")
 
-| Climat | Golf | Golf | Total |
-| ------ | ---- | ---- | ----- |
-| Pluie  | 2    | 3    | 5     |
-| Nuage  | 4    | 0    | 4     |
-| Soleil | 3    | 2    | 5     |
+| Climat | Golf | Pas golf | Total |
+| ------ | ---- | -------- | ----- |
+| Pluie  | 2    | 3        | 5     |
+| Nuage  | 4    | 0        | 4     |
+| Soleil | 3    | 2        | 5     |
 
 
 $$
@@ -205,7 +204,7 @@ On finit par obtenir 0,693
 
 En connaissant le climat, le fait de savoir si je vais au golf m'apporte 0,693 unité d'information.
 
-On va ensuite calculer le **gain d'information**. c'est lui qui nous intéresse au final.
+On va ensuite calculer le **gain d'information**. C'est lui qui nous intéresse au final.
 $$
 G_{(golf, climat)} = E_{golf} - E_{(golf, climat)} \\
 = 0,940 - 0,693
@@ -215,7 +214,7 @@ On gagne donc 0,247 unité d'information en sachant le climat. Le critère clima
 
 
 
-On calcule ça pour tous les critères : c'est le plus important qui sera à la racin de mon arbre. On recommencera ensuite en subdivisant le tableau d'orgine en n sous-tableau à partir des différentes proba du critère racine. (voir sur feuille). 
+On calcule ça pour tous les critères : c'est le plus important qui sera à la racine de mon arbre. On recommencera ensuite en subdivisant le tableau d'orgine en n sous-tableaux à partir des différentes probabilités du critère racine. (Voir sur feuille). 
 
 L'arbre permet d'avoir exactement les bonnes questions à poser pour faire la classification.
 
@@ -244,7 +243,7 @@ On peut réécrire le tableau avec des probas
 | ------ | ---------------------------------- | ------------- | --------------------------- |
 | Pluie  | $\frac{2}{9}$                      | $\frac{3}{5}$ | $\frac{5}{14} = P_{pluie}$  |
 | Nuage  | $\frac{4}{9}$                      | $\frac{0}{5}$ | $\frac{4}{14} =P_{nuage}$   |
-| Soleil | $\frac{3}{9} = P_{soleil|_{golf}}$ | $\frac{2}{5}$ | $\frac{5}{14} = P_{soleil}$ |
+| Soleil | $\frac{3}{9} = P_{soleil_{golf}}$ |$\frac{2}{5}$ | $\frac{5}{14}$ |
 
 Maintenant on peut calculer la probabilité de golf sachant soleil :
 $$
@@ -264,7 +263,7 @@ Donc :
 
 $P_x = \prod_{i=1}^np_{x|_{n-1}}$
 
-S je peux établir un automate à état et renseigner les règles de passage entre les états (et les probabilités d'occurence), je peux anticiper l'état futur.
+Si je peux établir un automate à état et renseigner les règles de passage entre les états (et les probabilités d'occurence), je peux anticiper l'état futur.
 
 Exemple d'automate à état : feu tricolore, vert puis orange puis rouge, puis vert.... ou bien vert, puis orange, puis rouge, puis orange, puis vert,puis orange... dans d'autres pays. 
 
@@ -277,7 +276,7 @@ Rouge > 1 Vert
 et 
 
 Vert > 1 Orange  
-Orange > O,5 Vert, 0,5 Rouge  
+Orange > 0,5 Vert, 0,5 Rouge  
 Rouge > 1 Orange
 
 Donc $P_{O->V} = 0,5$ en Pologne et $1$ en France.
@@ -336,7 +335,7 @@ Plus l'ordre de la CM est élevé, moins la chaîne est fiable.
 | Moriarty        | N    | O      | O    | ?       | N    |
 | ???             | N    | N      | O    | ?       |      |
 
-Créer un système dans un langage qui nous plait qui permet de savoir si la prochaine personne à être ajoutée est un héros ou non.
+Créer un système dans un langage qui nous plait (sauf PHP) qui permet de savoir si la prochaine personne à être ajoutée est un héros ou non.
 
 Vu les outils qu'on a Markov pas utile, Bayes faisable mais trop complexe. Reste One R mais peu pertinent. Donc arbre décisionnel.
 
