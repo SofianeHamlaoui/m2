@@ -424,7 +424,7 @@ Optimiser le process : plus de réactivité par rapport aux besoins métier.
 
 ### 5
 
-Rôlesmarqué dans la diapo (p20pdf) :
+Rôles marqués dans la diapo (p20pdf) :
 
 - Conseil
 - Contrôle
@@ -434,4 +434,129 @@ Rôlesmarqué dans la diapo (p20pdf) :
 ### 6
 
 Dit en fin de cours mais mon esprit était déjà au bar. Et mon ordi rangé.
+
+---
+
+*09/11/18*
+
+Dans deux semaine, truc à faire à rendre pour première note.
+
+Deuxième note la smeaine suivante, un bpmn à suivre et à montrer. 
+
+## AXA : urbanisme et gouvernance
+
+### Contexte
+
+#### 1
+
+intégrer l'urbanisme des SI dans la gouvernance sur le long terme.
+
+- réglementaire (AXA est une multinationale, elle va dépendre de son emplacement, et donc des règles locales en fonction, de là où elle est implantée) => contexte de conformité règlementaire (rappel : norme BAL2 la dernière fois, ici on dépend de l'emplacement)
+- transverse (peu importe ce qu'elle fait : elle gère tout ce qui est risque, peu importe le cøeur de métier.)
+-   
+-  
+-  couts
+-  unité
+- transnationale
+- infrastructures
+- applications
+- contractualisés
+- service (SLA = contrat de service)
+- processus
+- changement
+- conception
+- oeuvre
+- ouvrage
+- vers le holding
+- cycle de vie
+
+DONC l'objectif stratégique d'AXA actuellement est de réduire les coûts. Ils font des développment spécifiques par continent, c'est cher, ils font donc AXA tech pour mettre à plat lsprocess, normaliser tout le porcess, standardiser, et ajouter la couche règlementaire nécessiare par continent. 
+
+Pour urba des SI : fusion, rachat, mise à niveau. 
+
+### Grandes phases d'urbanisme 
+
+#### 2 
+
+4 axes : 
+
+1. fusion de systèmes d'info
+2. entrepôt de données pour données clietns et valorisation gestion relation client
+3. création d'un département dédié à l'urba SI pour réduction couts
+4. aligner urba sur stratégie métiers (création de valeur)
+
+---
+
+Je sias pas pouruqoi elle dit ça mais :
+
+1. Cartographie existant
+2. Carto de la cible (process)
+3. Lister les opportunités et les solutions qui existent 'prioriser les projets'
+4. proposer les projets et un plan de migration
+
+### Conduite d'urbanisme
+
+#### 3
+
+ Intérêt pour le département archi, c'est qu'il représente le pilier du process. Il aura donc un gestion de projet strégique : un pilier stratégiue pour maîtriuser tous les process, les mettre à plat et les étudier (on fait une arhci existant et cible). Ce départmeent en plus d'être l'actuer pilier ce qui va donner une influence stratégique, une maitrise des process et permet de prendre les décisions. C'est c départment quiv a prendre les décisions t déterminer solutions adéquates. Il devient le centre du process. Il deviet donc cteur stratéiguqe pour la réalisation du projet. 
+
+#### 4
+
+Ils sont à leur 5e projet. Ils maitrisent toutes les phases de process d'urba, ils auront plus de crédibilité financièr, pour la diretion notamment, il y aura plus de budget. 
+
+#### 5
+
+Car agile et cohérent. on va trouver process cohérent, et du point de vue techniqu ça va être agile, donc s'adapter aux besoins de l'entreprise. C'est donc ces deux termes à mettre en avant auprs de ladorection pour la convaincrE. 
+
+## AXA : Application Portfolio Management
+
+Outiller la gouvernance du parc applicatif
+
+### 1
+
+- Enjeux métier :
+- Coût : maîtrise des risques, exploration et infra, 
+-  
+- Adéquation : adéquation fonctionnelle, projet
+
+### 2, 3
+
+La carte permet de prioriser les SA. On laisse par exemple de côté le SA3. Il faut améliorer le SA5
+
+### 4, 5
+
+Par rapport à la couche infra et les enjeux métiers, on voit si l'app tourne avec un bon support techinque derrière. 
+
+le SA5 a un problème : il est pas hyper pérenne. c'est comme ça qu'on peut l'améliorer. 
+
+arpès directment on comence architexture process métier. 
+
+## Conclusion
+
+### 6
+
+- nord : marché et client
+- est : organisation efficace
+- sud : résultat et profit
+- ouest : personne mobilisées
+
+### 7
+
+- nord : améliorer l'accès aux informations et produit et donc alémliorer l'interface homme/macxhine. Avantage concurrentiel et valoriser le client.
+  tableaux de bord pour évaluer le marché. orienter la stratégie de l'entreprise.
+- est : valoriser les outils de communication . chaque actuer peut donner son avis. 
+  documentation 
+- sud :  les 4 couches répondent à la strtégie de l'entreprise. Le SI doit être évolutif et répondr eà la strat qui change tjrs.
+  On rend le SI homofène et on harmonise
+- ouest : plans de communication, réunion
+  responsabiliser chaque acteur
+  actuer doit pas seuleemnt être princiapl et rendre cohérente toute la communication et le mouvement doit être global, en réseau. 
+
+
+
+
+
+
+
+
 
