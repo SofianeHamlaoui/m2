@@ -552,11 +552,94 @@ arpès directment on comence architexture process métier.
   responsabiliser chaque acteur
   actuer doit pas seuleemnt être princiapl et rendre cohérente toute la communication et le mouvement doit être global, en réseau. 
 
+---
 
+*27/11/18*
 
+On a vu le concept, aujourd'hui on passe au concret. Comment mettre à plat les process.
 
+DL de Bonita soft.
 
+# III - Les processus
 
+## Définition
 
+Un process, c'est un ensemble d'activités en interaction qui transforment des éléments d'netrée en éléments de sortie.
 
+Chaque process doit avoir un résulta t concret (envoyer une commande, satisfaire le client, produire un produit de qualité *q*) qu'on doit pouvoir quantifier. 
 
+Il possèdle des actuers internes comme externes. Egalement des ressources (serveur, équip...)
+
+Les 6 notions : objectif, ensemble d'activit,é rôle, ressources, déclenché par évènement
+
+3 types de process :
+
+- opéraitonnel, ou métier : résultat produit ou service
+- support : résultat = moyen ou ressource (ex RH)
+- 
+
+## Concepts
+
+on a un truc qui rentre, une transfo et un truc qui sort FLux entr	nt, process, flux sortant
+
+on a ressource, actue,r évènements... voir slides. 
+
+L'évènement déclenche une activité. Mais y a trois type : il peut délcencher, les interrupteurs t encore un 
+
+Lorsqu'on organise un process, on modélise de façon organisée, on parle de structure de process. C'est la numérisation des process afin d'obtenir un résultat optimisé.
+
+## Structuration
+
+Il existe 3 apporche. La première est la plus répandue à 80%
+
+1. Mécaniste. Genre de procédural : enchainement d'activité dnas un ordre établi. On regarde ne prodondeur et en déocupant toues les parties du process
+2. Systémique. On sintéresse uniquement à un système et on regarde uniquement son orchestration, ses liens entre les activités. On regarde le process comme une boite noire et on regard eses liens avec les autres services, process. 
+3. Émergente. Pas de lien préétabli entre les activités. On regard uniuqement un prcess
+
+Schméa sur PDF. 
+
+# IV - Le BPM
+
+## Définition
+
+C'est le management des processus
+
+Ca permet d'optimiser les process métier existant en faisant collaborer tous les actuers de la boite.
+
+Ca permet notamment de masquer la complexité existante du SI. 
+
+Pour cela, on commence par analyser et modéliser tous les processus. On regarde si ce qui existe est déjà optimisé ou non. 
+
+## cycle BPM
+
+Ensemble des méthodes et d'outil qui permettent de (voir pdf) étudier, modéliser... processus
+
+exécuter, piloter, ... schéma à remplir sur pdf
+
+## BAM
+
+Business activity monitoring
+
+## Bonnes pratiques
+
+identifier projet pilote et vérifier si y a un fort ROI. 
+
+Conduite du changmeent ! avec une communication maximale pour éviter résistanc et impliquer les gens. 
+
+## Erreurs à éviter
+
+beaucoup tombent à l'eau car personne ne sait qui est MOE et MOA
+
+## Modélisation
+
+Chaque process BPMN doit avoir un évènement de début et de fin.
+
+# Notation BPMN 2.0
+
+voir pdf
+
+on peut faire des sous-process indépendants réutilisables sinon ils sont intégrés (liés à une activité)
+
+## evenements
+
+Un évènement c'est qqc qui arrive qui va déclencher tout le process. représentés en cercle. le type de bordure détermine type d'évènement. 

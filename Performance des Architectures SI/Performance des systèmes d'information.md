@@ -117,4 +117,18 @@ Installer anaconda
 
 Copier la database socceret la metttre dans le dossier "python"
 
-finir TP O et 1
+finir TP 0 et 1
+
+----
+
+*26/11/18*
+
+À faire : 
+
+1. Les Pandas notebook week1
+2. Puis ls TP week 2. Pour chaque exercice :
+   - Example = comment faire l'exo
+   - exercice = à faire : remplir les champs
+   - hint = résultat
+3. Une fois fini :  envoyer à tien-nam.le@ens-lyon.fr
+
