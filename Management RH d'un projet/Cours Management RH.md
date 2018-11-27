@@ -275,7 +275,7 @@ Objectifs :
 - Gérer le conflit et en sortir
 - Travailler le positionnement du médiateur/arbitre
 
-## 1 - Conflit, de quoi parlons-nous ?
+## 1 - Identification des conflits
 
 ### 1.1 - Définition des conflits au travail
 
@@ -293,3 +293,105 @@ La tension, c'est le début du conflit : tendre, contraction. On serre les point
 
 La violence indique que le conflit est déclaré : emporté, impétueux.
 Un manager doit être mesuré, retenu >> **jamais de violence**
+
+### 1.3 - La nature des conflits au travail
+
+À différencer : les conflits latents, ou à "petit bruit", qui sont très destrcuteur car explosent très fort ; des conflits aigus, qui sont déclarés et pètent un bon coup.
+
+On retrouve deux grandes natures de conflits :
+
+- conflits de fond : désaccord sur la fin et les moyens, points de vue différents
+  - conflits de rôle,  (ex : une personne ne répond pas aux attentes du groupe)
+  - conflits d'objectifs (ex : désaccord sur objectifs atteints)
+  - conflits de ressources (ex: deux équipes qui veulent la salle dé réunion au même moment)
+  - conflits de pouvoir (ex : OK pour qu'on me dise quoi faire, mais pas comment >> on a pas ce pouvoir sur moi)
+
+Les conflits de rôles sont fréquents et peuvent arriver de différentes manières. Un moyen de les éviter est de redéfinir la définition de fonction (les chefs s'en occupent rarement, c'est plus à faire en tant qu'employé puis à faire valider).  
+Parenthèse sur l'effet Rignlemann : il y a un nombre optimal de membres pour une tâche. Au delà, l'investissement de chacun baisse.  
+Un conflit de rôle peut venir d'une surcharge ou d'une insuffisance de rôle  
+Il y a souvent un écrat important entre le rôle tenu et le rôle confié. Ce qui est important, c'est de voir pourquoi, et donc où ça se situe. Est-ce entre rôles confié et perçu, perçu et accepté, ou accepté et tenu ? Comprendre ça permet de savoir quel est le manque. 
+
+- conflits émotionnels : liés à des problèmes relationnels
+  - conflits de personnalités, opposée ou identiques
+  - conflits culturel, entre la culture d'entreprise et les valeurs personnelles
+
+### 1.4 - Les types de conflits au travail
+
+- conflits intra-personnels : nécessite de savoir se convaincre, voire se berner
+- conflits interpersonnels : encore une question de valeurs
+- conflits intra-groupes : entre un membre et le reste du groupe
+- conflits inter-groupes
+
+### 1.6 - Conflit constructif ou desctructeur
+
+Le conflit destucteur seul a des retombées négatives. Exemples : deux personnes qui n'arrivnet pas à bosser ensemble ou un projet qui piétine car individus n'arrivent pas à s'entendre. 
+
+Attention à ne pas mettre d'huile sur le feu en tant que manager, en dénigrant par exemple un autre service.
+
+## 2 - Le diagnostic du conflit au travail
+
+### 2.1 - Les phases du conflit au travail
+
+- antécédents du conflits : conditions propices à son apparition
+- conflit perçu : différents entre protagonistes
+- conflit ressenti : impression désagréable poussant à agir
+- conflit manifeste : exprimé ouvertement, souvent via comportements agressifs
+
+Le conflit peut se résoudre temporairement en le supprimant, mais pour que la résolution soit complète il faut éliminer les antécédents.
+
+Une fois le conflit manifeste, il faut passer à la purge : chacun vide son sac. La purge peut être bénéfique. 
+
+### 2.2 - Les principales causes de conflit
+
+Un conflit peut être :
+
+- horizontal
+- vertical
+- interdépendant (tout le monde est responsable)
+- lié à une insuffisance de ressources
+- dû à une asymétrie de pouvoir ou de valeurs
+
+### 2.3 - Le processus du conflit au travail
+
+On y trouve 5 étapes
+
+1. Opposition ou incompatibilité potentielle
+2. Cognition et personnalisation. C'est là qu'on passe au conflit perçu, dès qu'une personne au moins se rend compte des antécédents. Tant qu'ils s'accumulent et que personne ne le capte, ça va encore, les choses se gâte quand c'est réalisé.
+3. Intentions. Moment où il y a décidsion d'agir
+4. Comportement. Ici le conflit devient visible. Selon la force, les comportements peuvent devenir très violents
+5. Résultats. Le conflit peut être constructif ou destructif. Un conflit constructif peut améliorer la qualité des décisions, l'efficacité, l'innovation... Un destructif entrainer une baisse de cohésion, une perte de communication, il met la survie du groupe en péril.
+
+### 2.4 - Comment savoir qu'il s'agit d'un conflit ?
+
+Plusieurs points sont à observer, qui sont tous détaillées sur le PDF :
+
+- le contexte
+- les sources de conflit
+- la classification selon les contraires. On peut ranger dans un diagramme plusieurs éléments en mode binaire. Quand ça en vaut la peine (que le conflit est assez grave), il est bon de faire un diagramme pour mieux comprendre et apprendre du conflit.
+- les niveaux d'analyse.
+
+Avec ces points on peut construire une grille d'analyse de conflit avec une colonne à remplir pour chauqe partie (voir PDF), ce qui permet de mettre les choses à plat.   
+
+## 3 - Résolution des conflits en entreprise
+
+### 3.1  - Introduction à la résolution des conflits
+
+#### 3.1.1 - Rappel des différentes notions 
+
+Un conflit est un désaccord sur des questions de fond. Sa résolution implique  que les deux parties soient gagnantes, sinon ça marche pas. Grilles de degré d'efficacité de la résolution et d'échelle de la synergie disponibles sur le PDF.
+
+Modèle de Friedrich Glasl sur l'escalade d'un conflit montre qu'au stade le plus prononcé, un conflit amène à vouloir détruire l'autre, qui à se détruire soi-même (ou le groupe, la boite...)
+
+#### 3.1.2 - Gérer l'agressivité par l'assertivité
+
+L'agressivité est normale et naturelle. Elle a besoin de s'exprimer.
+
+L'assertivité est l'aptitude à s'exprimer tout en respectant l'autre. Ça consiste à s'exprimer directement, sans détour, tout en considérant son interlocuteur.
+
+Il faut donc préférer l'assertivité, et pour cela :
+
+- être factuel, notamment en expirmant ses propres limites et son seuil de tolérance. Ne pas oublier que ceux en dehors du conflits le trouvent plutôt insignifiant. Rester factuel permet de rester calme et maître de ses moyens. 
+- agir ensemble
+- rassurer l'autre en comprenant sa crainte
+
+L'assertivité, c'est savoir s'affirmer dans le respect. Il faut apprendre à la reconnaitre, à l'identifier, pour ne pas basculer dans l'uin des trois autres états ( bonne poire, agressif, roquet). Pour cela, être humble, avoir le sens de la mesure. Il faut être dur avec ses idées et doux avec les autres (voir graphique PDF).

@@ -11,7 +11,7 @@ Exemple du métro : si le fléchage est mauvais, les gens vont un peu n'importen
 Format du nom de fichier :  SG1_NOM_Prenom.doc  
 20 pages minimum
 
-**Consignes :** 
+### Consignes
 
 Développer 20 concepts (de sociologie, pas de management) à partir d'une analyse interne de notre entreprise.  
 Il faut gérer une analyse fine : savoir dire que faire face à telle ou telle situation/façon d'agir (ex : comment gérer les notes de frais...). Être dans une quête de rationnalité : comment faire pour que l'on fonctionne **mieux** ?
@@ -24,6 +24,14 @@ Mettre en annexes les observations qu'on a pu faire en entreprise. Ces observati
 Attention à **prendre en considération le contexte** !
 
 DAS = Domaine d'Activité Stratégique. C'est un sous-domaine de l'activité à développer (avec le client) pour amélmiorer la productivité et le rendement. Si on en a des potentiels, il faut savoir les identifier et donc trouver les bonnes problématiques.
+
+### Conseils
+
+Quand on cherche les concepts de socio, penser à Fayol : on va en retrouver beaucoup chez lui. Attention cependant à ne pas basculer sur des concepts de management : Fayol peut être piégeux.
+
+La bureaucratie au sens Weber est très utile pour le dossier. Faire notamment un point sur comment fonctionnent les différents principes d'action de la domination légale dans notre entreprise. 
+
+À mettre obligatoirement : un point sur la quête de rationnalité
 
 # I - Introduction à la sociologie des organisations
 
@@ -234,3 +242,81 @@ Enfin il propose tout un outillage administratif (voir sur PDF), qui sont des ou
 
 En comparaison avec Taylor qui est dans l'univers productif, le microscopique, Fayol est tourné vers l'humain, le macroscopique et recommande la mesure, l'adaptabilité permanente.  
 Fayol est humaniste, il investit sur les gens alors que Taylor cherche à les rendre remplaçables, il les déshumanise.
+
+### 2.4 - Karl WEBER et le modèle bureaucratique
+
+Il s'agit du seul jusque là qui ne vient pas du monde de l'entreprise : c'est un universitaire. 
+
+Philosophie très axée sur l'humain : le chef par exemple, doit se considérer comme égal à ses collaborateurs.
+
+Il distingue plusieurs trypes d'autorité :
+
+- traditionnelle, qui vient des actes : personnalité remarquable et historique dans une localité par exemple
+- charismatique, que les gens vont "suivre" : personne exemplaire par exemple
+- rationnelle, légitime : un directeur de section par exemple
+
+Weber va également mettre en avant les limites de ces personnalités. La traditionnelle peut par exemple mener au népotisme.
+
+Deux concepts : le légal et le légitime. L'un est conforme aux lois, l'autre est acceptable aux yeux de la population. Légitimer est donc très important !
+Ça permet notamment d'éviter le népotisme : donner des récompsense imméritées et démesurées à ceux qu'on aime/membres de la famille (ex. fils de Sarkozy).
+
+Weber tient à la **bureaucratie** dans un sens qui lui est propre : le pouvoir du bureau. Il faut pour cela passer la division du travail, la légitimisation, la définition de la hiérarchie, des relations impersonnelles.  
+On va retrouver là dedans les principes d'action de la domination légale :
+
+- Suprématie de la règle de droit, imposée par la personne qui a autorité pour le faire
+- Respect de l'autorité démocratique, chaucn doit avoir liberté de parole
+- Responsabilité officielle, le manager agit au nom du droit commun et non de sa personne
+- Égalité des citoyens
+- Traitement équitable des citoyens
+- Régularité procédurale, pas d'arbitraire
+
+Le modèle bureaucratique marche bien mais surtout dans les grandes boites. Ses caractéristiques :
+
+- La division du travail
+- La hiérarchisation du travail
+- La sélection formelle : des membres en fonction de leurs compétences
+- Les règles et normes formelles : le manager ne fait pas de cas par cas. Attention, ça peut écraser l'employé parfois, si c'est inadapté. Se tourner alors plutôt vers Fayol (avoir de la demi-mesure, pour ne pas être trop procédural).
+- L'impersonnalité : règles et contrôles uniformes pour tous
+- L'évolution professionnelle
+
+### 2.6 - Quelques concepts de base découlant de l'école classique
+
+La **chaîne hiérarchique**  : ligne d'autorité continue des échelons les plus élevés aux plus inférieurs.  
+Elle implique un rapport de dépendance entre eux.
+
+L'**unité de commandement** : chaque employé a un et un seul manager (cf. Fayol)
+
+La **quête de rationnalité** : règles explicites permettant de maîtriser les incertitudes et aléas.  
+Exemple des notes de frais : le dir financier envoie la nouvelle procédure, avec explication par étpaes, pour se les faire rembourser  
+La quête de rationnalité a deux opérations :
+
+- Faire l'inventaire de tous les problèmes que l'orga peut rencontrer
+- Définir les meilleures réponses niveau efficacité
+
+## 3 - L'école des relations humaines
+
+### 3.1 - Introduction à l'école des relations humaines
+
+Ici, l'argent n'est plus seul moteur de la motivation. C'est ce qu'étudier cette école. On va retrouver les 3 leviers. 
+
+Les préceptes de l'école sont que les gens cherchent :
+
+- un cadre de vie satisfaisant
+- l'appartenance à un groupe où il sont reconnus
+- à assouvir des besoins fondamentaux de communication, d'échange, de stimulation positive...
+
+Permis les personnalités de cette école, **Robert OWEN** est père fondateur du mouvement coopératif. Il a une vision très utopique du travail et le pousse jusqu'à créer des communautés qui ne fonctionnent pas au final car pas de police pour gérer les fouteurs de merde.
+
+On retrouve aussi **Hugo MUNSTERBERG** contemporain de TAYLOR. Il a notament été le premier à proposer des méthodes permettant d'analyser les métiers et les performances des individus. Lui, c'est le père de la psychologie industrielle. Selon lui, il faut s'adapter à chacun pour savoir appuyer sur les bons leviers de motivation.
+
+Et enfin **Elton MAYO**, le plus emblématique car il a beaucoup écrit. Il a mené baucoup d'expériences pour trouver ce qui impactait la motivation dans une entreprise, en faisant des sorte de AB testing : il modifiait un élément et observait le rendement. L'aboutissmeent d'une série de ces recherches est que donner de l'autonomie aux invidus est souvent bénéfique. Ses princpaux résultats on démontré l'existence :
+
+- d'une motivation, liée à l'attention des chercheurs pour les travailleurs
+
+- d'une vie sociale, et de vie de groupes dans le milieu professionnel
+
+- d'influence sociale, au sein de ces groupes jouant sur les normes de productivité
+
+- de motivation, liée à cette vie de groupe et aux facteurs affectifs
+
+
