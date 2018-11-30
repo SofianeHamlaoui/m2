@@ -1,10 +1,12 @@
 # Intro
 
-## Définition du machine learning
+## Le machine learning
+
+### Définition du machine learning
 
 Principalement à titre prédictif aujourd'hui. On utilise des données existantes pour prédire quelles seront les prochaines.
 
-Touche à 
+Le ML touche aux :
 
 - Statistiques
 - Maths
@@ -14,62 +16,60 @@ Touche à
 
 Aujourd'hui, le ML c'est de l'informatique avec des outils venus des maths. 
 
-## Historique
+### Historique
 
-### Machine learning
+#### Machine learning
 
 Alan Turing : début de l'informatique, enigma et surtout test de Turing (qui vise à évaluer une intelligence artificielle en déterminant si l'interlocuteur est une machine ou non).
 
-Dans les années 50, plusieurs découvertes plutôt cool t basiqeu : Percetron.
+Dans les années 50, plusieurs découvertes plutôt cool et basiqus, comme Percetron.
 
-Ensuite, le machine learning a changé : concept de rule-based approach : au leu de faire apprendre à une machine, on fait une succession de "if then".
+Ensuite, le machine learning a changé : concept de rule-based approach : au leu de faire apprendre à une machine, on fait une succession de `if then`. Il existerait même encore aujourd'hui un milliardaire qui, ne croyant pas au ML, continue à employer des tonnes de gens pour écrire tous les `if, then` possibles.
 
-Années 2000 on voit l'arrivée du deep learning avec les résaux de neurones. 
+Dans les années 2000 on voit l'arrivée du deep learning avec les résaux de neurones. Aujourd'hui on en sert à toutes les sauces et ne parle plus que ça ! Les réseaux de neurones sont des fonctions très complexes qui s'appuient sur de (très) grosses bdd pour donner des résultats plus précis que ceux des humains
 
-Réseau de neurones : fonctions très complexes qui s'appuient sur grosses bdd et qui vont donner des résultats pus précis que les humains
+#### Intelligence articifielle
 
-### Intelligence articifielle
+D'abord approche connexionniste puis symbolique, et là on revient sur la première. À creuser pour connaître les tenants et aboutissants de l'un et l'autre.
 
-D'abord approche connexionniste puis symbolique, et là on revient sur la première. 
+### Catégories de ML
 
-## Catégories
-
-3 parties :
+Le machine learning se découpe en trois parties :
 
 - Apprentissage supervisé (SL) :  
   On a des images, on connaît leur label (genre ce qu'il y a dans img). On fait une fonction qui détermine ce qui est dans l'image et ressort un résultat. C'est assez coûteux et chronophage, genre il faut mettre un label sur les millions d'images.  
   Pour des labels d'images ça va mais si on doit estimer la posture d'un humain, ça devient encore plus galère à déterminer sur des millions d'images.
 - Apprentissage non supervisé (UL) :  
-  Apprendre à générer des images, juste en regardant des images. On ne dit pas "c'est un chien", il se débrouille à comprendre seul ds concepts en analysant des images.  
+  Apprendre à générer des images, juste en regardant des images. On ne dit pas "c'est un chien", il se débrouille à comprendre seul des concepts en analysant des images.  
   La prédiction du futur est égalelement bien à la mode. Savoir à partir d'une vidéo quelles seront les 5 secondes suivantes implique une réflexion et connexion entre objets et environnement
 - Apprentissage par renforcement (RL) :  
-  on a systématiquement un agent, qui doit comprendre seul les concepts du jeu. au début il ne sait rien à part les actions qu'il peut faire et quand il a perdu. Exemple d'alphago : un jeu de go qui joue contre lui-même pour devenir de plus en plus fort. 
+  On a systématiquement un agent, qui doit comprendre seul les concepts du jeu. au début il ne sait rien à part les actions qu'il peut faire et quand il a perdu. Le programme teste des actions et apprend seul ce qui l'amène à ne pas perdre, devenant de plus en plus performant avec les essais. Exemple d'Alphago : un jeu de go qui joue contre lui-même pour devenir de plus en plus fort. 
 
-## Lui
+### F.Baradel
 
-Il travaille sur compréhension des vidéos, et interactions entre les objets dans cette vidéo. Notamment ce qu'ils se passe entre deux images (exemple des bébés, on se fabrique une histoire où les bébés changent d'attitude en fonction de qui a la télécommande)
+Doctorant, il travaille sur la compréhension des vidéos et les interactions entre les entités dans cette vidéo. Notamment ce qu'il se passe entre deux instants (exemple des bébés : on se fabrique une histoire où les bébés changent d'attitude en fonction de qui a la télécommande, la machine en est incapable, comment lui faire comprendre ?)
 
-## Strong AI
+### Strong AI
 
-L'IA d'aujourd'hui est très spécifique : elle peut pas passer du Go au Ping-Pong. Un humain saura s'adapter à un nouveau jeu. La strong IA vise un champ plus large justement
+L'IA d'aujourd'hui est très spécifique : elle peut pas passer du Go au Ping-Pong. Un humain saura s'adapter à un nouveau jeu. La strong IA vise un champ plus large justement. Exemple d'Elon Musk qui a monté une boite allant dans ce sens puis qui s'en est fait virer (haha).
 
-## Applications dans le monde réel
+### Applications dans le monde réel
 
-On a par exemple les Tesla : marche très bien, notamment sur autoroute. Y a toujours des accidents, mais moins.
+On a par exemple les Tesla : marche très bien, notamment sur autoroute. Y a toujours des accidents, mais moins. À ne pas éprouver dans un centre ville européen.
 
-Google translate : y a 20 an des linguistes codaient les enchaînements de termes, ce qui correspondait. Puis Google a appris à des machines à traduire des chaînes en utilisant les données qu'il possédait.
+Google translate : y a 20 ans des linguistes entraient à la main les traductions des enchaînements de termes. Puis Google a appris à des machines à traduire des chaînes en utilisant les données qu'il possédait.
 
 Système de recommandations de Netflix
 
 Criteo : un peu bâtard, récupère les cookies et fait un profil utilisateur à filer au site qu'on visite pour savoir quoi nous vendre.
 
-### Dans l'industrie
+#### Dans l'industrie
 
 Chez GAFA & co, beaucoup d'investissements et de centres de recherche qui s'ouvrent.
 
 ## Le cours
 
-On va utiliser Anaconda et notamment Miniconda car plus léger. l
+On va utiliser Anaconda et notamment Miniconda car plus léger.
 
 Librairies à la mode en data Science
 
@@ -84,9 +84,7 @@ On aura pas de gros GPU, c'est un peu le nerf de la guerre : elle peuvent faire 
 
 # Apprentissage supervisé
 
-## Régression linéaire
-
-### Régression linéaire simple
+## Régression linéaire (simple)
 
 À partir de données fournies (x1, y1), on va les voir comme des caractéristiques t des targets : on veut prédire y en fonction de x. Exemple de la slide : on veut prédire une droite.
 
@@ -99,7 +97,7 @@ $Droite = wx +b$
 On détermine une fonction de coût : écart de la valeur prédite par rapport à la vraie valeur. L but st de matcher le plus possible les valeurs réelles.  
 Coût pour un point :  $l(\hat y_1, y_1)$
 
-Coût total : $L(_{w, b, x_i, y_i}) = (w * x_i+b) - y_i)$
+Coût total : $L(_{w, b, x_i, y_i}) = (w * x_i+b) - y_i)​$
 
 En gros on attribue des valeurs w et b complètement aléatoires et on voit la valeur du coût. Ensuit la machine tâche de minimiser au max ce coût avec des valeurs différentes de w et b.
 
