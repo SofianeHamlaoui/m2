@@ -86,61 +86,78 @@ On aura pas de gros GPU, c'est un peu le nerf de la guerre : elle peuvent faire 
 
 ## Régression linéaire (simple)
 
-À partir de données fournies (x1, y1), on va les voir comme des caractéristiques t des targets : on veut prédire y en fonction de x. Exemple de la slide : on veut prédire une droite.
+On part de données fournies qui se placent sur deux axes, chaque donnée ayant donc des coordonnées (xi, yi). Ces données sont vues comme des caractéristiques t des targets : on veut prédire y en fonction de x. Exemple de la slide : on veut prédire une droite. qui donnera la tendance à partir de toutes ces données.
 
-Là c'est un simple produit scalaire.
+Là c'est un simple produit scalaire. Notre droite $y = ax +b$. En l'occurence ici on va parler de $w$ et non de $a$
 
-À patir de cet exemple simple qui vient des maths, on part ne informatique. En IT, l'objectif d'optimisation sera tjrs présent. On a un b et un w détemriné à partir de la droite. 
+À patir de cet exemple simple qui vient des maths, on part en informatique. En informatique, l'objectif d'optimisation est toujours présent. Pour optimiser, on va avoir besoin de déterminer une fonction de coût : elle représente l'écart de la valeur prédite par rapport à la vraie valeur. Le but final est de définir une droite qui s'approche le plus possible des valeurs réelles à partir de la moyenne des fonctions de coût.  
+On représente une prévision avec un chapeau : $\hat y$. On note $l$ le coût (loss) pour un point, et $L$ le coût total :
+$$
+l(\hat y_i, y_i) = ((wx_i + b) - y_i)² \\
 
-$Droite = wx +b$
+L(_{w, b, x_i, y_i}) = min\frac{1}{N}\sum_{i=1...N} (w * x_i+b) - y_i)²
+$$
 
-On détermine une fonction de coût : écart de la valeur prédite par rapport à la vraie valeur. L but st de matcher le plus possible les valeurs réelles.  
-Coût pour un point :  $l(\hat y_1, y_1)$
 
-Coût total : $L(_{w, b, x_i, y_i}) = (w * x_i+b) - y_i)​$
+En gros on attribue des valeurs w et b complètement aléatoires et on voit la valeur du coût. Ensuit la machine tâche de minimiser le plus possible ce coût avec des valeurs différentes de w et b.
 
-En gros on attribue des valeurs w et b complètement aléatoires et on voit la valeur du coût. Ensuit la machine tâche de minimiser au max ce coût avec des valeurs différentes de w et b.
+### Solution closed-form
 
-#### Solution closed-form
+Pour appliquer cette solution on fait des matrices pour chaque point de 1 à N, puis des opérations sur ces matrices. On pose :
+$$
+beta =  \begin{bmatrix}w & b\end{bmatrix} \\
+\\
+X = \begin{bmatrix}
+	1 & w_1 \\
+	\cdots & \cdots \\
+	1 & x_i
+	\end{bmatrix} \\
+\\
+Y = \begin{bmatrix}y_1 \\ y_i\end{bmatrix}
+$$
+Avec ça, on peut réécrire notre fonction de coût en quelque chose de matriciel, et obtenir la solution optimale à partir d'opérations de transformation, d'inverse et de multiplication de matrices. Et on trouve les meilleurs cas grâce à ce calcul. Mais ça ne marche que dans des cas précis, car le calcul de la matrice inverse est parfois trop chiadé pour être réalisable.
 
-On fait des fucking matrices pour chaque point de 1 à n
+Solution optimale : $\beta * = \hat \beta = (X^T. X)^{-1}.X^T.Y$
 
-Avec ça, on peut réécrire notre fonction de coût en quelque chose de matriciel. (calcul dans optimization). Et on trouve les meilleurs cas grâce à ce calcul. Mais ça ne marche que dans ce cas précis, car le calcul de la matrice inverse est parfois trop chiadé pour être réalisable.
+À cause de cette complexité on cherche parfois des solutions qui vont être "à peu près similaire" à ce résultat pour quand on a des matrice énormes.
 
-Des fois du coup on cherche des solutions qui vont être "à peu près similaire" à ce résultat pour quand on a des matrice énorme.
-
-#### Régression linéaire avec descente de gradient
+### Régression linéaire avec descente de gradient
 
 La descente de gradient donne une courbe montrant la valeur du coût en fonction de la valeur du $\theta$ . La solution optimale est au creux de la courbe, quand on a une valeur minimale et qu'on peut pas aller plus bas. 
 
-On va voir ça aujourd'hui et prendre l’algorithme exact. 
-
 Voici les étapes : 
 
-1. on sait pas où est le minimum. on choisit un $\theta_0$ aléatoire
+1. On sait pas où est le minimum. On choisit un $\theta_0$ aléatoire
 2. On détermine un "learning rate", on reviendra dessus
 3. On choisit ensuite le nombre d'itérations (genre 1000), et pour chaque on met à jour les paramètres en cherchant à aller dans le sens de la pente.
 
-C'est là qu'intervient la dérivée, qui est le gradient, qui indique l'inverse de la pente. On va donc prendre le sens contraire : on soustraire la dérivée à la valeur actuelle de $\theta$
+C'est là qu'intervient la dérivée, qui est le gradient, qui indique l'inverse de la pente. On va donc prendre le sens contraire : on soustrait la dérivée à la valeur actuelle de $\theta$
 
-Il y a la problématique de l'initialisation, si on tombe direct sur le le mini ou bien sur les courbe problématiques qui ont des parties horizontales. Une solution est de prendre plusieurs points d'initialisation. 
+Il y a la problématique de l'initialisation, si on tombe direct sur le le mini ou bien sur les courbes problématiques qui ont des parties horizontales. Une solution est de prendre plusieurs points d'initialisation. 
 
 Comment trouver w et b à partir de cet algo d'optimisation ? Et bien on dit que $J(\theta) = J(w,b)$. On initialise donc w et b et on calcule les gradients pour w et pour b.
 
-en gros, c'est le calcul de la dérivée qui permet de savoir le sens de la pente. REVOIR LES DÉRIVÉES. La dérivée est une limite de tangente quand un point de la fonction tend vers 0.
+En gros, c'est le calcul de la dérivée qui permet de savoir le sens de la pente : puisqu'en fonction de son signe, la dérivée de $f(x)$ indique si $f$ est croissante ou décroissante, connaitre cette dérivéepermet de connaitre le sens de la pente pour $x_i$
 
+### Descente de Gradient stochastique
 
+Comme dans la réalité on a beaucoup trop de données pour s'appuyer sur toutes, on fait une descente de gradient stochastique : on estime les gradients d'un échantillon des données seulement.
 
-Pour reprendre exemple classe, on se pose la question : quand température est x, combien je vais vendre de glacE. On veut rsourdre le problèm en paratn fu principe qu'on va vendre 
+### Exemple
 
-wx + b glace où x est la température. Si x = 0 on va vendre b glace. b est appelé l'intercepte.
+Nous sommes de charmants vendeurs de gales ambulants. On se pose la question : "Quand température est de $x$, combien je vais vendre de glace ?". On s'appuie sur plusieurs expériences de cas réels où on a vendu $y$ glaces alors que la température était de $x$.
+
+On va résoudre le problème en partant du principe qu'on va vendre $wx + b$ glaces, où x est la température. Si $x = 0$ on va vendre $b$ glaces. $b$ est appelé l'intercepte, et $w$ la pente.
+
+### Notes en vrac
+
 $$
-\hat o = argmin\ J(\theta)
+\hat \theta = argmin\ J(\theta)
 $$
-Se comprend comme "le parmaètre $\theta$ qui minimise $J(\theta)$"
+Se comprend comme "le paramètre $\theta$ qui minimise $J(\theta)$"
 
-le chapeau indique la prédiction. Pour trouver le coût, donc l'écart entre prédiction et réalité, moyen (de tous les points), on va chercher à déterminer $\hat w$ et $\hat b$ 
+Le chapeau indique la prédiction. Pour trouver le coût moyen (de tous les points), donc l'écart entre prédiction et réalité, on va chercher à déterminer $\hat w$ et $\hat b$.
 
-On mate un graph avec trois méthodes : closed-form, gradient descend et stochastic gradient descent. On remarque que les 3 sont très proches.
+À la fin des exercies on mate un graph avec trois méthodes : closed-form, gradient descend et stochastic gradient descent. On remarque que les 3 sont très proches.
 
-On voit esuite coment régler ça en 3 lignes
+On voit ensuite comment faire une descente de gradient en 3 lignes de code : scikit-learn
