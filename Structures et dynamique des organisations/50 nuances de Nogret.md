@@ -7,4 +7,5 @@ _Tips et conseils super utiles du père Nogret_
 - Les gens qui n'ont pas les cuisses propres n'aiment pas trop qu'on regarde ce qu'ils font.
 - Les valeurs de l'entreprise sont importantes, il faut y adhérer. Pour autant ne pas s'asseoir sur ses valeurs pour celles de l'entreprise.
 - Une boîte ne paye que quand elle a mal au cul
+- On est pas militaire pour la gamelle : c'est pas pour la solde à la fin du mois que tu fais ce travail. En gros, l'argent n'est pas une source de motivation !
 

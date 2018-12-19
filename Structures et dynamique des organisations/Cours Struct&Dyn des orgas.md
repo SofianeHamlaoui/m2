@@ -33,6 +33,8 @@ La bureaucratie au sens Weber est très utile pour le dossier. Faire notamment u
 
 À mettre obligatoirement : un point sur la quête de rationnalité
 
+Montrer un exemple du conditionnement opérant. 
+
 # I - Introduction à la sociologie des organisations
 
 ## 1 - Organisation, entreprise, institution
@@ -264,7 +266,7 @@ Weber tient à la **bureaucratie** dans un sens qui lui est propre : le pouvoir 
 On va retrouver là dedans les principes d'action de la domination légale :
 
 - Suprématie de la règle de droit, imposée par la personne qui a autorité pour le faire
-- Respect de l'autorité démocratique, chaucn doit avoir liberté de parole
+- Respect de l'autorité démocratique, chacun doit avoir liberté de parole
 - Responsabilité officielle, le manager agit au nom du droit commun et non de sa personne
 - Égalité des citoyens
 - Traitement équitable des citoyens
@@ -286,9 +288,9 @@ Elle implique un rapport de dépendance entre eux.
 
 L'**unité de commandement** : chaque employé a un et un seul manager (cf. Fayol)
 
-La **quête de rationnalité** : règles explicites permettant de maîtriser les incertitudes et aléas.  
-Exemple des notes de frais : le dir financier envoie la nouvelle procédure, avec explication par étpaes, pour se les faire rembourser  
-La quête de rationnalité a deux opérations :
+La **quête de rationalité** : règles explicites permettant de maîtriser les incertitudes et aléas.  
+Exemple des notes de frais : le dir financier envoie la nouvelle procédure, avec explication par étapes, pour se les faire rembourser  
+La quête de rationalité a deux opérations :
 
 - Faire l'inventaire de tous les problèmes que l'orga peut rencontrer
 - Définir les meilleures réponses niveau efficacité
@@ -307,9 +309,9 @@ Les préceptes de l'école sont que les gens cherchent :
 
 Permis les personnalités de cette école, **Robert OWEN** est père fondateur du mouvement coopératif. Il a une vision très utopique du travail et le pousse jusqu'à créer des communautés qui ne fonctionnent pas au final car pas de police pour gérer les fouteurs de merde.
 
-On retrouve aussi **Hugo MUNSTERBERG** contemporain de TAYLOR. Il a notament été le premier à proposer des méthodes permettant d'analyser les métiers et les performances des individus. Lui, c'est le père de la psychologie industrielle. Selon lui, il faut s'adapter à chacun pour savoir appuyer sur les bons leviers de motivation.
+On retrouve aussi **Hugo MUNSTERBERG** contemporain de TAYLOR. Il a notamment été le premier à proposer des méthodes permettant d'analyser les métiers et les performances des individus. Lui, c'est le père de la psychologie industrielle. Selon lui, il faut s'adapter à chacun pour savoir appuyer sur les bons leviers de motivation.
 
-Et enfin **Elton MAYO**, le plus emblématique car il a beaucoup écrit. Il a mené baucoup d'expériences pour trouver ce qui impactait la motivation dans une entreprise, en faisant des sorte de AB testing : il modifiait un élément et observait le rendement. L'aboutissmeent d'une série de ces recherches est que donner de l'autonomie aux invidus est souvent bénéfique. Ses princpaux résultats on démontré l'existence :
+Et enfin **Elton MAYO**, le plus emblématique car il a beaucoup écrit. Il a mené beaucoup d'expériences pour trouver ce qui impactait la motivation dans une entreprise, en faisant des sorte de AB testing : il modifiait un élément et observait le rendement. L'aboutissement d'une série de ces recherches est que donner de l'autonomie aux individus est souvent bénéfique. Ses principaux résultats on démontré l'existence :
 
 - d'une motivation, liée à l'attention des chercheurs pour les travailleurs
 
@@ -319,4 +321,81 @@ Et enfin **Elton MAYO**, le plus emblématique car il a beaucoup écrit. Il a me
 
 - de motivation, liée à cette vie de groupe et aux facteurs affectifs
 
+### 3.2 - La théorie des besoins
+
+#### 3.2.1 - Les théories du contenu
+
+Elle cherche à identifier les facteurs de motivation. Repose sur une hypothèse : les besoins sont d'ordre physiologiques, psychologiques ou sociologiques. Si un besoin n'est pas satisfait, ça implique une tension et un mécanisme qui vise à réduire celle-ci. 
+
+**Abraham Maslow** (1908-1970), on connaît sa pyramide (pyramide des besoins). Elle a cinq niveaux :
+
+1. À la base, besoins physiologiques
+2. Besoins de sécurité et de protection
+3. Besoins d'appartenance, besoins sociaux de faire partie d'nue "tribu"
+4. Besoins d'estime de soi
+5. Besoins d'auto-accomplissement (se réaliser à travers une œuvre, un engagement)
+
+5 principes d'utilisation de la pyramide : 
+
+- principe d'émergence : ils sont hiérarchisés, on monte ou descend dedans en fonction situation. Une fois un besoin inférieur assouvi on passe au supérieur. 
+- principe de dominance : lorsqu'un besoin est assouvi, il n'est plus motivant, c'est le supérieur qui le devient. 
+- principe de frustration : le non-assouvissement d'un besoin accroît sa force motivante.
+- principe d'insatiabilité : le niveau d'aspiration s'élève lorsque les besoins sont satisfaits
+- principe d'identification : les normes sociales définissent les niveaux d'aspiration
+
+Frédérick **Herzberg** et les 3 attentes fondamentales :
+
+1. L'équité pour l'emploi
+2. Les relations de travail
+3. Les situations de travail
+
+Ils entretiennent la motivation
+
+#### 3.2.2 - Les théories du processus
+
+La **théorie du renforcement** apporte la notion du conditionnement opérant concept développé par Skinner, s'intéresse à l'apprentissage dont résulte une action (si tu conduis mal, tu auras une amende). Ce conditionnement se distingue du classique (conditionnement répondant). On s'intéresse alors aux apprentissages lié aux stimuli positifs ou négatifs qui découlent d'une action. Il identifie 4 techniques de modification du comportement :
+
+- L'extinction (absence de conséquence suite au comportement)
+- Le renforcement négatif (élimine une conséquence indésirable par évitement de la sanction : fuite, peur...)
+- La punition (présentation de conséquences indésirables juste après comportement)
+- Le renforcement positif (fait intervenir des conséquences désirables juste après comportement)
+
+La **théorie des attentes** de Victor Vroom (1964). Selon cette théorie, la motivation est liée à la probabilité que la personne évalue d'atteindre une conséquence positive pour elle. Sa théorie est beaucoup plus dans l'intellect, y a des formules et tout.
+
+4 notions :
+
+- Force motivationnelle **F**
+- Attente **E** : ce qu'on espère atteindre
+- Instrumentalité **I** : ce qu'on a en retour 
+- Valence **V** : valeur de ce qu'on obtient
+
+Ce sont des appréciation très subjectives, difficiles à utiliser au quotidien selon Nogret. 
+
+La **théorie de l'équité** de John Stacy Adams (1965). La notion de justice, d'injustice, vient de la comparaison avec d'autres. Il n'y a pas de rapport entre ce que je vaux et combien je suis payé, c'est selon le ressenti. Certaines boites interdisent même de communiquer sa paye à ses collègues : c'est un biais de motivation.
+
+Le processus de comparaison est paradoxal : on se compare à des gens du même bureau/même site. Si ce contexte est différent, la comparaison ne tient souvent plus. L sentiment d'injustice qui peut naître s'accompagne de deux réactions : culpabilité pour l'avantagé, colère (révolte) pour le désavantagé. Elles sont proportionnelles à l'ampleur de l'injustice.
+
+Chaque personne fait une balance entre ce qu'il investit et ce qu'il obtient dans son travail. À partir de ça il en tire une motivation.
+
+En conclusion, la motivation est quelque chose qui se construit sur la durée. Elle n'est pas un trait de personnalité, c'est un processus complexe dans lequel interagissent en permanence besoins, valeurs, contraintes culturelles, organisationnelles et économiques.
+
+### 4 - L'école de la contingence
+
+#### 4.1 - Le modèle situationnel de Hersey - Blanchard
+
+Rappels de l'année précédente : types de collaborateurs en fonction motivation et compétence.
+
+#### 4.2 - Les styles de management adaptés aux situations
+
+Rappels de l'année précédente : types de manager en fonction type collaborateur
+
+Capitaine - Coach - Arbitre
+
+Alignement - Appropriation - Appui
+
+L'école des relations humaines apprend donc à **adapter le style à la situation**.
+
+### Herbert Simon & la rationalité limitée
+
+Les conditions qui poussent les entreprises à décider sont rudimentaires : on ne dispose pas de tout les éléments. On tombe du Xe étage en disant "pour l'instant tout va bien". On ne prend pas la meilleure décision du monde car on a pas tous les éléments. Il faut savoir revenir dessus. c'est la rationalité limitée.
 

@@ -42,7 +42,7 @@ La partie 1 est une présentation globale, en particulier :
 
 - du réalisateur : c'est parce que le réalisateur est ainsi que son film est ainsi. La façon dont il a filmé, ce qu'il a choisi de montrer nous montre ce qu'il est. 
 - Des personnages
-- Des thèmes abordés dans chauqe scène
+- Des thèmes abordés dans chaque scène
 
 La seconde partie analyse le comportement des gens. Il y a des indices dans tout : posture, ton, **regard**, vocabulaire... On s'intéresse également au vécu des personnages : les besoins apparents que l'on comprend à partir de ce que l'on voit. Ces besoins sont-ils opposés à ceux de l'entreprise ? Puis le contexte de travail (on devrait y retrouver beaucoup de choix lents, de temps de réflexion importants) et enfin en synthèse, 20 concepts définissant / récapitulant le film et sa compréhension (slow down...)
 
@@ -394,4 +394,144 @@ Il faut donc préférer l'assertivité, et pour cela :
 - agir ensemble
 - rassurer l'autre en comprenant sa crainte
 
-L'assertivité, c'est savoir s'affirmer dans le respect. Il faut apprendre à la reconnaitre, à l'identifier, pour ne pas basculer dans l'uin des trois autres états ( bonne poire, agressif, roquet). Pour cela, être humble, avoir le sens de la mesure. Il faut être dur avec ses idées et doux avec les autres (voir graphique PDF).
+L'assertivité, c'est savoir s'affirmer dans le respect. Il faut apprendre à la reconnaître, à l'identifier, pour ne pas basculer dans l'un des trois autres états ( bonne poire, agressif, roquet). Pour cela, être humble, avoir le sens de la mesure. Il faut être dur avec ses idées et doux avec les autres (voir graphique PDF).
+
+Être assertif, c'est expliquer les raisons pour lesquels on est pas d'accord.
+
+En Analyse transactionnelle, l'assertivité correspond à l'état du moi **adulte**. Analyse objective, factuelle, s'exprime posément.En communication para-verbale : voix posée, calme, régulière, regard direct et franc. En communication non-verbale : se tient droit, à distance convenable, détendu, ouvert à à l'écoute. Donner de l'autonomie, c'est inciter un mode adulte.
+
+DESC : une méthode qui permet de changer l'état d'une situation, et de le ramener à un mode adulte/adulte. Les étapes pour l'utiliser :
+
+1. Ne jamais laisser transparaître des émotions négatives communicatives (qu'on est saoulé de l'autre, stressé...). Restez ferme à l'égard de vos propres objectifs, garder son sang-froid, respecter le point de vue. 
+2. Rester assertif : pas d'agression ni de manipulation. Expliquer pourquoi on exige ces objectifs, rester serein et instructif, continuer à défendre son opinion, même devant des interlocuteurs hostiles.
+3. Utiliser le DESC (Décrire, Expliquer, Suggérer solutions, Conséquences de celles-ci)
+
+C'est finalement assez proche de la CNV, mais pas exactement les mêmes étapes (Observation, Sentiment, Besoin, Demande).
+
+Le DESC, c'est un truc cérébral. Bon exemple sur PDF, page 52 (papier).
+
+#### 3.1.3 Résoudre un problème en 6 étapes
+
+D'abord il faut être dans le bon état d'esprit : croire qu'une solution est possible.
+
+Puis se mettre en position d'écoute de l'autre.
+
+Ensuite, transformer le conflit en problème à **résoudre**
+
+Faire une phase de négociation : l'heure des compromis. Si on joue franc-jeu et correctement la résolution, on capitalise pour le prochain conflit : on arrivera plus facilement à des solutions satisfaisantes.
+
+Enfin, contractualiser : inscrire ce que les gens doivent faire pour arriver à cette résolution
+
+Les 6 étapes :
+
+1. Identifier le problème
+2. Identifier le type de conflit
+3. Utiliser les grilles d'naalyse
+4. rechercher les solutions
+5. Mettre en place les oslutions
+6. Évaluer les solutions et le processus d'action
+
+Schéma utile sur PDF.
+
+### 3.2 - Les stratégies de gestion indirecte des conflits
+
+#### 3.2.1 - Les points communs aux stratégies de gestion indirecte de conflits
+
+Ne s'attaquent pas de front aux problèmes à l'origine du conflit  
+Ne tentent pas de résoudre le conflit en réunissant les personnes concernées. 
+
+C'est en quelque sort leurs inconvénients.
+
+#### 3.2.2 - La dissociation : diminution de l'interdépendance
+
+Restreindre voire éliminer les points de contacts entre les parties en conflitt
+
+Créer des stocks tampons : 
+
+Faire appel à une "courroie de transmission" : personne neutre qui va améliorer coopération, aider à la réalisation des tâches communes.
+
+Utilisation d'intervenants extérieurs arbitres, médiateurs. 
+
+Méthode du tiers :  recevoir les parties individuellement, collectivement, puis définir règle du jeu, reformuler positions de chaque partie, fixer le "plus petit objectif commun", enfin faire une mise au point sur l'évolution du débat en positivant.
+
+#### 3.2.3 - L'appel aux objectifs communs
+
+recentre l'attention sur objectifs, conclusion souhaitable pour tous. Interdépendance nécessaire pour cela. Attention cependant à ne pas laisser basculer dans dilution de responsabilité selon les cas.
+
+#### 3.2.4 - Le recours aux supérieurs hiérarchiques
+
+En cas de conflit, on a généralement affaire à de la mauvaise foi. Stratégie limitée.
+
+#### 3.2.5 - La modification des scenarii et des mythes organisationnels
+
+Comportements routiniers qui deviennent partie intégrante de la culture de l'organisation.
+
+Doivent amener à admettre interdépendance et évacuer frustrations.
+
+### 3.3 - Les stratégies de gestion directe des conflits
+
+On va travailler sur le fond : l'objectif n'est plus de faire baisser les tensions mais de supprimer la cause du conflit.
+
+#### 3.3.1 - Les issues possibles par la négociation
+
+Schéma selon préoccupations : altruistes ou égoïstes
+
+#### 3.3.2 - Les 3 situations qui ne font que des perdants
+
+1. L'évitement ou la fuite : Faire l'autruche. On fait comme si le problème existait pas. 
+   Adapté si le problème est pas important, que y a plus important à régler, ou si y a besoin de calmer le jeu en gagnant du temps (désescalade)
+2. L’accommodation ou la démission : Faire le caméléon. Aplatir les divergences en se concentrant sur les ressemblances et les points d'entente.
+   Adapté si l'enjeu est plus important pour l'autre parti, si on y gagne un "crédit" pour l'avenir, qu'on a eu tort ou qu'il y a une excellente harmonie entre les partis.
+3. Le compromis. Solution moyenne pour les deux. 
+
+#### 3.3.3 - La situation qui fait un gagnant et un perdant
+
+4. L'affrontement : La contrainte. 
+   Un parti impose sa solution en s'appuyant sur son autorité hiérarchique.
+
+#### 3.3.4 - La situation qui ne fait que des gagnants
+
+La collaboration
+
+
+
+Schéma sur PDF avec ces 5 situations, en fonction du degré de coopération et du degré d'affirmation de soi.
+
+# III - La violence au travail
+
+## 1 - Le processus décisionnel et ses dérives
+
+### 1.1 - Les 6 modes possibles pour prendre les décisions en équipe 
+
+- Décision par absence de réaction. Idées qui se succèdent en vrac et décision si pas d'objection
+- Décision par règle de l'autorité. Tour de table puis annonce par autorité de la décision
+- Décision par règle de minorité. Des personnes compétences sont implicitement désignées par équipe pour examiner problème, trouver solution et la présenter au groupe
+- Décision par règle de majorité. On consulte tout le monde via un vote ou en sondant les membres pour connaître opinion majoritaire. Attention : ça génère des clans de gagnants et de perdants.
+- Décision par consensus. Discussion de groupe, échange, solution choisie est celle de la plupart des membres du groupe, rejoints par les autres. Pas forcément unanimité, mais ceux pas en accord ont du pouvoir s'exprimer et être écoutés.
+- Décision à l'unanimité. Tout le monde est d'accord. 
+
+### 1.2 - L'exercice de l'autorité et ses dérives
+
+Les excès d'autorité passent par : 
+
+- l'autoritarisme : cherche à s'imposer, abuser de son autorité.
+- l'arbitraire : dépend de la seule volonté d'une personne, non justifié. Sorte de caprice du manager.
+- la tyrannie : le manager seul détient le pouvoir et fait loi. Un homme, qui dirige seul.
+
+Les renoncements à l'autorité existent aussi :
+
+- le laxisme : la discipline s'y retrouve relâchée, idées larges.
+- le laisser-aller : abandon de bonnes manières. Absence de contraintes, manque de rigueur, relâchement.
+
+## 2 - La violence au travail
+
+### 2.1 - Le concept de violence
+
+Définition :
+
+> Tout comportement qui blesse ou porte préjudice à autrui
+
+-- Buss, 1961
+
+La violence est évaluée par un jugement social : acte qui viole certaines normes culturelles.
+
