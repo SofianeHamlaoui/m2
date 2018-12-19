@@ -145,7 +145,7 @@ Comme dans la réalité on a beaucoup trop de données pour s'appuyer sur toutes
 
 ### Exemple
 
-Nous sommes de charmants vendeurs de gales ambulants. On se pose la question : "Quand température est de $x$, combien je vais vendre de glace ?". On s'appuie sur plusieurs expériences de cas réels où on a vendu $y$ glaces alors que la température était de $x$.
+Nous sommes de charmants vendeurs de glaces ambulants. On se pose la question : "Quand la température est de $x$, combien je vais vendre de glace ?". On s'appuie sur plusieurs expériences de cas réels où on a vendu $y$ glaces alors que la température était de $x$.
 
 On va résoudre le problème en partant du principe qu'on va vendre $wx + b$ glaces, où x est la température. Si $x = 0$ on va vendre $b$ glaces. $b$ est appelé l'intercepte, et $w$ la pente.
 
@@ -161,3 +161,48 @@ Le chapeau indique la prédiction. Pour trouver le coût moyen (de tous les poin
 À la fin des exercies on mate un graph avec trois méthodes : closed-form, gradient descend et stochastic gradient descent. On remarque que les 3 sont très proches.
 
 On voit ensuite comment faire une descente de gradient en 3 lignes de code : scikit-learn
+
+### Régression linéaire multivariée
+
+Même principe que linéaire, mais avec un nombre *p* de variables et un concept de vecteurs.
+
+## Overfitting
+
+La problématique en ML c'est de généraliser. Nous, humains, on peut généraliser et extrapoler vite (on voit deux chats on peut vite dire si ce qu'on voit ensuite est un chat ou non). En ML, y a besoin de beaucoup plus de données. 
+
+Pour résumer la généralisation: 
+
+On divise le dataset en 3 : donnés d’apprentissage, de validation et de test (genre 70%/15%/15%). On entraîne la machine uniquement avec les données d'apprentissage. Une fois qu'elle a suffisamment appris, on essaye ses déductions sur la base de validation (on donne x on demande de trouver ŷ (on connaît y nous, on peut donc comparer avec)). On retravaille ensuite l'algo sur les données d'apprentissage et puis on recommence la validation. Au bout d'un certain temps, on passe au test : on fait calculer le total des ŷ et on voit le pourcentage de réussite  global, sans avoir accès aux ŷ trouvés. 
+
+L'objectif, c'est d'éviter l'underfitting et l'overfitting. L'over c'est de trop coller aux données qu'on a, et l'under c'est d'en être trop éloigné. Donc la solution va consister à alterner entre l'un et l'autre pour se rapprocher d'un modèle optimal : "good fit".
+
+On va donc pour ça partir de fonctions complexes, et tâcher de simplifier ces fonctions.
+
+### Tips and tricks
+
+La normalisation : dans un wx + b, on tente de minimiser le w. Il y a normalisation L2 et normalisation L1. Pour la L2, on obtient toujours quelque chose de convexe. La L1, non. Donc la L1 est plutôt utile pour faire de la sélection de variable.
+
+Si on ajoute L1 et L2, c'est l'"Elastic Net". Qu'on ajoute L1, L2 ou L1+L2 à la fonction de coût, on obtient des résultats différents. Il faut aussi pondérer l'hyperparamètre C pour pas qu'il soit trop petit ou trop grand.
+
+#### Numerical and Categorical variable
+
+Il s'agit de regrouper des variables ou de changer leur type en leur assignant des nombres. Sur une variable constante par exemple (de 0 à n), on peut décréter que de x à x' on est dans la variable [1,0,0], de x'' à x''' [O,1,0] et tout le reste [0,0,1].
+
+#### Normalisation, standardisation
+
+L'idée est de ne pas se retrouver à donner plus d'importance à un paramètre qui a un champ plus large que d'autres (genre l'age de 1 à 100 va valoir plus que la taille de 0 à 2) on ramène tout à "de 0 à 1". 
+
+Formule de normalisation de j pour sa donnée x : $\bar x^j = \frac{x^j - min^j}{max^j - min^j}$
+
+Le Z-score, normalise en fonction de la moyenne, non plus en fonction min et max : c'est plus robuste : $\hat x = \frac{x^j - \mu^j}{\sigma^j}$
+
+#### Transformation de cible
+
+L'idée est, sur des paramètres difficiles à expliquer, d'arriver sur des données plus "jolies à voir", plus facilement exploitables pour nous. Dans l'exemple sur le PDF, on a juste appliqué la fonction log aux données.
+
+#### Interaction entre les variables
+
+Parfois il ne suffit pas de prendre les paramètres mais de regarder les relations entre eux : on appelle ça une interaction. Les interactions consistent à rajouter un terme (paramètre) qui est le produit des deux paramètres.
+
+$y = b +w_1.age + w_2 .taille +w_3.age.taille$
+
