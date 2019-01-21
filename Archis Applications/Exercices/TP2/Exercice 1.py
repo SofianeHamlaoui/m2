@@ -136,3 +136,5 @@ valids = model.predict(crim[n_train:n_valid].reshape(-1,1))
 plt.scatter(crim[n_train:n_valid], valids, color="green")
 plt.scatter(crim[n_train:n_valid], Y[n_train:n_valid], color="orange")
 plt.show()
+
+
