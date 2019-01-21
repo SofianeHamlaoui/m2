@@ -131,3 +131,104 @@ finir TP 0 et 1
    - exercice = à faire : remplir les champs
    - hint = résultat
 3. Une fois fini :  envoyer à tien-nam.le@ens-lyon.fr
+
+---
+
+*20/12/18*
+
+## Memory latency
+
+Pbatique en big data : le volume de données augmente. Avant on gérer ça en ajoutant juste de a mémoire (RAM). Mais maintennat on fait plutôt des clusters avec plusieurs ordis pour de l'analyse parallèle de données. Différents ordis avec différentes mémoires qui aprtagent la même data. 
+
+DONC : qu'est ce qui rend le calcul lent ? Pourquoi on a besoin de plusieurs ordis ? 
+
+### CPU computation
+
+Dux grandes parties dans un ordi : 
+
+- CPU
+- Stokage
+
+l'ordi lit A et B selon leur emplacment sur le disque, et calcule par exmple C à partir de A et B, puis inscrit C sur le disuqE. Le temps de lecture et d'écrtirue est plus long que celui de calcul. 
+
+### Memory hierarchy
+
+Le CPU contient plusieurs core avec chacun une section register. Chaque core est relié à des blocs de cache (L1, L2) et un bloc de cache global (L3). L3 st relié à la mémoire principalke (RAM) qui est reliée au disque dur.
+
+### Questions
+
+- Performing CPU operation has the lowest latency
+- False
+- A computation just done is stocked in the register
+
+### Trade off
+
+Cache est petit et rapide, mémoire principale grande et lente.
+
+### Cache
+
+le CPU récupère blocs stockées en cache pour calculer. 
+
+Si bloc n'est pas en cache, on vire un bloc ancien plus utile, et hop on le remplace par celui nécessité. 
+
+La performance du cache vaut :
+
+$perf = \frac {cache\ hits}{cache\ miss}$
+
+miss : recherche bloc qui n'est pas en cache
+
+Pour avoir plus de cache hits (besoin d'un bloc déjà en cache) , on garde en cache données souvent utilisées. quand on overwrite des données en cache on écrase tjrs celle la moins utilisée du cache : **temporal locality**
+
+Il copie un bloc entier (64kb), même si seuleent 10kb sont utilisés dedans, car temps pour bouger 10kb ou 64kb sont très proches.
+
+Exemples de temporal locality :
+
+on calcul à partir d'un élément W fixe et d'un élément x qui change tout le temps. si w rentre dans le cache, on le réutilise tout le temps : c'est plus rapide. Si trop grand pour cache : c'est bcp plus lent. 
+
+Exmple de spacial locality : 
+
+on veut calculer la somme d'opérations sur x pour x de 1 à n : chaque nouveau x est proche de ses voisins : on gagne plus de temps que si il était stocké aléatoirement. 
+
+### Questions
+
+1 - On a pas besoin de garder A car trop grand, et juste besoin de garder sum dans la mémoire. Par contre on itère avec des valeurs qui s suivent : il est plus efficace de faire un spatial locality. (Au pire répondre "both" est acceptable)
+
+2 - 64 bytes (the block size)
+
+3 - la dernière réponse
+
+### Conclusion
+
+Pourquoi est-ce important de g&rer la memory latency en big data ? 
+
+clock rate semble plafonner à 3gh
+
+Les ordis plus rapides sont très chers, 
+
+Il vuat mieux vaec pleins d'ordis pas chers en lcluster, chacun ayant une petit partie du calcul. Donc :
+
+**comment diviser la data** ?
+
+## Clustering Data
+
+Combien de clusters faut-il ? Le moins possible mais avec la plus grande similitude entre les données possible par rapport à la courbe d'efficacité : quand elle commence à devenir similaire d'un cluster à l’autre, on a notre nombre idéal. Il faut essayer pour trouver le nombre idéal de clusters.
+
+### Types de techniqus de clustering
+
+on peut tous les déclarer en même temps "flat techniques"
+
+ou bien répéter des clusters basés sur clusters prédents : "hierarchical techniques"
+
+### K-means clustering example
+
+technique très simple
+
+étape 0 : choisir K ( genre K = 3)
+
+étape 1 : choisir 3 entiers au hasard. ils sont placés dans un sorte de graphique, et par rapport à un point (un vrai) on repère celui qui est le plus proche.
+
+étape 2 : on détermine une zone par point et tous les points de cette zone sont raccordés à ce point. Ensuite on bouge le point de référence à la position optimal : proche du plus de points possible
+
+Ensuite chaque cluster fait les calculs autour de là ou il est.
+
+L'avantage c'est que c'est simple et efficace. Par contre il faut définir la distance, et c'est très sensible aux "outlier" : points éloignés des clusters.
