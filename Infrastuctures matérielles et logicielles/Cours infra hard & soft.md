@@ -285,3 +285,188 @@ S'organise en couches la plus haute : utilisateur, puis les règles (tables), en
 ce sont les entités qui définissent le comportement de netfilter : des chaînes qui sont un ensemble de règles
 
 Il y a des hooks, avec 5 points d'accroche : prerouting, inpout, forward, output, postrouting
+
+# Quatrième vague
+
+## Antivirus
+
+
+
+## OS : Le kernel
+
+### Introduction
+
+Développé en C et en assembleur. Fait l'interface entr la couche software et la couche hardware. fournit une interface de programmation pour le matériel. 
+
+Créateur : L. Torvald en 1991. À la base pour une seule archi puis porté sur d'autres type ARM. Multi utilisateur, respecte les normes posix, certaines fonctionnalités peuvent être ajoutées ou envelvées à lavolée. 
+
+### Fonctions
+
+Excécution des processus, gstion mémoire, gestion du matériel...
+
+### Développement
+
+Développé par la communauté originellement, puis de grosse boite s'y sont mises : Red Hat, Intel, IBM...
+
+Sous licence GNU.
+
+### Les types
+
+Le monolithique : conception ancienne et considérée comme obsolète. Un seul gros bloc qui contient toutes les fonctions et pilotes et de quoi les compiler. Concept simple, excellente vitesse d'exécution. Mais forte augmentation de taille avec l temps (ajout de fonctionnalités). 
+
+Pour contrer ce dernier point, création ds monolithiques modulaires : noyau avec fonctionnalités principales, et plein de services différnts sous formes de modules. Tout est centralisé dans un seul noyau, donc une seul erreur dans un service facultatif peut mettr en péril toute la sécurité du système. Meilleures possiiblités de configuration et améliore temps de chargement mais encore des défauts.
+
+Du coup invention des micronoyaux dans les années 90. Le nombre de fonctions principales et les dépendances du noyau est fortement réduite. Donc minimisation des risques d'erreurs pour meilleure robustesse, fiabilité, évolutivité et maintenance. Nécessite par contre un protocole de communication netre les processus (IPC), assez lourd qui finalement réduit les performances.
+
+Enfin on ne arrive au noyau hybride qui combine avantages de monolithique et micronoyaux
+
+### Caractéristiques techniques
+
+le noyau doit être compilé pour être compris en binaire. On a donc besoin des sources et de GCC (Gnu Compiler Collection) qui embarque tous les outils nécessaires. 
+
+On place les sources dans `/usr/src/linux-(version)`, à partir de ces sources on peut compiler le noyau dans `/boot`, et les modules quant à eux sont placés dans `/lib/modules` 
+
+### Les modules
+
+Code ajoutant des fonctionnalités au noyau. Ils sont exécutés dans l'espace mémoire du noyau : contrôle total sur la machine. Depuis version 2, il n'est plus nécessaire de recompiler le noyau pour chagrer un module (chargement dynamique), via `insmod` ou `modprobe`.
+
+## Drivers :  Protocoles de communication
+
+SPI : Sans Protocole d'Interface
+
+Le noyau contient un genre 
+
+### MIDI
+
+Format de fichier lié à la mudsique et utilisé comme potocole pour les instruments
+
+### OSC
+
+Contrôle en temps réel, successeur du MIDI. Open Sound Control
+
+### RS-232
+
+Norme ultra standard : le port série. N'est plus trop d'actualité, enfin si, enfin ça dépend des matos.
+
+### DMX
+
+Protocole pour le raccordement des lumières. Avant 86 c'était de l'analogique.
+
+### SPI
+
+Différents protocoles de communication selon le SPI.  Master/slave, ou via l'horloge, peut être généré par le maître ou l'esclave. Le kernel dit au matos/logiciel où trouver l'info, ou dit à un truc de donner l'info au matos/logiciel
+
+## SGBD : Systèmes d'indexation
+
+Dans les SGBD relationnels
+
+### Définition
+
+Aide à retrouver facilement et rapidement les données.
+
+Exemple des panneaux dans un supermarché : permet de retrouver plus vite où sont les produits.
+
+L'index indique donc où on peut trouver une donnée.
+
+### Quand utiliser un index
+
+Il faut calculer la Sélectivité, si elle est inférieure à 15% des lignes, c'est intéressant, sinon ça prendra plus de temps de faire un index.
+
+$ sélectivité\ = \frac{Cardinalité}{Nombre\ total\ de\ lignes}$ 
+
+L'optimiseur : pour une requête, regarde et retient toutes les actions qu'il a fallu faire pour obtenir la données, et calcule un coût pour la requête. Ensuite, quand on l'interroge, il dit comment on peut optimiser le coût de la requête, en mettant un index sur certaines colonnes par exemple. Attention, il peut aussi se tromper (rarement), on peut alors le forcer à utiliser un autre index.
+
+### Différents types d'index
+
+#### Le B tree
+
+C'est un arbre hiérarchique équilibré. Par rapport à un arbre normal, se base plutôt sur un concept de "racine + branche" et de "feuilles"
+
+#### Le bitmap
+
+Destiné aux colonnes avec peu de valeurs distinctes et beaucoup d'enregistrement. Codé sur un bit (vrai ou faux) pour chaque entrée
+
+Donc chacun est plus ou moins efficace en fonction de la cardinalité. 
+
+#### Index par hashage
+
+on accède à la valeur par la clé , construction d'un tableau sans ordre. Il peut y avoir collision entre les clés de hashage, il faut donc mettre en place un système de résolution de collision pour gérer ces cas. Et bien choisir sa fonction de hashage pour pas se niquer en temps de calcul.
+
+## Pare-feu : IDS
+
+Intrusion Detection System
+
+Logiciel qui fait de la détection d'intrusion : sniffe le réseau et détermine si qqch de suspect dessus. Utilisé en complément du pare feu et des antivirus.
+
+### Ce qu'il fait
+
+Surveille routeur, pare feu et les services
+
+Permet de rendre plus clair des trucs via une interface.
+
+Signale quand sécurité est violée, peut bloquer des intrusions.
+
+### avantages
+
+donne de la visibilité, automatise des tâches de surveillance, surveille les applications et les réseaux 
+
+### 3 familles, 2 techniques
+
+NIDS : Network tournent en mode passif en utilisant de sports miroir
+
+HIDS : Host ids surveillent réseau pour voir si compromis
+
+Hybrides : regardent sur machines plus que réseau
+
+Deux types d'approches : soit par signature soit par huristique, comme antivirus
+
+### techniques
+
+Comme celles des antivirus : scanne le réseau, vérifie si signatures correspondent à ses règles. Lance alertes en fonction de c qu'il a trouvé. Nécessite d'avoir une base ultra à jour, pas méga fiable.
+
+Combiné donc avec analyse heuristique, l'IDS apprend en fonction du comportement du réseau, ce qui est normal et ce qui ne l'est pas. Gros travail d'origine à fournir pour indiquer ce qui est normal et ce qui ne l'est pas. 
+
+### NIDS
+
+Analyse de manière passive les flux entrant et détecter intrusions en temps réel. Écoute tout le trafic réseau. Le NIDS est une machine à parti qui rajoute pas de la charge. Très efficace.
+
+### HIDS
+
+Analyse plus le trafic réseau mais uniquement le flux sur une machine. Vérifie intégrité des données mais a besoin d'un système sain. 
+
+### Softwares
+
+NIDS : snort, bro, suricata, check point
+
+HIDS : Fail2ban, rkhunter, chkrootkit
+
+### Hybrides
+
+Généralement utilisés dans envirnnements décentralisés. réunissent infos provenant de NIDS comme HIDS
+
+### KIDS, KIPS
+
+Systèmes de prévention d'intrusion Kernel.
+
+Encore plus sécurisé et complémentaire à l'IDS. Peuvent faire pas mal de trucs mais solution rares qui utilisent des serveurs, des machines à part. 
+
+
+
+Nombreuses technologies complémentaires à voir sur PDF, dans l'objectif de décourager le hacker.
+
+Pour le temps d'apprentissage n heuristique, faut bien compter 3 mois (commencer en IDS, pis au bout de 3 mois passer en IPS)
+
+## Compilateur : Analyse syntaxique
+
+Après l'analyse lexicale
+
+Construit un arbre des relations grammaticales entre les mots. 
+
+Il définit ce qu'est un sujet, un verbe.. donc un objets, une classe... ?
+
+### Rôle
+
+prépare la traduction : si des mots sont pas compwris, communication possible via la table des symboles.
+
+### Grammaires
+

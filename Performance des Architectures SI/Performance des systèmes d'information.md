@@ -4,6 +4,11 @@ On va bosser sur la Big data, Python, Hadoop, Spark
 
 Objectif principal : améliorer les performances. 
 
+## Examen final
+
+- 1e partie : examen écrit (1h, relatif aux slides)
+- 2e partie : code (plus simple que ce qu'on a fait en TP) sur jupyter notebook (2h)
+
 # Big Data
 
 ## Réviser Big data
@@ -232,3 +237,127 @@ technique très simple
 Ensuite chaque cluster fait les calculs autour de là ou il est.
 
 L'avantage c'est que c'est simple et efficace. Par contre il faut définir la distance, et c'est très sensible aux "outlier" : points éloignés des clusters.
+
+----
+
+*25/01/19*
+
+# Distributed and cloud computing
+
+## Distributed computing
+
+Les problèmes posés sont par exemple un SUM SQL sur une base contenant trop d'entrées pour être comptées une à une par le système. Ou bien en ML : la régression linéaire, ou trouver le voisin le plus proche
+
+Objectif : comment aller plus vite ?
+
+### Hadoop
+
+Créé par Google en 2004. Ça distribue le stockage, mais aussi le calcul et a une bonne tolérance aux erreurs. Utilise le map reduce et le HDFS
+
+### Map reduce 
+
+Fonctionnement : les map sont des "escalves", qui récupère l'input d'un disque dur, font le calcul niveau 1 renvoient aux maîtres, et les reduce sont les maîtres qui font le calcul niveau 2, et renvoient le résultat sur un autre disque dur.
+
+Si par exemple on a 30 produits, on veut calculer la somme (exemple 1), on va diviser les 30 en plusieurs parties envoyées au mappers, qui vont chacun effectuer le calcul sur leur set de data. Ils renvoient ensuite tous leur résultat au même reducer qui va additionner le tout et renvoyer le résultat.
+
+Si on a $k$ mappers ça permet d'aller $k$ fois plus vite. 
+
+Un autre exemple : trouver le plus proche voisin k  
+on a deux mappers, le 1 sont les points verts et le 2 les marrons.   
+avec un point d'entrée "query point" il faut trouver les 3 points les plus proches. le mapper 1 va envoyer les 3 points verts les plus proches et le 2 les 3 points marrons aux reducers, ce ne seront pas les mêmes. Le reducer renvoie les 3 points les plus proches parmi les 6 récupérés
+
+### HDFS
+
+Hadoop Distributed File system. Son objectif c'est la tolérance aux pannes.
+
+On a plusieurs PC avec chacun un disque. Certains sont des mappers, d'autres des reducers. Ce sont des data nodes. On va avoir à côté un name node, à  qui chaque data node envoie ses métadonnées : il garde une trace de tout ce qui se passe. si un noeud tombe, le name node le réplique ailleurs.
+
+- Si il y a un prolème de réseau, ce n'est pas résolu.
+- Si un data node a un problème de disque, le name node peut recover la data
+- Si la taille des blocs diffère ce n'st pas un problème
+- Si tout les data nodes ne sont pas utilisés, ce n'est pas un problème.
+- Si on a une panne de disque sur le name node, c'est un plus gros problème.
+
+Comment récupérer la data si un nœud tombe ? Chaque bloc de données est répliqué 3 fois et envoyé sur des nœuds aléatoires. Si un nœud tombe, il sait quels blocs sont tombés, mais il sait aussi qu'il peut les retrouver ailleurs, et le nœud qui prendra le relai récupérera les blocs depuis les nœuds qui ont une version répliquée.
+
+Si le name node tombe, tout est perdu, on le duplique donc pour que le second prenne le relai si le premier tombe.
+
+### Avantages de Hadoop
+
+- Gratuit et open source
+
+- architecture distribuée : les données sont stockées dans plusieurs noeuds différents
+
+- tolérance au pannes (3 répliques de chaque bloc)
+
+- Viable : réparation automatique en cas de panne
+
+- Haute disponibilité
+
+- Modulable : on peut ajouter facilement de nouveaux ordis et données
+
+
+### Inconvénients de Hadoop
+
+Efficace dans les algorithmes qui n'effectuent qu'un calcul dans une direction. Mais si ils utilisent la data de façon répétéé (descente de gradient, k-means, deep learning, graph algorithm (shortest path)), il se révèle inefficace. En effet, en hadoop à la sorite des reducers la data est stockée en disque et non en RAM avant d'être réutilisée pour les calculs. C'est de la redondance ! L'étape la plus coûteuse en temps est l'écriture et la lecture sur le disque, non le calcul.
+
+C'est pour ça que dans ces cas on va se pencher plutôt vers Spark.
+
+## Spark
+
+Au lieu d'écriture la data sur le disque dur à chaque fois, il la stocke en mémoire vive.
+
+Spark créé en 2012, est opensource, et bien plus rapide que Hadoop.
+
+Mais il a deux problèmes :
+
+- La RAM, c'est cher, bien plus que la mémoire dure.
+- La RAM est plus efficace mais mois *stable* : moins tolérante aux pannes. si l'ordinateur tombe, la data est perdue.
+
+Le challenge est de rendre Spark tolérant aux pannes. 
+
+Dupliquer la data sur les nœuds est très cher puisque la RAM est chère.  
+Garder une trace de chaque changement est aussi cher car il y en a beaucoup.
+
+La solution :  **Resilient Distributed Datasets**. Ils gardent une trace des changement sur chaque bloc (plusieurs éléments)
+
+Un exemple : la régression linéaire. 
+
+
+
+En conclusion : on utilise Hadoop si le calcul se fait dans un seul sens et qu'on a peu de budget, et Spark quand le calcul est itératif et qu'on priorise la vitesse.
+
+## Cloud computing
+
+Face au problème de la big data, deux solution, on a v la première : architecture distribuée, maintenant on va voir le cloud computing, deuxième solution.
+
+C'est un peu similaire à l'architecture distribuée, mais pas complètement.
+
+Les problématiques des entreprises sont de bien estimer les besoins, et implique de sacrées infrastructures. La solution idéale st de ne pas avoir à anticiper ces besoins et leurs couts, d'avoir de l'adaptabilité, de ne pas se préoccuper de la sécurité ... L'infra cloud apporte tout ça : les services sont accessibles à distance. Nombreux avantages et l'inconvénient de devoir trouver un fournisseur de confiance.
+
+AWS est le plus représenté ajd à 50%
+
+### Technologies
+
+Deux technos : la virtualisation et le high broadband Internet
+
+La virtualisation permet de partager une large ressource entre plusieurs clients.
+
+### Types
+
+Trois types de clouds : 
+
+- public. Le plus populaire, B to C. Ex : Dropbox. Partagé par énormément de clients. Peu cher, pas de maintenance, haute disponibilité, extrêmement modulable.
+- privé. L'accès est exclusif et non partagé.
+- hybride. les données et apps peuvent passer du privé au public pour plus de flexibilité.
+
+### Niveau de services cloud 
+
+On en a trois : 
+
+PaaS, Platform as a Service. Fournit des ressource,s des platformes, sur lesquelles les développeurs peuvent construire des applications.
+
+IaaS, Infrastructure as a Service. Fournit serveur, réseeau, stockage, et la maintenance est à charge du client.
+
+SaaS, Software as a Service. Fournit le logiciel final
+

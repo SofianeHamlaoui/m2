@@ -44,7 +44,7 @@ La partie 1 est une présentation globale, en particulier :
 - Des personnages
 - Des thèmes abordés dans chaque scène
 
-La seconde partie analyse le comportement des gens. Il y a des indices dans tout : posture, ton, **regard**, vocabulaire... On s'intéresse également au vécu des personnages : les besoins apparents que l'on comprend à partir de ce que l'on voit. Ces besoins sont-ils opposés à ceux de l'entreprise ? Puis le contexte de travail (on devrait y retrouver beaucoup de choix lents, de temps de réflexion importants) et enfin en synthèse, 20 concepts définissant / récapitulant le film et sa compréhension (slow down...)
+La seconde partie analyse le comportement des gens. Il y a des indices dans tout : posture, ton, **regard**, vocabulaire... On s'intéresse également au vécu des personnages : les besoins apparents que l'on comprend à partir de ce que l'on voit. Ces besoins sont-ils opposés à ceux de l'entreprise ? Puis le contexte de travail (on devrait y retrouver beaucoup de choix lents, de temps de réflexion importants) et enfin en synthèse, 20 concepts définissant / récapitulant le film et sa compréhension (slow down...). Ces concepts doivent être expliqués, contextualisés, et enfin conclure.
 
 La dernière partie cause de la capitalisation. Je me suis endormi à cette partie du cours (c'est déjà un miracle que j'ai tenu jusque là). On conclut enfin sur le rôle de cadre - en général et dans le film. On a le droit de donner son avis et de dire par exemple
 
@@ -535,3 +535,117 @@ Définition :
 
 La violence est évaluée par un jugement social : acte qui viole certaines normes culturelles.
 
+### 2.4 - Le harcèlement moral au travail
+
+#### Définition 
+
+> Toute conduite abusive qui se manifeste par ds comportements, des actes, des écrits pouvant porter atteinte à la personnalité, la dignité ou l'intégrité physique  d'une personne, et qui met en péril l'emploi de celle-ci ou dégrade le climat de travail
+
+Le but recherche par le harceleur :  
+
+- Dévaloriser sa victime. Le but est donc de la convaincre que c'est juste une merde => travail de sape et de destruction morale. 
+
+  => empêcher de penser, de comprendre, de réfléchir.
+
+Il s'agit d'un phénomène circulaire : ça naît de façon anodine et se propage. L'entourage le voit d'abord de façon anodine, puis régulière, ce qui ne l'incite pas à réagir.
+
+#### Les caractéristiques du harcèlement moral au travail 
+
+1. L'empêcher de s'exprimer
+2.  Isoler la victime
+3. Déconsidérer la victime auprès de ses collègues
+4. Discréditer la victime dans son travail : lui filer que des tâches bien en dessous de ses capacités, ou bien en deçà pour pouvoir ensuite le pointer du doigt en tant qu'incapable
+5. Compromettre la santé mentale de la victime : l'amener à se dit "je suis fou/folle", qu'elle se dise que ça vient d'elle. Genre faire livrer le double de ce que la personne a commandé. Ou détruire un dossier lorsque la personne va aux toilettes sans verrouiller sa question
+
+Pour qu'il y ait harcèlement il faut qu'il y ait répétition constante de ces actes malsains.
+
+#### L'attitude de la direction
+
+Refuse souvent de voir et laisse faire, propose rarement une solution directe. 
+
+Pou aider un collabo à sortir de l'emprise d'un harceleur, il est impérative qu'un tiers ou qu'un médiateur intervienne. N'importe qui peut faire l'affaire, tant qu'il n'est pas ni harceleur, ni victime. En général, un harceleur démasqué remet immédiatement son masque de gentil. Si on ne fait rien et laisse faire, par contre, la victime ne s'en sortira jamais. 
+
+#### Le triangle de Karpman
+
+Connu aussi sous nom de triangle dramatique. (Lien avec Analyse transactionnelle).
+
+Jeu psychologique : Persécuteur, Sauveur, Victime (voir PDF)
+
+- Persécuteur : attaque, brime, humilie, donne des ordres et provoque la rancune. considère la victime comme inférieure.
+- Sauveur :  étouffe, apporte une aide inefficace, crée la passivité par l'assistanat. Considère aussi la victime comme inférieure et lui propose son aide.
+- Victime : apitoie, attire, énerve, excite. se positionne comme inférieure et cherche un sauveur ou persécuteur pour le conforter dans son idée.
+
+#### Les 4 formes de harcèlement moral au travail
+
+1. Le harcèlement individuel (la tête de turc). Il peut être descendant (le plus fréquent), mais il peut arriver qu'il soit ascendant (dirigé sur le supérieur).
+2. Le harcèlement stratégique  : pousser à bout un collaborateur dont le départ est souhaité.
+3. Le harcèlement transversal : une équipe en souffrance choisit un bouc émissaire pour justifier/exhorter sa souffrance collective
+4. Harcèlement institutionnel : l'organisation fixe des objectifs inatteignables, tout le monde est surchargé. Augmentation du niveau général de stress. Il s'agit d'un piège pour les employés : on leur donne de l'autonomie de fonctionnement et la responsabilité des résultats, sans possibilité de négocier les objectifs et les moyens (ou de façon ultra mince). Il y a également une impossibilité de réagir dans le contexte français : si un cadre nous malmène et qu'on réagit on est en tort (faute disciplinaire), et si on démissionne on perd tous nos droits (explosion des arrangements depuis 2013).
+
+L'absence de culture managériale conduit à une gestion autocratique des collaborateurs.
+
+### 2.5 - Se prémunir des relations destructrices
+
+La plupart des managers qui provoquent des comportements de harcèlement le font malgré eux
+
+Ceux qui le font de façon consciente entrent plutôt dans la catégorie des PN, mais sont plus rares.
+
+#### La loi de Hecke
+
+La loi de Hecke : charge, tension, déformation. S'applique ensuite à l'humain : charge = toujours plus avec toujours moins de moyens; tension = perte de repères, d'énergie; déformation = le collabo craque (dépression, burn out).  
+Il y a deux façons de plier : se soumettre et développer une distance critique. Le désengagement, c'est justement quand le collabo se détache de son poste, ses objectifs, sa motivation.
+
+Le désengagement coûte cher aux entreprises : la grève est une perte, un turn-over important aussi implique des coûts de formation, recherche, recrutements... et l'absentéisme également représente des dépenses.  
+Il implique une perte d'efficacité, de rentabilité, d'image vis-à-vis des clients. Également un coût humain et sociétal : les gens ne veulent pas que la mauvaise ambiance et le stress de l'entreprise ne rejaillisse dans la vie privé, ou bien les conséquences négatives d'une mobilité forcée.
+
+#### La triade noire
+
+Concept proposé par des psychologues constitué de 3 traits distincts mais ayant des points en commun pouvant décrire des personnalités nuisibles socialement (qualifiées de toxiques ou aversives) : machiavélisme, psychopathie, narcissisme.
+
+Le machiavélisme :  
+Repose sur l'idée que pour réussir, le pouvoir politique doit être indépendant de toute morale ou obligation de sincérité. 4 caractéristiques :
+
+- Tendance à se méfier des autres. Vision cynique de l'humain, tendance à manipuler perçue aussi chez les autres in fine. 
+- Manipulation amorale. S'arrange un peu comme il le veut avec les normes morales si le besoin s'en fait sentir, mais pas de façon anarchique et systématique non plus.
+- Désir de statut. 
+- Désir de contrôle interpersonnel. Besoin de domination
+
+Le psychopathisme :  
+Trouble de personnalité antisociale, avec un mode général de mépris et de transgression des droits d'autrui. Pas d'empathie. Indifférence des normes sociales et des émotions humaines.
+
+Le narcissisme :  
+Caractérisé par rêves de grandeur, estime de soi excessive et besoin viscéral d'être admiré. Manque d'empathie, affiche un comportement arrogant. Si il sont conscience de l'importance qu'ils ont sur leur entourage, ces manipulateurs sont souvent immatures et incapables de mesurer le mal qu'ils font.
+
+#### Déjouer les risques de harcèlement moral
+
+1. L'incompatibilité des types de personnalité. Il existe 2 associations très risquées :
+   - Profil managérial type directif avec collabo coopératif
+   - Manager type normatif (froid, rationnel) avec collabo expansif (émotif)
+2. Le mode de contrôle des tâches peut représenter un risque : si certains confondent contrôle managérial (responsabilisation, motivation) et flicage (frustrant et infantilisant).  
+   Un contrôle s'annonce : pour montrer la confiance, permettre à l'autre de se préparer et faire bien le taff (ce que l'on souhaite), plutôt que le piéger (recherche de la faute).
+3. Le comportement des collaborateurs comme "victime chronique". Typique des gens qui ont du mal à se prendre en charge, à être autonome : amène à un "j'y arrive pas, personne m'aide" >> Calimero
+4. Les modes de communication qui recèlent des pièges. Notamment celui de la blessure identitaire : certaines personnes ont une faille intérieure, qui agit comme un filtre sur la réception de certains propos (ex : "ton travail est nul, tu dois le reprendre" est entendu "tu es nul"). Pour l'éviter, s'assurer que toute critique du travail soit dirigée sur le travail et non la personne, ainsi que d'accompagner toute critique d'une valorisation (revoir l'appui).
+
+#### 5 profils de managers toxiques 
+
+- Le poisson froid :  seul le résultat compte, la fin justifie les moyens.
+- Le serpent : se sert du monde pour satisfaire ses besoins personnels : cupidité, statut, pouvoir
+- Le chercheur de gloire : être reconnu comme une personne brillante, avoir de la visibilité publique
+- Le marionnettiste : à la recherche du contrôle absolu, sur tout et tout le monde, tout le temps
+- Le monarque : règne sur son petit royaume, tout doit être à son service.
+
+Tableau intéressant sur PDF.
+
+#### La misère de position
+
+Mise en avant par Bourdien en 1993
+
+Il ne s'agit pas d'une misère de ressources, mais de position : les gens n'arrivent pas à s'épanouir dans la direction souhaitée car ils sont oppressés par un système avec lequel ils ne peuvent pas interagir.
+
+Il s'agit d'une violence "larvée", transmise par :
+
+- le niveau d'études à atteindre
+- la nécessité d'avoir un logement : avoir une caution, de l'argent, un CDI, trouver le bon endroit...
+- les contraintes du marché du travail (normes de recrutement, licenciements...)
+- les agressions insidieuses de la vie professionnelle au quotidien 
+- le travail contraint : plus on bosse, plus le travail à faire dépend d'autres personnes : on dépend du résultat du travail d'un tiers.

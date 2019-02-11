@@ -13,4 +13,5 @@ _Tips et conseils super utiles du père Nogret_
 - Attention aux courtisants : des lèche-culs qui sont toujours d'accord avec le chef, même quand il a tort, afin d'obtenir des faveurs que les autres n'auront pas.
 - Baiser avec les couilles des autres, c'est absolument pas jouissif. Il faut garder la paternité de ses idées  et respecter celle des autres. 
 - En management, la morale et l'intérêt économique vont souvent de pair.
+-  10% des effectifs chaque année est un score correct de turn-over. Au dessus c'est trop cher.
 
