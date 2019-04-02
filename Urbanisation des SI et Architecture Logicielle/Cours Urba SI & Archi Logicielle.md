@@ -37,6 +37,8 @@ Le but est de rendre le SI **cohérent** par rapport à la stratégie de l'entre
 - Étude de cas
 - TD
 
+Un des buts du partiel c'est de voir que pour chaque flux qu'on est en train de suivre, il nous ramène indéniablement vers une fin, une résolution. On peut avoir une ou plusieurs fins.
+
 # I - L'urbanisation des SI
 
 ## Contexte stratégique
@@ -414,7 +416,7 @@ Business Activity Monitoring
 ### Bonnes pratiques
 
 - Identifier le projet pilote et vérifier si y a un fort ROI. 
-- Conduite du changement ! Avec une communication maximale pour éviter la résistance au changement et impliquer les gens. 
+- Conduite du chcangement ! Avec une communication maximale pour éviter la résistance au changement et impliquer les gens. 
 
 ### Erreurs à éviter
 
@@ -433,4 +435,16 @@ On peut faire des sous-process indépendants réutilisables sinon ils sont inté
 ### Évenements
 
 Un évènement c'est quelque chose qui arrive qui va déclencher tout le process. Ils sont représentés en cercle. Le type de bordure détermine le type d'évènement. 
+
+__15/0/2019__
+
+On fait tout ça parce que le process est créateur de valeur pour l'entreprise. Bonita soft est basé sur la norme BPMN pour modéliser les trucs cool expliquer dans le cool .  Analyser le process,  implémenter le process; machin machin, piloter, pour améliorer par optimisation.
+
+# Examen
+
+N'oubliez pas qu'il y a des process de communication, des retours, des process entre les piscines. N'importe quel outil de BPMN est autorisé.
+
+Pas de compte-rendu écrit : on doit rendre une modélisation simplement. Si on préconise d'améliorer certains points, on peut rendre un document à côté qui détaille le tout. Mais ça doit être bien.
+
+PAS D'EXAMEN
 

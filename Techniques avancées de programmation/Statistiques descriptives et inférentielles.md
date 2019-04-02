@@ -77,7 +77,7 @@ Ces lois donnent un résultat mais ne montrent pas la cause. C'est l'expériment
 
 
 
-Les tests que k'on devrait à minimum connaître 
+Les tests que l'on devrait à minimum connaître 
 
 Test paramétrique de liaison . Notre distribution suit une loi normale. 
 
@@ -93,3 +93,33 @@ Si ne suite pas une loi normale : non paramétrique :
 
 - 
 
+---
+
+*13/03/19*
+
+# Tests d'hypothèses
+
+On va voir aujourd'hui Chi2, qui permet de travailler sur du qualitatif et non quantitatif. Cette loi va notamment servir en médecine : on compare un échantillon normal et un malade.
+
+Schéma d'analyse univariée : permet de déterminer les outils à utiliser en fonction de ce qu'on veut faire.
+
+Chi2 seulement si on veut bosser sur une distribution. si sur des données, on regarde si ça suit la loi normale. si c'est le cas, on part vers Student, Walsh, randomisation... Il faut aussi regarder si l'échantillon est apparié (même échantillon mais qui a varié dans le temps) ou indépendant
+
+Dans le cas où ça ne suit pas la loi normale, on ne peut pas bosser sur les paramètres ! alors on travaille plutôt avec un système de rang : on classe touts les entrées les unes par rapport aux autres et quand on modifie on voit si elle change de rang.
+
+Schéma d'analyse multivariée : même délire.
+
+hypothèse, observation.. partie du cours perdue crash ordi
+
+Il y a 5 étapes : 
+
+1. 
+
+2. On établit l'hypothèse nulle $H_0$ : "Les paramètres ou les distributions sont identiques"
+3. Propose une hypothèse alternative : $H_0$ est rejeté t on considère $H_1$ comme trop importante pour être une simple fluctuation d'échantillonnage. De là on a une hypothèse alternative avec une différence signification, on cherche ensuite le sens de la différence ou non. Si on cherche c'est unilatéral, si non c'est bilatéral.
+4. On fait le calcul du test, qui renvoie une p-value, que l'on compare à la valeur du risque d'erreur $\alpha$. La p-value, c'est la probabilité d'être dans la fluctuation d'échantillonnage. Si la p-value est supérieure à $\alpha$  on doit conserver $H_0$, sinon on rejette $H_0$ et on accepte $H_1$. 
+5. On conclut. Attention dans le cas d'un test sur une liaison, ça ne prouve pas un lien de causalité.
+
+En gros, la p-value indique la chance que le résultat soit dû au hasard.
+
+En testat une distribution normale, peu importe si la p-value est immense ou non tant qu'elle est supérieure  à 0.05 : c'est binaire, ça n'indiqu pas une meileure distribution normale.

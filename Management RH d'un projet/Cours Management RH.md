@@ -649,3 +649,15 @@ Il s'agit d'une violence "larvée", transmise par :
 - les contraintes du marché du travail (normes de recrutement, licenciements...)
 - les agressions insidieuses de la vie professionnelle au quotidien 
 - le travail contraint : plus on bosse, plus le travail à faire dépend d'autres personnes : on dépend du résultat du travail d'un tiers.
+
+# IV - Le management du changement
+
+Comment piloter le changement ? C'est bête comme chou mais complexe.
+
+27 mots dans la langue française qui décrivent quelque chose qui n'est pas pareil après qu'avant. Faire attention à l'étymologie, au sens de ces mots, qui apportent de la précision sur la nature du changement.
+
+Le jeu des entreprises, c'est de protéger ses informations tout en volant celle des autres. l'**élicitation** : l'art de faire parler les autres. Il faut récxupérer l'intelligence économique, ce qui alimente notre stratégie.  
+Pour y parvenir, il faut faire accepter aux employés une transformation, une évolution.
+
+On y arrive en faisant accepter aux gens de se remettre en question tous les jours et de vouloir changer ce qui ne va pas. Quand ceci est admis, on a une capacité à piloter le changement extraordinaire.
+

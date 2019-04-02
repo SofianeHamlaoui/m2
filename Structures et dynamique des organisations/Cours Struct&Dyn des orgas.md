@@ -8,7 +8,7 @@ Exemple du métro : si le fléchage est mauvais, les gens vont un peu n'importen
 ## Examen
 
 À rendre pour le 17 juin. Il s'agit d'une étude, sous un angle choisi, de notre entreprise.  
-Format du nom de fichier :  SG1_NOM_Prenom.doc  
+Format du nom de fichier :  SG2_NOM_Prenom.doc  
 20 pages minimum
 
 ### Consignes
@@ -23,7 +23,9 @@ Mettre en annexes les observations qu'on a pu faire en entreprise. Ces observati
 
 Attention à **prendre en considération le contexte** !
 
-DAS = Domaine d'Activité Stratégique. C'est un sous-domaine de l'activité à développer (avec le client) pour amélmiorer la productivité et le rendement. Si on en a des potentiels, il faut savoir les identifier et donc trouver les bonnes problématiques.
+DAS = Domaine d'Activité Stratégique. C'est un sous-domaine de l'activité à développer (avec le client) pour améliorer la productivité et le rendement. Si on en a des potentiels, il faut savoir les identifier et donc trouver les bonnes problématiques.
+
+On va utiliser surtout l'école systémique pour analyser notre boîte. On ne demande pas un truc full et méga complet qu'on demanderait un à consultant, mais simplement de suivre le fil et récupérer et expliquer les concepts pour montrer qu'on les a compris.
 
 ### Conseils
 
@@ -379,7 +381,7 @@ Chaque personne fait une balance entre ce qu'il investit et ce qu'il obtient dan
 
 En conclusion, la motivation est quelque chose qui se construit sur la durée. Elle n'est pas un trait de personnalité, c'est un processus complexe dans lequel interagissent en permanence besoins, valeurs, contraintes culturelles, organisationnelles et économiques.
 
-### 4 - L'école de la contingence
+## 4 - L'école de la contingence
 
 #### 4.1 - Le modèle situationnel de Hersey - Blanchard
 
@@ -398,4 +400,226 @@ L'école des relations humaines apprend donc à **adapter le style à la situati
 ### Herbert Simon & la rationalité limitée
 
 Les conditions qui poussent les entreprises à décider sont rudimentaires : on ne dispose pas de tout les éléments. On tombe du Xe étage en disant "pour l'instant tout va bien". On ne prend pas la meilleure décision du monde car on a pas tous les éléments. Il faut savoir revenir dessus. c'est la rationalité limitée.
+
+## 5 - L'école systémique
+
+### 5.1 - Introduction à lk'école systémique
+
+En socio, c'est la qualité de l'organisation qui fait la différence (en management c'est la qualité de l'humain).
+
+**C'est l'école dont on aura besoin pour remplir notre dossier de fin d'année.**
+
+Elle considère que l'entreprise est un système qui s'articule autour de :
+
+- une composante humaine
+- une composante physique (bâtiments, choses tangibles)
+- une composante de gestion (objectifs, contrôle,s évaluation)
+- une structure d'organisation : somme totale des moyens utilisés pour diviser le travail en tâches distinctes et assurer la coordination de ces tâches.
+
+C'est dans ce dernier point que l'école apporte beaucoup. **Principe d'adaptation à l'environnement**. C'est un système ouvert affecté par les transaction avec les différents environnements. On a ici pas mal de tableaux utiles (p189). On voit qu'il faut s'adapter à par exemple la personne en face, par exemple la définition de fonction, au départ informelle, peut être ensuite formalisée par la définition de fonction adapté au profil de la personne, de ses compétences...
+
+Les leaders qui arrivent et appliquent une forte méthodologie, un truc qui roule, sont très efficaces !
+
+On parle maintenant de générations. Les jeunes générations ont une vision et une notion de l'organisation bien différentes des plus anciennes générations. Les "vieux" (générations B et T) ont une vision en "silos" : ils déroulent le bloc commercial/vente. Les Y ont un vision holacratique, et les Z organo-intuitive : en réseau. Ils bâtissent un réseau qui leur est propre basé sur leurs propres compétences et se mettent en réseau avec les compétences complémentaires. Le fonctionnement est alors basé sur des passerelles non plus liés au silos (du commercial au logistique), mais lié aux affinités de chacun. Les cadres établissent des liens amicaux, d'estime professionnelle, avec des gens capables d'apporter ce qu'ils ont besoin de trouver, ce qui leur manque.
+
+Par rapport à l'iceberg : quand tout va bien, on est surtout sur les aspects visibles. C'est en période de crise qu'il va falloir travailler sur ces aspects masqués qu'on a tendance à ne pas voir.
+
+### 5.2 - Analyse des structures des organisations
+
+Henri Mintzberg théoricien de l'école de la contingence, a monté une typologie des organisations à laquelle on va s'intéresser.
+
+On va analyser pour arrivr à optimiser le résultat que doivent générer les managers.
+
+#### 5.2.1 - Les 6 composants fondamentaux de l'organisation
+
+Les caractéristiques des structures :
+
+- Le mode de spécialisation : correspond au critère de découpage des activités : par fonction( dev, bdd, finance), ou par zone... 
+- Les modes de coordination : la façon de s'organiser. Par exemple : chacun reste chez lui à coder et on fait une réunion une fois par mois.
+- Le degré de formalisation. C'est le niveau de précision avec lequel on précise les tâches, on décrit les consignes. Ça permet de restreindre la liberté d'**interprétation** (il reste bien sûr de la liberté), peut permettre par exemple d'empêcher des commerciaux de marcher sur le terrain des autres. 
+
+Il y a 5 parties prenantes dans une boite (rappel de l'année dernière) : Actionnaires, Cadres, Clients, Fournisseurs, Environnement. Ces 5 parties doivent coexister et être développées ensemble pour que l'entreprise aille bien.
+
+On se penche sur les 6 composants :
+
+1. **Le sommet stratégique**. En haut de l'échelle, centre décisionnel.
+2. **Le centre opérationnel**. Cœur de l'organisation : là ou on travaille directement à la production et la vente de services. Membres qui produisent eux-même ou soutiennent directement la production.
+3. **La ligne hiérarchique**. tous les cadres moyens, se trouvent entre le niveau du bas et le niveau du haut. Ils font le lien entre les deux niveaux, et définissent des règles de fonctionnement
+4. **La technostructure**. En dehors de la ligne hiérarchique formelle. Experts dans des domaines fonctionnels permettant de planifier les systèmes, de standardiser le travail.
+5. **La fonction de support logistique**. Unité qui ne joue pas un contrôle direct sur la ligne de production (juristes, RH, R&D...). Ces unités procurent les services nécessaires à l'activité des autres unités.
+6. **L'idéologie**. Culture de l'entreprise : valeurs, traditions, croyances partagées par les membres de l'organisation.
+
+À partir de ces composants, on obtient un schéma en forme d'appareil reproductif féminin renversé, qui permet d'analyser et de décrire son entreprise.
+
+#### 5.2.2 - Les 6 mécanismes de coordination
+
+1. **L'ajustement mutuel**. Plaît beaucoup à Nogret car permet de devenir un chef dispensable : c'est aux collaborateurs de s'ajuster entre eux pour se répartir le travail par exemple.
+2. **La supervision directe**. Une personne (le manager) donne des ordres spécifiques aux autres, et il assure lui-même le contrôle. Dans ce cas, on s'éloigne de l'entreprise libérée ! Il y a peu de marge de manœuvre pour le collaborateur si on contrôle trop : laisser de l'autonomie et de la motivation.
+3. **La standardisation des processus de travail**. Standard qui guide la réalisation du travail. Souvent imposé par la technostructure. Relatifs à l'exécution des tâches.
+4. **La standardisation des résultats**. Quels standards permettent d'évaluer un travail, une production ?
+5. **La standardisation des qualifications**. Prêter par exemple attention aux diplômes avant de confier une tâche, d'embaucher. Ce sont des standards de qualifications, certifications, compétences, expérience permettant d'accéder à des postes, des tâches.
+6. **La standardisation des normes fondé sur la culture d'entreprise**.
+
+Les mécanismes 3,4 et 5 et 6 relèvent de la standardisation: donne des règles et des normes avant même la réalisation de leur coordination.
+
+Tableaux et schémas intéressants p206 et plus.
+
+#### 5.2.3 - Les paramètres de conception
+
+Ce sont ceux sur lesquels on agit, grands axes sur lesquels les décideurs ont monté la structure de l'organisation.
+
+- Conception des postes de travail : spécialisation du travail (horizontal/vertical), formalisation du comportement (bureaucratique/organique), formation et éducation du personnel.
+- Conception de la superstructure. deux découpages possibles (fonction et marché) pour les unités, et choix de leur taille.
+- Conception des liens latéraux entre individus et unités.
+- Conception du système de prise de décision.
+
+##### La conception des postes de travail. 
+
+Plus de détails
+
+###### La spécialisation peut être horizontale ou verticale
+
+**Spécialisation horizontale**, concerne le nombre de tâches et leur ampleur . Une faible spécialisation horizontale a un nombre de tâches élevées (employé Mc Do); une forte n'aura qu'une ou deux tâches (un sommelier).  
+**Spécialisation verticale**, autonomie et contrôle exercé par l'employé. Faible, il y a beaucoup de contrôle et d'autonomie (directeur des SI), forte, il y en a peu (peintre en bâtiment).
+
+###### La formalisation du comportement
+
+Elle permet la standardisation des processus de travail. C'est l'acte de mettre par écrit, de faire des docs, de mettre à plat les processus....
+
+Les travaux non spécialisés sont souvent les plus formalisés
+
+Les **structures mécaniques**  comptent sur leurs formalisations et standards pour réaliser la coordination
+
+Les **structures organiques** comptent sur la supervision directe, l'adaptation mutuelle pour la coordination.
+
+Dans notre cas, les IT, on est plutôt en organique. 
+
+Schéma cool p213. L'organique ressemble à une équipe en réseau.
+
+Diagramme p214 pour se rendre compte de si on est sur un modèle mécaniste ou organique.
+
+Éventail de subordination : combien de collaborateurs sous ma responsabilité, ont-ils tous la même spé ou sont-ils variés ?
+
+###### La formation et l'éducation
+
+Standardisation des diplômes, des connaissances, compétences acquises en dehors de l'entreprise, avant que la personne ne l'intègre. C'est l point clé d'un structure considérée comme professionnelle. 
+
+##### La conception de la superstructure
+
+###### Le regroupement en unité 
+
+(fonction versus marché). Ce qui est important c'st la fonction : ce qui permet de produire le bien ou service ; et le marché est représenté par le client, l'aspect essentiel car il paye, le but recherché de 'l’entreprise.
+
+###### La taille des unités
+
+Rappel : la taille optimale d'une équipe est de 5, légèrement variable selon les conditions. La taille des unités c'est le nombre de postes qui, regroupés, forment une unité élémentaire.
+
+en petit nombre, ça va, l'entente est mutuelle et de qualité. À nombreux ce n'est plus possible il faut mettre en place des comportements standardisés.
+
+##### La conception des liens latéraux entre individus et unités
+
+###### Systèmes de planification et de contrôle. 
+
+Peut avoir deux variantes : 
+
+- Planification des actions
+- Contrôle de la performance
+
+###### Mécanismes de liaison
+
+Se lier avec les bons services, créer des liens avec entre les individus qui assurent une meilleure coordination. 
+
+Adaptation mutuelle
+
+##### La conception du système de prise de décision
+
+Décentralisation verticale
+
+Décentralisation horizontale
+
+#### Synthèse : les 5 dimensions de l'organisation
+
+1. Spécialisation
+2. Standardisation
+3. Formalisation
+4. Centralisation : répartition du pouvoir
+5. Forme structurelle 
+
+Tableaux p223, 224 qui reprennent tout ça !
+
+#### 5.2.4 - Les 4 facteurs de contingence de l'organisation
+
+##### 1. L'ancienneté et la taille de l'organisation
+
+Plus t'es vieux, plus t'es gros.
+
+Plus elle est grande, plus la taille de l'unité moyenne est importante et plus sa structure est élaborée.
+
+Enfin, l'époque à laquelle l'entreprise a été fondée influe fortement sur sa structure.
+
+##### 2. Le système technique
+
+Plus le système technique est grand et régulateur, plus le travail va être formalisé et l'orga bureaucratisé (ex: nucélaire)
+
+Si le systèm technique est sophistiqué, plus la structure administrative es timportante, plus il y  de mécanismes de liaison
+
+Enfin l'automatisation du trvaail tend à transformer le bureaucratisé en organique
+
+##### 3. L'environnement
+
+###### Environnement dynamique
+
+structure organique, standardisation du travail par supervision direct, adaptation mutuelle
+
+###### Environnement complexe 
+
+Structure décentralisée, le pouvoir formel est délégué à traverser la chaîne hiérarchique, et la circulation du pouvoir informel se fait hors de la chaîne hiérarchique.
+
+###### Environnements hostiles 
+
+peuvent conduire les orgas à centraliser temporairement leurs structures (ex: crise de trésorerie, incidents graves en usine..)
+
+##### 4. Le pouvoir
+
+##### Le contrôlle extérieur
+
+Semble accroitre formalisation et centralisation
+
+###### L'aspiration au pouvoir
+
+des memre de l'organisation accroit la cntralisation si le chef a un fort besoin de pouvoir.
+
+La mode influe aussi sur l'entreprise, pouvant pousser au choix d'une stucture inapproprié.
+
+### 5.3 - Les 7 types de structures
+
+#### 5.3.1 - Structure simple
+
+Repose sur un seul homme clé, très fragile !  Et risque de management en râteau : grande distance entre le leader et toutes les sous-branches qui doivent obligatoirement passer par lui. 
+
+#### 5.3.2 - Structure mécaniste
+
+La technostructure est l'élément clé. Les tâches sont très spécialisées et routinières.
+
+#### 5.3.3 - Structure divisionnelle
+
+Se compose de plusieurs entités autonomes. Stratégie globale mais décisions d'opérations décentralisées.
+
+Les petites filiales sont financées par les plus grosses. Bonne répartition des risques.
+
+#### 5.3.4 - Bureaucratie professionnelle
+
+Grande organisation, deux centres opérationnels : opérateurs et professionnels.
+
+Dur d'éliminer les parasites qui en branlent pas une. 
+
+#### 5.3.5 - Adhocratie
+
+Structure souple, beaucoup d'autonomie, organisé autour de projets. sorte de "super équipe projet".
+
+L'incompétence y est vite identifiée. N'est pas idéal si on recherche la stabilité.
+
+Tableau récapitulatif utile en p235 - 236
+
+
 

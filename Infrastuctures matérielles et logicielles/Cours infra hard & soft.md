@@ -470,3 +470,72 @@ prépare la traduction : si des mots sont pas compwris, communication possible v
 
 ### Grammaires
 
+
+
+# Cinquième vague
+
+## SGBD : Exécutions SQL
+
+### 
+
+1.
+
+D'abord, ordre donné. Avant de l'exécuter, le moteur vérifie la syntaxe, puis la sémantique (l'utilisateur a t il le droit?...), la requête a t elle déjà un plan d'exécution (dans le SGA) ?
+
+2.
+
+Puis optimisation : bind variables. SQL sensible à la casse, et pour une mêùme variable en min et maj, il est obligé de faire un hard pass ce qui est très couteux. Les bind variables font un truc qui permet d'économiser des ressources.  
+Elle permet de créer un seul et unique arbre de résolution de requête qui va être actualisé avec les nouvelles valeurs, autrement SQL créerait un nouvel arbre à chaque fois.
+
+3.
+
+Exécution du plan sélectionné.
+
+En complément :
+
+les hints. Syntaxe spécifique qui va permettre d'exécuter d'une façon spécifique, par exemple en demande un parcours complet de la table.  
+Plusieurs listes et jointures possibles listés sur le PDF  
+l'optimiseur : il aide et assiste. SQL TUNING ADVISOR donne des indications sur comment opti sa bdd
+
+
+
+Le CBO a de meilleures perfs mais a besoin de métadonnées sur les tables utilisées.Pour cela, Oracle a des tables cachées de stats sur les tables utilisables. Avant c'était RBO : rule-based organisation
+
+
+
+### OS : Gestion des péripériques
+
+Intro : udev gestionnaire de périph du kernel linux depuis 2.6
+
+Concepts:
+
+- /dev contient les périphériques sous forme de fichier
+- udev nouveau système qui permet de les gérer là
+- 
+
+Règles :
+
+elles permettent de 
+
+- changer nom périph
+- plein d’autres sur pdf
+
+fichiers dans /etc/udev/rules.d
+
+. on peut avoir plein de fichiers d'extension .rules
+
+un périphérique peut être contrôlé par plusieurs règles
+
+Sysfs quand Gaul le dit in dirait qu'il dit "si ses fesses". Exemple : "si, ses fesses on peut faire plein de choses avec".
+
+Il est par exemple possible grâce aux règles udev de faire un script qui se déclenche en fonction du numéro de s"ri d'un périph branché. Mais ça marche pas toujours.
+
+### Pare-feu : WAF WAF
+
+J'étais pas là
+
+### Drivers : Drivers Windows, signatures et certificats
+
+C'est maintenant obligatoire sous Windows depuis Vista.
+
+La signature vérifie si tout est approuvé, le logiciel, l'éditeur, et si y a 0 modifs depuis la certification.Pour obtenir un certif, on se rapproche d'une autorité de certif. Les certifs et centre approuvés sont regroupé dans une bibliothèque gérée par Windows.

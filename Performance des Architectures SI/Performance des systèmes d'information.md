@@ -361,3 +361,22 @@ IaaS, Infrastructure as a Service. Fournit serveur, réseeau, stockage, et la ma
 
 SaaS, Software as a Service. Fournit le logiciel final
 
+---
+
+*11/03/19*
+
+# Deep learning
+
+## Neural networks
+
+Les réseaux de neurone c'est juste du machine learning utilisant un deep neural network.
+
+Ça utilise du fully connected convolutionnal layers
+
+On traville avec des dimensions de couches (100, 200, 50...)
+
+On spécifie donc input_dim (talile) et activation qui est une fonction.I fauten retenir ReLu et Leaky ReLu. dans l'activation on voit softmax et relusoftmax if x>= 1, relu si x est au moins  1node.
+
+Keras est simple, si c'est pas suffisant on bascule sur Tensorflow, qui est plus compliqué. Pour l'instant, Keras est le mieux pour nous.
+
+Pooling c'est juste un truc pour réduire lma taille.C'est pour ça qu'on utilise les convolutional 

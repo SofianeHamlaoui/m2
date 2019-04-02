@@ -8,4 +8,5 @@ _Tips et conseils super utiles du père Nogret_
 - Les valeurs de l'entreprise sont importantes, il faut y adhérer. Pour autant ne pas s'asseoir sur ses valeurs pour celles de l'entreprise.
 - Une boîte ne paye que quand elle a mal au cul
 - On est pas militaire pour la gamelle : c'est pas pour la solde à la fin du mois que tu fais ce travail. En gros, l'argent n'est pas une source de motivation !
+- Pourquoi payer Microsoft ? Ils nous baisent depuis des années, il n'y a pas un seule bonne raison de leur filer de la thune.
 
