@@ -117,7 +117,7 @@ L'exclusif intervient quand on veut faire une modif en écriture sur une ressour
 
 C'est au niveau du commit que tout se gère : opti/pessi encadre le commit
 
-### Structures mémoire
+## Structures mémoire
 
 ### Sommaire
 
@@ -884,30 +884,91 @@ Information sur un module -> modinfo
 
 ## Gestion des péripériques
 
-Intro : udev gestionnaire de périph du kernel linux depuis 2.6
+### Introduction
 
-Concepts:
+Udev est un gestionnaire de périphériques remplaçant devfs dans le noyau Linux depuis la version 2.6.  
+Sa fonction principale est gérer les périphériques dans le répertoire /dev.  
+En général une règle s’écrit en quelques lignes dans un fichiers .rules qui se trouve dans /etc/udev/rules.d
 
-- /dev contient les périphériques sous forme de fichier
-- udev nouveau système qui permet de les gérer là
-- 
+### Concepts
 
-Règles :
+- /dev : sert à contenir les périphériques sous forme de fichier, les “nodes”, qui se rapportent aux périphériques système.
+- Nodes: Chaque “node” se réfère à un périphérique, les applications peuvent utiliser ces nodes pour interagir avec les périphérique.
+- Udev: est le nouveau système pour gérer le répertoire /dev, conçu pour repousser les limites mises en avant pas les précédentes versions de /dev
+- Sysfs: officialisé avec le noyaux 2.6. Il est géré par le noyau pour exporter les informations basiques sur les périphériques connectés au système. Udev utilise ces informations pour créer les “nodes”.
 
-elles permettent de 
+### Les règles Udev
 
-- changer nom périph
-- plein d’autres sur pdf
+Les règles udev sont flexibles et très puissantes:
 
-fichiers dans /etc/udev/rules.d
+- changer le nom assigné par défaut à un périphérique;
+- donner un nom alternatif ou permanent à un périphérique en créant un lien symbolique;
+- nommer un périphérique en fonction de la sortie d'un programme;
+- changer les permissions et les propriétés d'un périphérique;
 
-. on peut avoir plein de fichiers d'extension .rules
+### Fichiers de règles et syntaxes
 
-un périphérique peut être contrôlé par plusieurs règles
+- Udev se sert de différent fichiers qui se trouvent dans le répertoire /etc/udev/rules.d  
+  Extension .rules
 
-Sysfs quand Gaul le dit in dirait qu'il dit "si ses fesses". Exemple : "si, ses fesses on peut faire plein de choses avec".
+- Les règles udev sont par défaut crées dans le fichier /lib/udev/rules.d/50-udev-default.rules  
+  Trié par ordre alphabétique, et ordres de prise en compte /etc/udev/rules.d/10-local.rules
 
-Il est par exemple possible grâce aux règles udev de faire un script qui se déclenche en fonction du numéro de s"ri d'un périph branché. Mais ça marche pas toujours.
+- Pour info udev, essaie d’appliquer toutes les règles qu’il trouve,  
+
+  "#":  commentaire et les règles s’écrivent sur une seule ligne. Enfin un périphérique peut-être contrôlé par plusieurs règles
+
+### Syntaxe d'une règle
+
+On retrouve un ensemble de clefs de correspondances et de clefs d'assignation, séparées par des virgules. 
+
+- Les clefs de correspondances sont les conditions utilisées pour identifier le périphérique sur lequel la règle agit. 
+- Chaque règle doit se composer d'au moins une clef de correspondance et d'une clef d'assignation.
+
+KERNEL=="hdb", NAME="my_spare_disk"  
+La clef de correspondance (KERNEL) et une clef d'assignation (NAME).
+
+### Règles basiques  `man udev`
+
+Les clefs les plus communes:
+
+- KERNEL : le nom du périphérique donné par le noyau;
+- SUBSYSTEM : le nom du sous système contenant le périphérique;
+- DRIVER :  le nom du pilote du périphérique.
+
+Les clefs d'assignation les plus communes:
+
+- NAME : nom du périphérique "node";
+- SYMLINK : liste des liens symboliques, ceux-ci étant les noms alternatifs pour le périphérique..
+
+On peut avoir plein de fichiers d'extension .rules  
+Un périphérique peut être contrôlé par plusieurs règles
+
+### Utilisation de sysfs - Organisation de sysfs
+
+- Outil servant à écrire des règles.
+- Structure très simple
+- La commande suivante permet de lister les périphériques :  
+  find /sys -name dev
+- La commande suivante permet de trouver un périphérique tout juste branché :  
+  find /dev/bus/usb/ '!' -type d -mmin -5
+
+Sysfs quand Gaulène le dit in dirait qu'il dit "si ses fesses". Exemple : "si, ses fesses on peut faire plein de choses avec".
+
+### Permissions et propriétés
+
+Udev vous permet de gérer dans vos règles les propriétés et les permissions de chaque périphérique.
+
+La clef d'assignation GROUP vous permet de définir à quel groupe appartient un périphérique "node". Dans cet exemple, les périphériques framebuffer appartiennent au groupe Video :  
+`KERNEL=="fb[0-9]*", NAME="fb/%n", SYMLINK+="%k", GROUP="video"`
+
+Dans cet exemple, l'utilisateur John sera mis comme propriétaire pour les lecteurs de disquettes :  
+`KERNEL=="fd[0-9]*", OWNER="john"`
+
+Cet exemple définit que le périphérique peut être utilisé par tout le monde :  
+`KERNEL=="inotify", NAME="misc/%k", SYMLINK+="%k", MODE="0666"`
+
+Il est par exemple possible grâce aux règles udev de faire un script qui se déclenche en fonction du numéro de série d'un périph branché. Mais ça marche pas toujours.
 
 # Driver
 
@@ -1036,6 +1097,5 @@ Il définit ce qu'est un sujet, un verbe.. donc un objets, une classe... ?
 prépare la traduction : si des mots sont pas compwris, communication possible via la table des symboles.
 
 ### Grammaires
-
 
 
