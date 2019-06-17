@@ -380,3 +380,197 @@ On spécifie donc input_dim (talile) et activation qui est une fonction.I fauten
 Keras est simple, si c'est pas suffisant on bascule sur Tensorflow, qui est plus compliqué. Pour l'instant, Keras est le mieux pour nous.
 
 Pooling c'est juste un truc pour réduire lma taille.C'est pour ça qu'on utilise les convolutional 
+
+# ML pipeline
+
+on a vu que SKlearn est bien pour les petits modèles (techniques) :
+
+- linear
+- tree
+- ...
+
+Le deep learning et les réseaux de neurones sont plus orientés pour la recherche en ML
+
+On va voir aujourd'hui le gradient boosting : avec LightGBM and XGB (they are similar)   
+La clé est de créer de nouvelles et utiles features.
+
+Sklearn : basic, simple, weak, "work not well"
+
+deep learning : best for images, sounds, videos (maybe for text) => tuning parameters and architecture
+
+Gradient boosting : utilisé en finance et autres domaines de la vie réelle. La data est tabulaire (nombre, categorical, ...). Le deep learning ne fonctionne pas bien sur ce type de données. Le tree-based gradient boosting est le meilleur pour ce type de données MAIS, le tree-based a besoin de bonne features.  
+DONC le feature engineering est la chose la plus importante
+
+Un exmple très simple de feature engineering qu'on peut trouver dnas le TP : 
+
+- combiner plusieurs features pour en obtenir une nouvelle. 
+- modifier les features
+
+Dans titnaic, on va jouer avec le nombre de siblings et le nombre de parents enfants pour obtenir une taille de famille et obtenir une feature "alone/not alone".  
+Aussi, on va modifier le nom pour mettre le titre (la civilité de la personne)  
+
+Passer une data qualitative en quantitative. Par exemple : nom d'une ville. 
+
+- On peut passer par exemple en one-hot (OO, O1, 1...) mais c'est pas élégant et y a trop de features : si y a K catégories il faudra K nouvelles features
+- Ou bien en fréquence d’apparition : on met le nombre de fois que la ville apparaît dans la liste (paris 5, lyon 4, grenoble 4, marseille 2...)
+
+
+
+## Pourquoi le feature engineering ?
+
+Avant de considérer cette question, on se penche sur le tree-based learning. C'est l'arbre décisionnel, tel qu'on l'a vu avec GN.
+
+L'arbre de décision marche assez bien avec les données qualitatives. On a pas besoin de mettre les features à l'échelle. 
+
+Le tree-based gradient boosting n'a pas grand chose de plus à savoir : on construit un arbre et encore et encore, et on améliore le modèle en les combinant. C'est le bagging (empaquetage) : on construit plusieurs arbres **indépendants** puis on calcule la moyenne / la majority voting.  
+En soi, le bagging est proche du random forest la différence est que :
+
+- random forest construit les arbres sur un sous-ensmble du total des features (et un sous-ensemble des data points)
+- bagging construit les arbres sur la totalité des features (et tous les data points ?)
+
+Boosting est proche du bagging aussi. cla fonctionn ainsi :
+
+- On construit un arbre 1
+- Puis un arbre 2 basé sur les erreurs de l'arbre 1 
+- Puis un 3 sur les erreurs du 2
+- Etc
+- on obtient une moyenne pondérée (weighted average)
+
+Pour la moyenne, boosting est mieux que bagging. MAIS boosting peut être overfitté
+
+Booting et bagging peuvent être utilisés pour n'importe quelle technique (pas forcément un arbre). Par exemple linear, logistic regression...
+
+L'état de l'art du tree-based gradient boosting 
+
+- Libriaries : LightGBM (2016), XGB (2015)
+- LightGBM est plus rapide et de façon globale, meilleure.
+- Les deux sont dispo sur Anacondada
+- Docs LightGBM : lightgbm.readthedoc.io // XGB xgboos.readthedoc.io
+- Usages
+  - Simple:
+    - no architecture
+    - just tuning parameters
+- 3e choix possible : Catboost.
+
+## Final step
+
+Étape finale :
+
+- blending
+- stacking
+
+On entraine sur plein de moèdles différents, et on obtient plein de prédictions différentes  ( $\hat y_1, \hat y_2, ...,\hat y_t$)
+
+### Blending
+
+C'est la prédiction finale, obtenue en faisant une moyenne pondérée :
+
+$\hat y_{final} = weigthed\ average(\hat y_1, \hat y_2, ...,\hat y_t)$
+
+Techniques des branlots et autres flemmards
+
+### Stacking
+
+On utilise toutes les prédictions y comme $t$ features pour entraîner un modèle final et **simple**, pour retourner une prédiction finale
+
+$\hat y_{final} = model(\hat y_1, \hat y_2, ...,\hat y_t)$
+
+Technique la plus utilisée. Les gens utilisent toujours le stacking.
+
+# NLP and time series
+
+NLP : Natural Language Processing
+
+RNN : recurrent neural network
+
+LSTM : Long Short Term Memory
+
+GRU : Grate Recurrent Unit
+
+## Pourquoi RNN
+
+Un phrase = une séquence de données. Un élément dépend de l'élément prcédent. Un texte est donc une phrase mais un time series aussi.
+
+- **Fully connected NN** : ne prend pas en compte la dépendance : c'st nul
+
+- **Convolutionnal NN** : capture d'une structure locale (fenêtre de convolution parmi l'ensemble)). ainsi, pour un texte, la fenêtre sera une partie de ce texte. Mais c'est insuffisant ! 
+
+  - Ça suppose que toutes les relations locales sont les même tout le long du texte
+  - Ne capture jamais rien de plus grand que la taille de la fenêtre
+
+  DONC pas top
+
+- **Recurrent NN** : est donc encore mieux
+
+## Types de problèmes
+
+### Many to one
+
+classification à partir d'une phrase
+
+ex :  phrase qui donne une review Il faut en deviner la note sur 5. 
+
+On met plein de node en input, on fait passer dans le NN et on en ressort une note.
+
+### one to many
+
+génération de texte, génération de musique
+
+en entrée on a un node aléatoire, ça passe dans le NN et il en ressort plein de nodes
+
+### many to many
+
+Language translation
+
+Là on aura plein de nodes en entrée (ex: en anglais), passage dans le NN et plein de nodes en sortie (mais en français)
+
+## ?
+
+Y a donc une entré, le réseau, et une sortie
+
+Prenons en exemple une phrase de 9 mots : The restaurant that I went to yesterday was good
+
+En many to one , chaque mot va passer dans le NN, et sur le dernier il fait une normal classification with softmax et obtien la review. ssez proche du convolutional.
+
+La différence entre RNN et CNN et FCN, c'est que l'état précédent du NN est l'input de l'état courant. Dans les autres, il y a seulement un calcul du gradient puis une update du NN, il ne prend pas le précédent comme input.
+
+Ainsi, dans un many to many, il va prendre "the" et dire "ok c'est "le", pis passer à "restaurant" avec"le" en entrée, etc...
+
+## Keras
+
+Layer : RNN (...)
+
+like conv2D(, Dens()
+
+## LSTM and GRU
+
+Le problème du RNN c'est que, dans notre exemple, quand la phrase  atteint une certaine longueur, il commence à oublier les parties précédentes.
+
+ça amène aux concepts de gradient vanishing et gradient exploding (mais je sais pas pourquoi)
+
+Pour voir les mots importants, il compte la fréquence d'apparition, dans le texte mais surtout en général ! Apparaître plus souvent dans un texte n'est pas forcément un signe d'impotance (ex: "the")
+
+LSTM et GRU sont assez similaires, LSTM a tendance a etre légèrement mieux de manière général. Les deux ont une ligne de mémoire (the gate) qui persiste au cours du texte pour garder en mémoire ce qui est important. Le gate est donc présent dans chaque NN à travers duquel on fout un input.
+
+### Différences 
+
+Pas hyper importantr mais toujours ça à savoir :
+
+- LSTM : 3 gates par node
+- GRU 2 gate par node
+
+### Comment les utiliser ? 
+
+Avec Keras, LSTM() et GRU(). Il est bon d'essayer les deux mais en général les gens préfèrent LSTM
+
+
+
+Il y a beaucoup d'informations à garder ! Par exemple en génération de texte, la grammaire : si "restaurant" est au singulier il faudrait mettre "bon" au singulier, mais l'accorder si "restaurant" est au pluriel
+
+
+
+
+
+# Bibliography
+
+Pour en savoir plus sur comment faire du feature engineering : *Feature engineering* by Alice Zheng, O'Reilly 2018

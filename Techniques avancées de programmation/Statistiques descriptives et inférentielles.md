@@ -122,4 +122,4 @@ Il y a 5 étapes :
 
 En gros, la p-value indique la chance que le résultat soit dû au hasard.
 
-En testat une distribution normale, peu importe si la p-value est immense ou non tant qu'elle est supérieure  à 0.05 : c'est binaire, ça n'indiqu pas une meileure distribution normale.
+En testant une distribution normale, peu importe si la p-value est immense ou non tant qu'elle est supérieure  à 0.05 : c'est binaire, ça n'indique pas une meilleure distribution normale.
