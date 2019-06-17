@@ -1,3 +1,5 @@
+
+
 # Anti virus
 
 ## Présentation
@@ -511,15 +513,83 @@ Trois types de pare feu :
 
 ## Gestion des paquets
 
+### La définition de paquet (réseaux)
+
 Paquet : données envoyées sur le réseaux découpées en pitits morcaux
+
+- Afin de transmettre un message d'une machine à une autre sur un réseau, celui-ci est découpé en plusieurs paquets transmis séparément.
+- Un paquet inclut un en-tête (en anglais, header), comprenant les informations nécessaires pour acheminer et reconstituer le message, et encapsule une partie des données.  
+  Exemple : le paquet IP.
+
+### La définition de socket
 
 Socket : Permet au développeur de manier les outils réseaux. Un socket contient ce qu'il faut pour les protocoles de la couche.
 
-Communication peu être en TCP ou UDP  (connecté / non connecté)  
+- est une interface de connexion 
+- permet la communication entre processus 
+- peut fonctionner en interne
+- Peut fonctionner à travers le réseau
+- En réseau : est lié au port 
+
+Les sockets se situent juste au-dessus de la couche transport du modèle OSI (protocoles UDP ou TCP), 
+elle-même utilisant les services de la couche réseau (protocole IP / ARP). 
+
+### Déroulement d’une communication
+
+La communication par socket utilise un descripteur pour désigner la connexion sur laquelle on envoie ou reçoit les données
+
+Deux étapes : 
+
+- La création d’un socket et de son descripteur par la fonction socket()
+- Spécifier le type de communication associé au socket (TCP ou UDP) par la fonction bind()
+
+Deux états :
+
+- Connecté (TCP) : 
+  - Une connexion durable est établie entre les deux processus.
+  - L’adresse de destination n’est pas nécessaire à chaque envoi de données
+- Non Connecté (UDP) : 
+  - Nécessite l’adresse de destination à chaque envoi
+  - Le destinataire reçoit le message petit à petit et de façon désordonnée. 
+
+Connecté : 
+
+1. Création d’un socket et de son descripteur avec socket()
+2. Spécifier le type de communication avec bind()
+3. Le socket est en mode passif par la fonction listen() (écoute des messages)
+4. Permet d’accepter la connexion grâce à la fonction accept()
+5. Réception des données par la fonction recv()
+
+Non connecté : 
+
+1. Création d’un socket et de son descripteur avec socket()
+2. Spécifier le type de communication avec bind()
+3. Le serveur reçoit les données grâce à la fonction recvfrom()."
+
+Communication peut être en TCP ou UDP  (connecté / non connecté)  
 TCP : socket, bind, listen, accept, recv, send  
 UDP : socket, bind, recvfrom
 
+### Parcours du paquet
+
+- Arrivée paquet
+- Mise en tampon ou rejet
+- Génération interruption
+- Allocation SK_Buffer
+- Appel de fonction
+- File d’attente CPU
+- Traitement
+- Pare-feu
+- Rejet ou distribution
+
 Lorsque le paquet arrivé, il est mis en tampon, ou rejeté. Puis il y a génération ou interruption, on lui alloue le SK_buffer, appelle la fonction et on le met en file d'attente du CPU. Il est ensuite traité au niveau processeur, t c'est ici que le pare feu intervient pour filtrer les paquets : il peut lire ce qui se passe dans le processeur, et en fonction de ses règles il l'accepte ou le rejette.
+
+### La définition de sk_buffer
+
+- Le sk_buff conserve toutes les informations nécessaires sur un paquet. 
+- Par sa structure, nous avons accès aux informations d’un paquet, y compris les pointeurs sur le paquet et les variables qui décrivent celui-ci.
+- Chaque fois qu’il y a un pointeur qui s’appelle skb, il doit pointer vers une instance de cette structure.
+- Liste des pointeurs nécessaire au buffer  : <https://www.kernel.org/doc/htmldocs/networking/ch01s02.html>
 
 SK_buffer conserve les données sur les paquets. c'est un objet qui permet à l'OS de se "représenter" le paquet : toutes les données (dont entête, tout ça) qui sont inscrite dedans. 
 
