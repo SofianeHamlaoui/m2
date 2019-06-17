@@ -589,15 +589,121 @@ Ne pas confondre shell et terminal ! Ce dernier exécute le shell mais n'en est 
 
 ## La mémoire
 
-J'ai oublié. De. Noter.
+### Le Gestionnaire de mémoire
+
+- Un sous-ensemble du système d'exploitation
+- Son rôle est de partager la mémoire entre l'OS et les diverses applications
+- Le terme "mémoire" fait surtout référence la mémoire principale = la RAM
+
+- La gestion de celle-ci demande la contribution de la :
+  1. mémoire auxiliaire (mémoire de masse, spacieuse mais lente)
+  2. mémoire cache (rapide mais de taille restreinte).
+
+### Les fonctions du gestionnaire de mémoire 
+
+L'allocation de la mémoire aux processus
+
+- Répertorier les emplacements libres de la mémoire
+- Allouer la mémoire nécessaire aux nouveaux processus
+- Récupérer la mémoire des processus qui s'achèvent
+
+La protection
+
+- Garantir l’intégrité du Système d’exploitation et des processus
+- Utilisation simultanée
+
+La segmentation de l'espace d'adressage
+
+- Pouvoir coder les segments séparément et les paramétrer en fonction de l'application
+- Permettre des degrés de protection différents selon les segments ( lecture seule, exécution...)
+- Accepter le partage de certains segments.
+
+La mémoire virtuelle
+
+- Elle offre aux applications une mémoire de taille supérieure à celle de la mémoire principale.
+- L'espace d'adressage qu'offre la mémoire centrale est parfois insuffisant. 
+- Les disques suppléent à cette insuffisance en fournissant une mémoire auxiliaire (plus vaste mais plus lente) 
+
+### Gestion de la mémoire pour systèmes multi-tâches
+
+Partitions fixes
+
+- Les partitions sont de différentes tailles pour éviter que de grandes partitions ne soient occupées que par de petits processus.
+- Une file d'attente est associée à chaque partition.
+- Une autre solution est de créer une file unique
+
+Partitions variables
+
+Au fur et à mesure que les processus se créent et se terminent, des partitions s'allouent et se libèrent laissant des zones mémoires morcelées et inutilisables. 
+
+### La Pagination
+
+- La mémoire physique est découpé en morceaux linéaires de mêmes taille, appelés case.
+- La mémoire virtuelle est divisée en unités de même taille, appelées pages.
+- La taille d’une case est égale à la taille d’une page.
+- Cette taille est définie par le matériel, en puissance de 2, entre 512 octets et 8192 octets.
+
+Lorsqu’un programme tente d’accéder à une page dans la mémoire virtuelle, le MMU fait correspondre celle-ci au cadre de page correspondant.
+
+### Conversion adresse logique - adresse physique
+
+- L’espace d’adressage du processus est découpé en pages, formé par le couple <numéro de page p, déplacement d>
+- Pour faire correspondre une adresse logique en adresse physique, le MMU utilise une structure particulière, la tables des pages.
+- Chaque processus a sa propre table de page.
+
+### La Segmentation
+
+- Partage les processus en segments bien spécifiques.
+- Chaque objet logique sera désigné par un segment.
+- Traduction du couple d'adressage en adresse mémoire par le biais d’une table de segments.
+- Adressage de la mémoire par déplacement.
+
+- Les segments sont des entités logiques que le programmeur connaît et manipule.
+- Chaques composantes du processus (pile, code, tas, données …) peut avoir son propre segment.
+- Gestion des droits sur l’accès aux segments.
+- Un segment peut être partagé par plusieurs processus.
+- Chaque segment est un espace linéaire.
+
+- La base est l’adresse de début du segment.
+- La limite est la dernière adresse du même segment.
+- La limite définit la taille de l’adresse de départ.
+- L’adresse logique est constituée du numéro de segment et d’un offset.
+- Le numéro de segment sert d’index pour retrouver l’adresse du début du segment.
+- L’offset ajouté à l’adresse de début de segment pour former l’adresse physique.
+
+Segmentation avec pagination: schéma de la mort.
 
 ### Noël
 
 Avant, pas plus de 640 kilooctets. Du coup les gars se sont dit "bon, bah on prend une page de cette taille, on la rempli, pis si ça fait plus on fait une deuxième page".
 
-Le problème c'est que si quelqu'un arrive à percer le code il a accès à tout. Donc ils ont définit un espace mémoire, t dedans des blocs, qui sont des "segments". chacun avec ses propres règles et des tailles différentes. On a donc du paginé + segmenté.
+Le problème c'est que si quelqu'un arrive à percer le code il a accès à tout. Donc ils ont définit un espace mémoire, et dedans des blocs, qui sont des "segments". chacun avec ses propres règles et des tailles différentes. On a donc du paginé + segmenté.
 
-## L'ordonnancement
+## Les processus sous Linux
+
+Processus : Du latin pro (“vers l’avant”) et cessus, cedere(“aller , marcher”) 
+
+On peut le définir : 
+
+- N'importe quel exécutable exécuté ( tâche en cours d'exécution)
+- L’image de l’état du processeur et de la mémoire au cours de l'exécution d’un programme
+
+Au niveau technique:
+
+- Référencés par un identifiant unique, le PID. (utile pour changer la priorité ou arrêter un processus)
+- Si le processus 2 a été lancé par le processus 1, on l'appelle un processus fils. Le processus qui l'a lancé est appelé processus parent.
+- 3 Etats: Prêt, Élu et Bloqué 
+
+### L'ordonnancement
+
+La fonction d’ordonnancement gère le partage du processeur entre les différents processus en attente pour s’exécuter.
+
+Pour passer de l’état pret à l’état élu l’ordonnanceur utilise l’opération d’élection.
+
+Mode préemptif et non préemptif:
+
+- Non préemptif, transition de l’état élu vers l’état prêt est interdite
+- Préemptif, transition de l’état élu vers l’état prêt est autorisé. 
 
 ### Politiques d'ordonnancement
 
@@ -608,7 +714,24 @@ Le problème c'est que si quelqu'un arrive à percer le code il a accès à tout
 
 ### Fork
 
+Fonction système permettant la création dynamique d’un nouveau processus.
+
+- Division cellulaire
+- Le père et le fils
+- Principe d’héritage
+- processus INIT
+
 Permet la création dynamique de nouveau processus par le système. Sort de division cellulaire : process père génère un process fils. Notion d'héritage présente : les attributs systèmes sont transmis du parent à l'enfant. Var globales t statiques ne sont pas transmises dans le fork. 
+
+Fonctionnement :
+
+- getpid( ) 
+- getppid( )
+- Allocation d’une entrée à la table des processus
+- Allocation d’un PID unique au nouveau processus
+- Duplication du contexte
+- PID du processus créé 
+- retourne 0
 
 Au démarrage du syst unix, le process INIT arrive et tous les autres process découlent de celui-ci : arborescence.
 
@@ -616,9 +739,29 @@ Au démarrage du syst unix, le process INIT arrive et tous les autres process d�
 
 Outil système disposant d'une file d'attente, et d'un système de jetons. Initialement il distribue des jetons par processus, et consomme ces jetons, lorsqu'il n'a plus de jetons ils s'arrête. Il peut aussi réveiller des process.
 
+Outil  / structure système composée d’une file d’attente L de processus et d’un compteur K, appelé niveau du sémaphore et contenant initialement une valeur Val.
+
+3 opérations possibles : 
+
+-  INIT (Sem, Val)
+- P (Sem) 
+- V (Sem) 
+
+Gestion des réveils effectuée en lide FIFO
+
 ### Thread
 
 Proche du fork, mais cette fois ci le parent partage variables globales, statiques locales et descripteurs de fichiers avec l'enfant.  C'est finalement un fork avancé.
+
+Le père partage avec son fils :
+​    Les variables globales​
+​    Les variables statiques locales​
+​    Les descripteurs de fichiers (file descriptors)​
+
+Utilisation de méthode pour la synchronisation et le partage des données :
+
+- MUTEX (MUTual EXclusion)
+- Sémaphores POSIX 1003.1b...
 
 ### Noël
 
@@ -626,33 +769,78 @@ Le fork crée un autre process parallèle.
 
 Le thread a un flux d'activité (maître), fait une copie avec la data du flux : reprise de l'exécution à partir de là ou s'ne était arrêté la première. Ce qui est intéressant c'est que le thread, une fois fini, peut potentiellement revenir sur la branche maître. 
 
-## Le kernel
+## Le kernel Linux
 
 ### Introduction
+
+- Logiciel libre
+- Coeur du système
+- Un peu d’histoire
+  - Le créateur
+  - Architecture de processeur
+- Caractéristiques principales 
+  - Multi-fonction
+  - Normes
+  - Fonctionnalités
 
 Développé en C et en assembleur. Fait l'interface entr la couche software et la couche hardware. fournit une interface de programmation pour le matériel. 
 
 Créateur : L. Torvald en 1991. À la base pour une seule archi puis porté sur d'autres type ARM. Multi utilisateur, respecte les normes posix, certaines fonctionnalités peuvent être ajoutées ou envelvées à lavolée. 
 
-### Fonctions
+### Fonctions du noyau
 
 Excécution des processus, gstion mémoire, gestion du matériel...
 
-### Développement
+Assure le chargement et l’exécution des processus, gère les entrées/sorties et propose une interface entre l’espace noyau et les programmes de l’espace utilisateur.
+
+### Développement du noyau
 
 Développé par la communauté originellement, puis de grosse boite s'y sont mises : Red Hat, Intel, IBM...
 
 Sous licence GNU.
 
-### Les types
+- A la base
+- Réseau de développement étendu 
+- Licence du noyau Linux
+- Esprit collaboratif d’évolution
+- Gestion de versions
+
+### Les types de noyaux
 
 Le monolithique : conception ancienne et considérée comme obsolète. Un seul gros bloc qui contient toutes les fonctions et pilotes et de quoi les compiler. Concept simple, excellente vitesse d'exécution. Mais forte augmentation de taille avec l temps (ajout de fonctionnalités). 
 
-Pour contrer ce dernier point, création ds monolithiques modulaires : noyau avec fonctionnalités principales, et plein de services différnts sous formes de modules. Tout est centralisé dans un seul noyau, donc une seul erreur dans un service facultatif peut mettr en péril toute la sécurité du système. Meilleures possiiblités de configuration et améliore temps de chargement mais encore des défauts.
+- Conception ancienne (obsolète)
+- Fonctions et pilotes en 1 seul bloc de code compilé
+- Concept simple et excellente vitesse d'exécution
+- Au fur et à mesure des développement, ils ont augmenté en taille => Problème d’évolution et maintenabilité 
+
+### Monolithique Modulaire
+
+Pour contrer ce dernier point, création des monolithiques modulaires : noyau avec fonctionnalités principales, et plein de services différnts sous formes de modules. Tout est centralisé dans un seul noyau, donc une seul erreur dans un service facultatif peut mettr en péril toute la sécurité du système. Meilleures possiiblités de configuration et améliore temps de chargement mais encore des défauts.
+
+- Répondre aux problèmes des noyau monolithiques
+- Partie principale monolithique
+- Autres fonctions (pilotes) sous forme de modules
+- Simple mais un inconvénient reste (une erreur met en péril la stabilité du système)
+
+Le modularité du noyau permet le chargement à la demande de fonctionnalité et augmente les possibilité de configuration 
+
+### Micro-noyaux
 
 Du coup invention des micronoyaux dans les années 90. Le nombre de fonctions principales et les dépendances du noyau est fortement réduite. Donc minimisation des risques d'erreurs pour meilleure robustesse, fiabilité, évolutivité et maintenance. Nécessite par contre un protocole de communication netre les processus (IPC), assez lourd qui finalement réduit les performances.
 
+- Minimiser les fonctionnalité dépendantes du noyau en plaçant les service d’exploitation hors du noyau
+- Un petit nombre de fonctions principales conservée dans un noyau minimaliste = Le micro noyau
+- Eloigner les services à risque des parties critique du noyau => Plus de robustesse / fiabilité et on facilite la maintenance/évolutivité
+- IPC : protocole de communication entre processus (fondamentaux => Particulièrement  lourd donc réduit les performance
+
+### Noyaux-hybrides
+
 Enfin on ne arrive au noyau hybride qui combine avantages de monolithique et micronoyaux
+
+- Combiner noyau monolithiques et micro-noyaux pour combiner les avantages
+- Réintégrer des fonctionnalités non principales pour gagner en performance
+- Les micro noyaux “pur” = échec
 
 ### Caractéristiques techniques
 
@@ -660,9 +848,39 @@ le noyau doit être compilé pour être compris en binaire. On a donc besoin des
 
 On place les sources dans `/usr/src/linux-(version)`, à partir de ces sources on peut compiler le noyau dans `/boot`, et les modules quant à eux sont placés dans `/lib/modules` 
 
+Compilation du noyau :
+
+- les sources sont nécessaires
+- compilation avec GCC
+
+Interfaces : Interfacé avec le matériel grâce aux modules
+
+Portabilité : Drivers dit “génériques”
+
 ### Les modules
 
 Code ajoutant des fonctionnalités au noyau. Ils sont exécutés dans l'espace mémoire du noyau : contrôle total sur la machine. Depuis version 2, il n'est plus nécessaire de recompiler le noyau pour chagrer un module (chargement dynamique), via `insmod` ou `modprobe`.
+
+Un module est un morceau de code permettant d’ajouter des fonctionnalités au noyau: pilotes de périphériques matériels, protocoles réseaux, etc..
+
+Les modules sont exécutés dans l'espace mémoire du noyau :
+
+- Ils possèdent le contrôle total de la machine
+- Ils peuvent détourner ou créer un appel système
+
+Depuis la version 2.0  du noyau , il n’est pas nécessaire de recompiler le noyau linux quand on ajoute un périphérique.
+
+### Les commandes
+
+ Les modules peuvent être chargé dynamiquement sans avoir besoin de recompiler le noyau ou de redémarrer le système:
+
+-  insmod ou modprobe
+
+Lister les modules actifs: 
+
+- lsmod
+
+Information sur un module -> modinfo
 
 ## Gestion des péripériques
 
