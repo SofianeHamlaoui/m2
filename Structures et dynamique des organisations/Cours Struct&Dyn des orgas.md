@@ -403,7 +403,7 @@ Les conditions qui poussent les entreprises à décider sont rudimentaires : on 
 
 ## 5 - L'école systémique
 
-### 5.1 - Introduction à lk'école systémique
+### 5.1 - Introduction à l'école systémique
 
 En socio, c'est la qualité de l'organisation qui fait la différence (en management c'est la qualité de l'humain).
 
@@ -529,7 +529,7 @@ Peut avoir deux variantes :
 
 Se lier avec les bons services, créer des liens avec entre les individus qui assurent une meilleure coordination. 
 
-Adaptation mutuelle
+Adaptation mutuelle+
 
 ##### La conception du système de prise de décision
 
