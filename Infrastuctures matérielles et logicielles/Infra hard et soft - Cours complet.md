@@ -289,7 +289,7 @@ Trois types de pare feu :
 - Matériel, lié à la machine réseau (routeur), pas flexible
 - Bridge
 
-### Comment voit et gère-t-il les paquets ?
+## Gestion des paquets
 
 Paquet : données envoyées sur le réseaux découpées en pitits morcaux
 
@@ -991,25 +991,164 @@ Types :
 
 ## Modules, utilité, fonctionnalités
 
+### Qu’est-ce qu’un module?
+
 Modules = morceau de code qui ajoutent fonctionnalité au noyau. On y retrouve différentes fonctions.
+
+- morceau de code permettant d'ajouter des fonctionnalités au noyau : pilotes de périphériques matériels, protocoles réseaux, etc…
+- chargé dynamiquement sans avoir besoin de recompiler le noyau (insmod ou modprobe) ou de redémarrer le système.
+- exécutés dans l'espace mémoire du noyau :
+- possèdent contrôle total de la machine
+- peuvent détourner ou créer un appel système
+
+Un module doit contenir deux fonctions particulières :
+
+- int init_module(void) : appelée au démarrage du module. Son principal but est d'initialiser le périphérique et d'installer le driver
+- void cleanup_module(void) : appelée lorsque le module est déchargé de la mémoire par la commande rmmod.
 
 On parle uniquement des non plug and play.
 
-Le noyau linux applle différents modules :
+Le noyau linux appelle différents modules :
 
 - modules de base : protocoles réseau, système de fichier
 - modules périphériques : carte mère, vidéo, son réseau
 - modules supplémentaires : carte vidéo (non-libre), cartes peu utilisées.
 
+### Chargement/Déchargement d'un module
+
+commande `modprobe`
+
+- Charger `$ sudo modprobe-a 3c59x`
+- Décharger `$ sudo modprobe -r 3c59x`
+- Lister `lsmod`
+
+### Options d'un module
+
+Certains modules possèdent des options ("parm") qui permettent un plus grand contrôle sur le module en lui-même. Ces options se chargent de plusieurs manières. 
+
+`modprobe snd_ens1371 joystick_port=1`
+
+- les "parm" vous indique quoi mettre : int = entier,  bool = booléen (0 ou 1) , array of int = plusieurs entier, array of bool = plusieurs bits 
+
+- Pour que cela soit pris en compte directement au lancement il faut éditer le fichier /etc/modprobe.d/option et y ajouter une ligne.
+
 On peut spécifier les modules à charger au lancement du noyau. La liste des fichiers à charger est dans /etc/module . On peut aussi l'empêcher d'en charger : /etc/mprob/blacklist.conf
 
-Il y a une structure file_operation qui permet de s'y retrouver dans l'orga communautaire de Linux
+### La structure file_operations 
+
+Permet de s'y retrouver dans l'orga communautaire de Linux
+
+Cette structure dont le type est décrit dans le fichier  permet de définir les méthodes du pilote.  
+La tradition veut que l’on préfixe le nom de la structure et des méthodes par le nom du pilote (ici mydriver).  
+
+De part la nécessité de définir les symboles correspondant aux méthodes, on placera la déclaration de la structure après la définition des méthodes. De ce fait, l’architecture générale du pilote sera la suivante :
+
+1. Déclaration des en­têtes.
+2. Déclaration des macro-instructions identifiant le pilote
+3. Déclaration des variables. 
+4. Définition des méthodes. 
+5. Définition de la structure file_operations.
+6. Définition des points d’entrée module_init() et module_exit() du module. 
+
+### Module du noyau
+
+Les fichiers contenant le code compilé des modules se trouvent dans un des sous répertoires de /li/modules/<version-du-noyau>/kernel/ et porte l'extension .ko
+
+Les fichiers dont l'extension est .KO sont des fichiers de type Linux Kernel Module Format
+
+Manipulation des modules du noyau :
+
+- Lsmod
+- Insmos
+- Rmmod
 
 Les fichiers .ko sont des Kernel Objects chargeables parle noyau. plusieurs commandes permettent d'agir sur les modules chargés par le noyau.
+
+### Cas particulier de Linux
+
+Dans le cas de LINUX, le pilotes de périphériques sont ajoutés de deux manières: 
+
+- de manière statique: dans ce cas la, le code source du pilote est  ajouté à l'arborescence des sources du noyau LINUX. Le pilote sera  chargé même en l'absence du périphérique à controler. Ce type de pilote  était utilisé systématiquement jusqu'à la version 1.2 du noyau LINUX. 
+- de manière dynamique: dans ce cas la, on peut ajouter dynamiquement à  un noyau LINUX existant un pilote dont le code source ne sera pas  contenu dans l'arborescence du noyau. Le pilote constitue alors un  module chargeable. Dans la suite de l'article nous étudierons  exclusivement ces pilotes. 
+
+L'utilisation des modules chargeables  permet aussi de limiter la mémoire utilisée par les pilotes car ceux-ci  sont chargés uniquement lorsqu'un programme utilisateur ou un autre  module en fait la demande. Les programmes kerneld ou kmod sont destinés à  gèrer le chargement/déchargement automatique des modules chargeables.  
+
+### Loadable Kernel Module
+
+Dans un système d'exploitation, un module est une partie du noyau qui  peut être intégrée pendant son fonctionnement. Le terme anglais  généralement employé pour les désigner est Loadable Kernel Module,  abrégé LKM, ou (en français : « module de noyau chargeable »). Cette  fonctionnalité existe dans les noyaux Linux et les noyaux BSD. C'est une  alternative aux fonctionnalités compilées dans le noyau, qui ne peuvent  être modifiées qu'en relançant le système. Les modules du noyau Linux  sont généralement placés dans /lib/modules. Ils utilisent l'extension  .ko depuis la version 2.6. 
 
 ### Noël
 
 Le lien entre le fichier de code et le matériel se fait par un BUS qui va donner une adresse physique de périphérique. IRQ (Interrupt ReQuest), DMA (Direct Memory Access, zone de mémoire attribuée à un périphérique). Le kernel interagit avec le matériel via ces éléments là.
+
+## USB
+
+### Driver USB structure
+
+Il existe 2 modes différents, le mode noyau et le mode utilisateur.
+
+- Espace noyau : tout est permis même le pire, on peut vite tout casser.
+- Espace utilisateur : tout est protégé, les possibilités sont bridées.
+
+Par défaut, tous les pilotes de périphérique tournent en mode "noyau".   
+En mode noyau, le code d'exécution dispose d'un accès complet et illimité au matériel sous-jacent. Il  peut exécuter toute instruction de la CPU et référencer toute adresse  de mémoire. Le mode noyau est généralement réservé aux fonctions les plus fiables et de niveau inférieur du système d'exploitation.  
+Les accidents en mode noyau sont catastrophiques; ils vont arrêter le PC entier.
+
+### Mode noyau
+
+- Possibilité d'exécuter tout type d’instruction
+
+Potentiellement dangereuses pour la sécurité du système, comme, par exemple, les instructions qui permettent l’accès direct à la mémoire ou aux périphériques.
+
+En mode utilisateur, le code d'exécution ne permet pas d'accéder directement au matériel ni à la mémoire de référence.  Le code exécuté en mode utilisateur doit déléguer aux API système pour accéder au matériel ou à la mémoire.   
+En raison de la protection offerte par ce type d’isolement, les collisions en mode utilisateur sont toujours récupérables. La plupart du code exécuté sur votre ordinateur s'exécutera en mode utilisateur.
+
+### Mode utilisateur
+
+Certaines instructions sont interdites, Pas d’accès aux périphériques, Accès à l’espace mémoire virtuel du processus
+
+2 types de périphériques :
+
+- Type caractère  
+  Un périphérique caractère représente un dispositif matériel qui lit ou écrit en série un flux d’octets. Les ports série et parallèle, les lecteurs de cassettes, les terminaux et les cartes son sont des exemples de périphériques caractères.
+
+- Type bloc  
+  Un périphérique bloc représente un dispositif matériel qui lit ou écrit des données sous forme de blocs de taille fixe. Contrairement aux périphériques caractère, un périphérique bloc fournit un accès direct aux données stockées sur le périphérique. Un lecteur de disque est un exemple de périphérique bloc.
+
+### Numéro de périphériques
+
+Les pilotes sont accessibles à travers des fichiers spéciaux appelés également nœuds (nodes). Ces fichiers sont localisés sur le répertoire /dev et sont caractérisés par deux valeurs numériques :
+
+- Le MAJEUR (MAJOR) qui identifie le pilote
+- Le MINEUR (MINOR) qui représente une sous-adresse en cas de présence de plusieurs périphériques identiques, contrôlés par un même pilote.
+
+Pour créer une nouvelle entrée dans le répertoire /dev, on utilisera la commande mknod: mknod /dev/monpilote c majeur mineur  
+Le c indique que l'on crée un noeud pour un pilote en mode caractère.  
+A partir du moment où le noeud est créé et le pilote installé, on peut accèder au périphérique en utilisant les commandes standards de LINUX
+
+### Implémentation d'un driver
+
+- Structure d'implémentation
+- Méthode open et release
+- Allocation de la mémoire
+- Méthodes read and write
+- Méthode ioctl
+- Gestion d'interruptions
+
+### Que ce passe t’il lorsque l’on branche un périphérique ?
+
+Chaîne d’opérations lors de l’insertion d’un périphérique USB
+
+-  Le 'chargeur de module' du noyau est appelé lorsqu’un nouveau périphérique est détecté.
+  - Il identifie de manière unique le type de périphérique, le modèle et la marque
+  - Il interroge le périphérique pour connaître les fonctionnalités
+  - Il cherche est charge le pilote offrant les capacités de prise en charge du pilote branché et il associera le pilote au périphérique
+- Transfert des données
+
+Lorsque  l'on branche un périphérique USB, l'ordinateur le détecte grâce à une  tension, constante entre D- et D+ lorsque rien n’est branché, et qui chute dès que l'on branche quelque chose.   
+Ainsi, dès que le périphérique est connecté, l'ordinateur envoie un courant d'initialisation pendant 10 millisecondes. Dès  lors, il lui attribue l'adresse "0". Après, le PC questionne tous les  périphériques USB déjà connectés pour connaître leur adresse, puis en attribue une non utilisée (codée sur 7 bits) au nouveau périphérique, ce qui laisse 127 possibilités !   
+Les  principes de l'USB, pour communiquer avec les périphériques, c'est que  chacun a la parole à son tour, personne ne parle en même temps, et l'ordinateur indique au préalable qui doit parler. Ce système est appelé anneau à jeton ou "token ring"  
+Ainsi, le PC envoie ce qui s'appelle un jeton, qui contient l'adresse du périphérique qui doit parler. Ce jeton circule de périphérique en périphérique, jusqu'à ce que le périphérique se reconnaisse et écrive à l'intérieur. Le PC finit par recevoir le jeton et le décode. 
 
 ## Protocoles de communication
 
@@ -1021,27 +1160,104 @@ Le noyau contient un genre
 
 Format de fichier lié à la mudsique et utilisé comme potocole pour les instruments
 
+Le Musical Instrument Digital Interface ou MIDI est un protocole de communication et un format de fichier dédiés à la musique et utilisés pour la communication entre instruments électriques, contrôleurs, séquenceurs et logiciels de musiques
+
 ### OSC
 
 Contrôle en temps réel, successeur du MIDI. Open Sound Control
+
+L'Open Sound Control est un format de transmission de données entre ordinateurs, synthétiseurs, robots ou tout autre matériel ou logiciel compatible, conçu pour le contrôle en temps réel. Il utilise le réseau au travers des protocoles UDP ou TCP et apporte des améliorations en termes de rapidité et flexibilité par rapport à l'ancienne norme MIDI.
 
 ### RS-232
 
 Norme ultra standard : le port série. N'est plus trop d'actualité, enfin si, enfin ça dépend des matos.
 
+RS-232 est une norme standardisant une voie de communication de type série. Disponible sur presque tous les PC depuis 1981 jusqu'au milieu des années 2000, il est communément appelé le « port série »
+
 ### DMX
 
 Protocole pour le raccordement des lumières. Avant 86 c'était de l'analogique.
 
+Le DMX 512 est une norme destinée à faciliter le raccordement des gradateurs sur les consoles lumières. En définissant les contraintes techniques, le type de câble et les conditions d’utilisation, il permet de rendre compatible des produits de différentes marques. 
+
 ### SPI
 
-Différents protocoles de communication selon le SPI.  Master/slave, ou via l'horloge, peut être généré par le maître ou l'esclave. Le kernel dit au matos/logiciel où trouver l'info, ou dit à un truc de donner l'info au matos/logiciel
+Différents protocoles de communication selon le SPI. Master/slave, ou via l'horloge, peut être généré par le maître ou l'esclave. Le kernel dit au matos/logiciel où trouver l'info, ou dit à un truc de donner l'info au matos/logiciel
+
+SCLK — Serial Clock, Horloge (généré par le maître)  
+MOSI — Master Output, Slave Input (généré par le maître)  
+MISO — Master Input, Slave Output (généré par l'esclave)  
+SS — Slave Select, Actif à l'état bas (généré par le maître)
+
+### Avantages SPI
+
+-  Communication Full duplex
+- Débit plus important qu'un bus I2C
+- Flexibilité du nombre de bits à transmettre ainsi que du protocole en lui-même
+- Simplicité de l'interface matérielle
+  - Aucun arbitre nécessaire car aucune collision possible
+  - Les esclaves utilisent l'horloge du maître et n'ont donc pas besoin d'oscillateur propre
+- Partage d'un bus commun pour l'horloge, MISO et MOSI entre les périphériques
+
+### Inconvénients SPI
+
+- Monopolise plus de broches d'un boîtier que l'I2C ou une UART qui en utilisent seulement deux.
+- Aucun adressage possible, il faut une ligne de sélection par esclave en mode non chaîné.
+- Le protocole n'a pas d'acquittement. Le maître peut parler dans le vide sans le savoir.
+- Ne tolèrent pas la présence que d'un seul maître SPI sur le bus. Néanmoins, on trouve des circuits intégrés supportant le mode "multi-master", permettant de partager le bus SPI entre plusieurs maîtres.
+-  Ne s'utilise que sur de courtes distances contrairement aux liaisons RS-232, RS-485 ou bus CAN. 
 
 ## Drivers Windows, signatures et certificats
 
 C'est maintenant obligatoire sous Windows depuis Vista.
 
 La signature vérifie si tout est approuvé, le logiciel, l'éditeur, et si y a 0 modifs depuis la certification.Pour obtenir un certif, on se rapproche d'une autorité de certif. Les certifs et centre approuvés sont regroupé dans une bibliothèque gérée par Windows.
+
+- À partir de Windows Vista, les versions x64 de Windows nécessitaient la signature numérique de tous les logiciels s'exécutant en mode noyau, y compris les pilotes, pour pouvoir être chargés.
+- À compter de Windows 8 et des versions ultérieures de Windows, l'installation ne sera pas poursuivie à moins que ces packages de pilotes ne soient également signés..
+- L'installation de périphérique Windows utilise des signatures numériques pour vérifier l'intégrité des packages de pilotes et l'identité du fournisseur (éditeur de logiciels) qui fournit les packages de pilotes. 
+
+### Présentation des signatures numériques
+
+- Les signatures numériques sont basées sur la technologie d'infrastructure à clé publique Microsoft, basée sur Microsoft Authenticode, associée à une infrastructure d'autorités de certification approuvées. 
+- Authenticode, basé sur les normes du secteur, permet aux fournisseurs, ou aux éditeurs de logiciels , de signer un fichier ou une collection de fichiers (un package de pilote, par exemple) à l'aide d'un certificat numérique de signature de code émis par une autorité de certification .
+
+Windows utilise une signature numérique valide pour vérifier les éléments suivants :
+
+- Le fichier, ou la collection de fichiers, est signé.
+- Le signataire est approuvé.
+- L'autorité de certification qui a authentifié le signataire est approuvée.
+- La collection de fichiers n'a pas été modifiée après sa publication.
+
+### Processus de signature 
+
+- Un éditeur obtient un certificat numérique X.509 auprès d'une autorité de certification. Un certificat de signature est un ensemble de données identifiant un éditeur. 
+- Les certificats qui identifient les éditeurs approuvés et les autorités de certification approuvées sont installés dans des magasins de certificats gérés par Windows.
+- Le certificat de signature comprend une clé privée et une clé publique, appelée paire de clés . La clé privée est utilisée pour signer le fichier catalogue d'un package de pilotes ou pour incorporer une signature dans un fichier de pilotes. La clé publique est utilisée pour vérifier la signature du fichier de catalogue d'un package de pilotes ou une signature incorporée dans un fichier de pilotes
+- Pour signer un fichier de catalogue ou incorporer une signature dans un fichier, le processus de signature génère d'abord un hachage cryptographique, ou empreinte numérique , du fichier. Le processus de signature chiffre ensuite l'empreinte numérique du fichier avec une clé privée et ajoute l'empreinte numérique au fichier.
+- Le processus de signature ajoute également des informations sur l'éditeur et l'autorité de certification ayant émis le certificat de signature. La signature numérique est ajoutée au fichier dans une section du fichier qui n'est pas traitée lors de la génération de l'empreinte de fichier.
+- Pour vérifier la signature numérique d'un fichier, Windows extrait les informations relatives à l'éditeur et à l'autorité de certification et utilise la clé publique pour déchiffrer l'empreinte numérique du fichier crypté.
+- Windows n'accepte l'intégrité du fichier et l'authenticité de l'éditeur que si les conditions suivantes sont vraies:
+- L'empreinte numérique décryptée correspond à l'empreinte numérique du fichier.
+- Le certificat de l'éditeur est installé dans le magasin de certificats des éditeurs approuvés .
+- Le certificat racine de l'autorité de certification qui a émis le certificat de l'éditeur est installé dans le magasin de certificats des autorités de certification racines de confiance .
+
+### Certifier un pilote
+
+- Certifiez votre pilote auprès de Microsoft et Microsoft lui fournira une signature. Lorsque votre package de pilotes réussit les tests de certification, il peut être signé par Windows Hardware Quality Labs (WHQL). Si votre package de pilotes est signé par WHQL, il peut être distribué via le programme Windows Update ou d'autres mécanismes de distribution pris en charge par Microsoft.
+- Les fournisseurs ou les développeurs de pilotes peuvent obtenir un certificat de publication de logiciels (SPC) auprès d’une autorité de certification autorisée par Microsoft et l’utiliser pour signer eux-mêmes des fichiers binaires en mode noyau et en mode utilisateur.
+
+### Visualiser la signature d’un pilote
+
+- Fichier .cat du driver
+- On voit ici que le pilote a été signé le 24 Juin 2013 et que la date de signature est garantie par le serveur de temps de Microsoft.
+
+### Certifier un pilote
+
+- Certifiez votre pilote auprès de Microsoft et Microsoft lui fournira une signature. Lorsque votre package de pilotes réussit les tests de certification, il peut être signé par Windows Hardware Quality Labs (WHQL). Si votre package de pilotes est signé par WHQL, il peut être distribué via le programme Windows Update ou d'autres mécanismes de distribution pris en charge par Microsoft.
+- Les fournisseurs ou les développeurs de pilotes peuvent obtenir un certificat de publication de logiciels (SPC) auprès d’une autorité de certification autorisée par Microsoft et l’utiliser pour signer eux-mêmes des fichiers binaires en mode noyau et en mode utilisateur.
+
+
 
 # Compilateur
 
