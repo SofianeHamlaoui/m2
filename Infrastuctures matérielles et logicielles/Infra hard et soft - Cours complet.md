@@ -57,24 +57,81 @@ SGBD VS Feuille de calcul : pourquoi c'est mieux ?
 - Verrouille l'enregistrement au moment de son édition
 - Libéré après validation des changements
 
-Méthode simple qui empêche la modification simultanée des enregistrements. Dit que lorsqu'une transaction se déclenche, on applique un verrouillage explique sur les ressources touchées par les transactions. Verrouillage très restrictif : on ne peut pas lire les éléments en cours de modifs. Ça peut être problématique si les transactions se "croisent" : elles s'interbloquent. On appelle ça un "verrou mortel".
+Avantages
+
+- Permet d'éviter les conflits
+- Utilisé lorsqu'il y a beaucoup de monde
+
+Inconvénients
+
+- Possibilité de verrous mortels 
+- Moins rapide que les verrous Optimistes
+
+Méthode simple qui empêche la modification simultanée des enregistrements. Dit que lorsqu'une transaction se déclenche, on applique un verrouillage explicite sur les ressources touchées par les transactions. Verrouillage très restrictif : on ne peut pas lire les éléments en cours de modifs. 
+
+Empêche que les transactions se "croisent" : elles s'interbloquent. On appelle ça un "verrou mortel".
 
 ### Verrouillage optimiste
 
-Laisse les conflits se faire, puis les résout. Pose une sorte de "tag" (une estampille) sur éléments modifiés, et effectue les accès das l'ordre croissant des accès aux ressources. Lorsqu'il y a conflit, utilise l'ordonnancement. Ce verrouillage est plus rapide mais provoque trop de "reprises" et donc gourmand en ressources.
+Principe : laisser les conflits se produire puis les résoudre
 
-L'objectif d'un SGBD c'est que les transactions soient sérialisables. Protocole 2PL va permettre à deux entités t1 et t2 d'accéder à une ressources. Deux types de verrous : un verrou partagé et un verrou exclusif. L'exclusif intervient quand on veut faire une modif en écriture sur une ressource : la ressource est alors complètement inaccessible, il faut que l'entité relâche son verrou pour laisser les autres accéder. 2PL est là pour poser les verrous sur toutes les ressources nécessaires et ne les relâche pas jusqu'à ce qu le traitement soit terminé. Pendant ce temps les autres attendent.
+Ordonnancement par estampillage : 
+
+- Conservation de la dernière estampille du dernier écrivain et plus jeune lecteur
+- Effectue les accès dans l'ordre croissant des estampilles (lecture / écriture)
+
+Avantages : 
+
+- Contrôle simple par ordonnancement des accès
+- Reprise à partir de la transaction ayant créé le désordre
+
+Inconvénients :
+
+- l'ordonnancement des transactions provoque beaucoup trop de reprises
+- Les possibilités d’amélioration sont difficiles à mettre en place
+
+Piste d'amélioration :
+
+- Conservation d'anciennes version des objets pour les accès en lecture
+
+Laisse les conflits se faire, puis les résout. Pose une sorte de "tag" (une estampille) sur éléments modifiés, et effectue les accès dans l'ordre croissant des accès aux ressources. Lorsqu'il y a conflit, utilise l'ordonnancement. Ce verrouillage est plus rapide mais provoque trop de "reprises" et donc gourmand en ressources.
+
+### 2PL : 2 Phase Locking
+
+L'objectif d'un SGBD c'est que les transactions soient sérialisables. 
+
+Fonctionnement : Une transaction suit le protocole 2PL si le verrouillage peut être effectué en 2 phases :
+
+- Growing phase
+- Shrinking phase
+
+Protocole 2PL va permettre à deux entités t1 et t2 d'accéder à une ressources.
+
+Deux types de verrous : un verrou partagé et un verrou exclusif.  
+L'exclusif intervient quand on veut faire une modif en écriture sur une ressource : la ressource est alors complètement inaccessible, il faut que l'entité relâche son verrou pour laisser les autres accéder. 2PL est là pour poser les verrous sur toutes les ressources nécessaires et ne les relâche pas jusqu'à ce que le traitement soit terminé. Pendant ce temps les autres attendent.
 
 ### Noël
 
 - optimiste implique du rollback, donc utile quand peu de congestion sur les donnés
-- pessimiste utilisé quand utilisé quand beaucoup de transactions sur données en même temps (forte congestion sur les données)
+- pessimiste utilisé quand beaucoup de transactions sur données en même temps (forte congestion sur les données)
 
-C'est au niveau du commit qu tout se gère : opti/pessi encadre le commit
+C'est au niveau du commit que tout se gère : opti/pessi encadre le commit
 
-## Mémoire
+### Structures mémoire
 
-Le SGA : Global System Area
+### Sommaire
+
+- Les structures en mémoire vive
+  - SGA (System Global Area)
+  - PGA (Program Global Area)
+  - Les processus en mémoire
+- Algorithme LRU
+- Le stockage sur disque
+  - Les fichiers de données
+  - Les journaux de transaction
+- Synchronisation entre mémoire vive et mémoire persistante
+
+### SGA : Global System Area
 
 Zones de mémoire les plus imporante : shared pool et 
 
@@ -84,15 +141,13 @@ Zone ou on stocke informations sur tout ce qui est SQL : le curseur... zone de t
 
 Elle est alloué à chaque process, il y a une PGA pour tout ce qu'on veut travailler en mémoire
 
-Comment fonctionnent ces processus ?  Ils sont effectués en mémoire RAM puis synchronisés ensuite via l SGA.
+Comment fonctionnent ces processus ?  Ils sont effectués en mémoire RAM puis synchronisés ensuite via le SGA.
 
 ### Noël
 
 Un user qui se connecte crée un UGA, puis ses opérations des PGA dans le UGA. Ces PGA se connectent au SGA.
 
 ## Systèmes d'indexation
-
-Dans les SGBD relationnels
 
 ### Définition
 
@@ -102,13 +157,29 @@ Exemple des panneaux dans un supermarché : permet de retrouver plus vite où so
 
 L'index indique donc où on peut trouver une donnée.
 
+" Un index est une structure de données utilisée et entretenue par le système de gestion de base de données (SGBD) pour lui permettre de retrouver rapidement les données. L'utilisation d'un index simplifie et accélère les opérations de recherche, de tri, de jointure ou d'agrégation effectuées par le SGBD.    "
+
 ### Quand utiliser un index
 
-Il faut calculer la Sélectivité, si elle est inférieure à 15% des lignes, c'est intéressant, sinon ça prendra plus de temps de faire un index.
+Il faut calculer la **Sélectivité**, si elle est inférieure à 15% des lignes, c'est intéressant, sinon ça prendra plus de temps de faire un index.
 
-$ sélectivité\ = \frac{Cardinalité}{Nombre\ total\ de\ lignes}$ 
+$ sélectivité\ = \frac{Cardinalité (ldx)}{Nombre\ total\ de\ lignes}$ 
 
-L'optimiseur : pour une requête, regarde et retient toutes les actions qu'il a fallu faire pour obtenir la données, et calcule un coût pour la requête. Ensuite, quand on l'interroge, il dit comment on peut optimiser le coût de la requête, en mettant un index sur certaines colonnes par exemple. Attention, il peut aussi se tromper (rarement), on peut alors le forcer à utiliser un autre index.
+- Si sélectivité de la requête < 15 % des lignes 
+- Tables de gros volume
+- Beaucoup de valeurs NULL
+- Colonne souvent utilisée dans WHERE ou en tant que pivot de jointure
+- 2 colonnes ou plus utilisées ensemble dans un WHERE ou pivot de jointure
+
+**L'optimiseur** : pour une requête, regarde et retient toutes les actions qu'il a fallu faire pour obtenir la données, et calcule un coût pour la requête. Ensuite, quand on l'interroge, il dit comment on peut optimiser le coût de la requête, en mettant un index sur certaines colonnes par exemple. Attention, il peut aussi se tromper (rarement), on peut alors le forcer à utiliser un autre index.
+
+- L'optimiseur aide à définir des index performants 
+  - Ce n'est cependant pas une parole d'évangile !
+  - On peut utiliser les "hint" pour guider l'optimiseur
+- Créer un index mal choisi est nuisible aux performances
+- Un index doit être maintenu (usable / unusable , mises à jour...)
+- Un index augmente la charge des mises à jour, l'espace de stockage nécessaire
+- Les SGBD créent des index automatiquement sur PRIMARY KEY, CONTRAINTES UNIQUE
 
 ### Différents types d'index
 
@@ -116,42 +187,88 @@ L'optimiseur : pour une requête, regarde et retient toutes les actions qu'il a 
 
 C'est un arbre hiérarchique équilibré. Par rapport à un arbre normal, se base plutôt sur un concept de "racine + branche" et de "feuilles"
 
+- Arbre B hiérarchique équilibré
+- Notion de taille maximale
+- Stock un pointeur vers l'enregistrement RowID
+
 #### Le bitmap
 
-Destiné aux colonnes avec peu de valeurs distinctes et beaucoup d'enregistrement. Codé sur un bit (vrai ou faux) pour chaque entrée
+Destiné aux colonnes avec peu de valeurs distinctes et beaucoup d'enregistrement.   
+Codé sur un bit (vrai ou faux) pour chaque entrée
 
 Donc chacun est plus ou moins efficace en fonction de la cardinalité. 
 
+### Index basés sur les fonctions
+
+- Index B-Tree et bitmap peuvent être basés sur des fonctions
+- Index sur des fonctions / expressions (pas directement sur un champ)
+  - Fonction :   UPPER(champs)
+  - Expression :  12 * salaire * commission 
+- Valeurs précalculées donc gain de temps à la sélection (CLAUSE WHERE) 
+
 #### Index par hashage
+
+- Utilisation d'un tableau ne comportant pas d'ordre
+- Accède à la valeur par la clé (fonction de hashage)
+
+Avantages :
+
+- Index par hashage est très performant pour les recherches d’égalité (= ou <>)
+- Permet un accès direct à un enregistrement dans le cas des valeurs uniques
+
+Inconvénients :
+
+- Collision possible entre les clés de hashage
+- Deux valeurs peuvent donner la même clé
+
+Préconisations :
+
+- Bien choisir sa fonction de hashage : rapidité de calcul, espace réservé au hashage, réduction de risque de collision
+- Mise en place d'un système de résolution de collision ( stockage de la paire clé-valeur)
 
 on accède à la valeur par la clé , construction d'un tableau sans ordre. Il peut y avoir collision entre les clés de hashage, il faut donc mettre en place un système de résolution de collision pour gérer ces cas. Et bien choisir sa fonction de hashage pour pas se niquer en temps de calcul.
 
-## Exécutions SQL
+## Exécutions des requêtes
 
-### 
+1. ### Parcourir le texte
 
-1.
+D'abord, ordre donné. Avant de l'exécuter, le moteur vérifie la syntaxe, puis la sémantique (l'utilisateur a t il le droit?...), enfin si l'ordre a déjà été exécuté : la requête a t elle déjà un plan d'exécution (dans le SGA) ?
 
-D'abord, ordre donné. Avant de l'exécuter, le moteur vérifie la syntaxe, puis la sémantique (l'utilisateur a t il le droit?...), la requête a t elle déjà un plan d'exécution (dans le SGA) ?
+2. ### Optimisation : les bind variables
 
-2.
-
-Puis optimisation : bind variables. SQL sensible à la casse, et pour une mêùme variable en min et maj, il est obligé de faire un hard pass ce qui est très couteux. Les bind variables font un truc qui permet d'économiser des ressources.  
+SQL sensible à la casse, et pour une mêùme variable en min et maj, il est obligé de faire un hard pass ce qui est très couteux. Les bind variables font un truc qui permet d'économiser des ressources  
 Elle permet de créer un seul et unique arbre de résolution de requête qui va être actualisé avec les nouvelles valeurs, autrement SQL créerait un nouvel arbre à chaque fois.
 
-3.
+Génération de plusieurs plans d'exécution :
 
-Exécution du plan sélectionné.
+- Parcours approfondi au moins une fois de chaque requête 
+- Les ordres DDL ne comportant pas de composants DML ne sont jamais optimisés
+- La génération des différents plans à lieu à cette étape
+- Depuis la V7 d'Oracle : CBO : Cost Based Optimizer
+  - Ne privilégie pas un type de jointure particulier
+  - Ne s'occupe pas de l'existence d'index
 
-En complément :
+Puis sélection du plan d'exécution
 
-les hints. Syntaxe spécifique qui va permettre d'exécuter d'une façon spécifique, par exemple en demande un parcours complet de la table.  
-Plusieurs listes et jointures possibles listés sur le PDF  
+3. ### Exécution du plan sélectionné.
+
+### Compléments
+
+hints = Syntaxe spécifique qui va permettre d'exécuter d'une façon spécifique, par exemple en demande un parcours complet de la table.  
+
+Plusieurs listes et jointures possibles :
+
+- Séquentiel : FULL SCAN
+- Adresse mémoire de la ligne : BY INDEX ROW ID
+- Lecture index: INDEX RANGE SCAN
+- Jointure de HASHAGE : HASH JOIN
+- Jointure de fusion : MERGE JOIN
+
 l'optimiseur : il aide et assiste. SQL TUNING ADVISOR donne des indications sur comment opti sa bdd
 
+### Noël
 
-
-Le CBO a de meilleures perfs mais a besoin de métadonnées sur les tables utilisées.Pour cela, Oracle a des tables cachées de stats sur les tables utilisables. Avant c'était RBO : rule-based organisation
+Le CBO a de meilleures perfs mais a besoin de métadonnées sur les tables utilisées. Pour cela, Oracle a des tables cachées de stats sur les tables utilisables. Avant c'était RBO : rule-based organisation
 
 # Pare-feu
 
