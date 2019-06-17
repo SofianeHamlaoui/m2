@@ -289,7 +289,7 @@ Trois types de pare feu :
 - Matériel, lié à la machine réseau (routeur), pas flexible
 - Bridge
 
-## Comment voit et gère-t-il les paquets ?
+### Comment voit et gère-t-il les paquets ?
 
 Paquet : données envoyées sur le réseaux découpées en pitits morcaux
 
@@ -305,13 +305,72 @@ SK_buffer conserve les données sur les paquets. c'est un objet qui permet à l'
 
 ## Netfilter
 
+### Définition
+
+- C’est un module noyau
+- C’est le pare-feu de linux
+- Il fonctionne de paire avec sk_buffer
+- Netfilter = filtrage et routage des paquets
+
+Ne pas confondre avec IP table, une interface de netfilter
+
 S'organise en couches la plus haute : utilisateur, puis les règles (tables), en dessous netfilter, le oyau, qui fait analyse pure du paquet, et enfin matérielle
 
 ### tables 
 
 ce sont les entités qui définissent le comportement de netfilter : des chaînes qui sont un ensemble de règles
 
-Il y a des hooks, avec 5 points d'accroche : prerouting, inpout, forward, output, postrouting
+- Filter : permet le rôle de pare-feu en supprimant ou acceptant le paquet
+- Nat : permet le rôle de passerelle en masquant les adresses des paquets
+- Mangle : permet de faire de la QoS en marquant les paquets
+- Raw : permet de contourner le suivi de connexion
+
+### Chaines
+
+Les chaînes sont des ensembles de règles que nous allons écrire dans chaque table. 
+Ces chaînes vont permettre d'identifier des paquets qui correspondent à certains critères.
+
+- INPUT : Connexions à destination du pare-feu
+- OUTPUT : Connexions depuis le pare-feu
+- FORWARD : Connexions transitant entre deux interfaces réseau
+- PREROUTING : Modification de l'adresse de destination (DNAT)
+- POSTROUTING : Masquage d'adresse par modification de l'adresse source (SNAT)
+
+### Cibles
+
+- DROP : Détruit le paquet
+- ACCEPT : Autorise le paquet
+- REJECT : Refuse le paquet et le signale à son expéditeur
+- MASQUERADE : Masque l'origine du paquet pour lui permettre de circuler d'un réseau à un autre
+- LOG/ULOG : Les caractéristiques du paquets sont journalisé dans un fichier ou vers le processus ulogd
+- MARK : marque le paquet en y ajoutant une information
+
+### Hooks
+
+Cinq points d'accroche :
+
+- NF_IP_PRE_ROUTING  Chaînes PRESROUTING 
+
+- NF_IP_LOCAL_IN  Chaînes INPUT
+
+- NF_IP_FORWARD  Chaînes FORWARD
+
+- NF_IP_LOCAL_OUT  Chaînes OUTPUT
+
+- NF_IP_POSTROUTING  Chaînes POSTROUTING
+
+### Cheminement
+
+Le paquet est d’abord inspecté pour savoir sa source et sa destination. Le firewall confronte ces informations avec ses propres règles et détermine s’il s’agit d’un paquet « en transit » ou directement pour lui.
+
+Si le paquet lui est adressé il est confronté au filtre INPUT sinon il passera dans le filtre FORWARD.
+
+Si le paquet sort du firewall c’est la chaîne OUTPUT qui est concernée.
+
+### Les règles
+
+- Par iptables
+- Permet de d'ajouter, supprimer, modifier et afficher les règles utilisée par Netfilter 
 
 ## IDS
 
@@ -321,67 +380,183 @@ Logiciel qui fait de la détection d'intrusion : sniffe le réseau et détermine
 
 ### Ce qu'il fait
 
-Surveille routeur, pare feu et les services
+- Surveille : 
+  - Routeur
+  - Pare-feu
+  - Tout service de prévention des cyberattaques.
+- Rendre plus clair, faciliter le paramétrage, organiser les processus d’audit et logs des système d’exploitation.
+- Signaler quand certains fichiers ou données sont modifiées.
+- Signaler quand la sécurité d’un système est violée
+- Réagir aux intrusions en les  bloquant par exemple.
 
-Permet de rendre plus clair des trucs via une interface.
+### Avantages
 
-Signale quand sécurité est violée, peut bloquer des intrusions.
-
-### avantages
+- Visibilité
+- Facilité de sécurisation de son SI
+- Automatisation
+- Surveillance d’application, de réseau (LAN), internet (WAN)
 
 donne de la visibilité, automatise des tâches de surveillance, surveille les applications et les réseaux 
 
 ### 3 familles, 2 techniques
 
-NIDS : Network tournent en mode passif en utilisant de sports miroir
+Les grandes familles :
 
-HIDS : Host ids surveillent réseau pour voir si compromis
+- NIDS  : Network tournent en mode passif en utilisant de sports miroir
+- HIDS : Host ids surveillent réseau pour voir si compromis
+- Hybrides : regardent sur machines plus que réseau
 
-Hybrides : regardent sur machines plus que réseau
+Les 2 types d'IDS :
 
-Deux types d'approches : soit par signature soit par huristique, comme antivirus
+- Approche par signature
+- Approche heuristique
 
-### techniques
+### Techniques
 
-Comme celles des antivirus : scanne le réseau, vérifie si signatures correspondent à ses règles. Lance alertes en fonction de c qu'il a trouvé. Nécessite d'avoir une base ultra à jour, pas méga fiable.
+- L'analyse de signatures :
+  - Similaire aux antivirus
+  - Utilise une base de signatures
+  - Nécessite des mises à jours régulières
+- L'analyse heuristique :
+  - Analyse comportementale
+  - Nécessite un temps d'apprentissage
+  - Sujet aux faux positifs
+
+Comme celles des antivirus : scanne le réseau, vérifie si signatures correspondent à ses règles. Lance alertes en fonction de ce qu'il a trouvé. Nécessite d'avoir une base ultra à jour, pas méga fiable.
 
 Combiné donc avec analyse heuristique, l'IDS apprend en fonction du comportement du réseau, ce qui est normal et ce qui ne l'est pas. Gros travail d'origine à fournir pour indiquer ce qui est normal et ce qui ne l'est pas. 
 
-### NIDS
+### Les systèmes de détection d'intrusions « réseau » (NIDS)
+
+- Objectif : analyser de manière passive les flux en transit sur le réseau et détecter les intrusions en temps réel.
+- Un NIDS écoute donc tout le trafic réseau, puis l'analyse et génère des alertes si des paquets semblent dangereux.
+- Les NIDS étant les IDS plus intéressants et les plus utiles du fait de l'omniprésence des réseaux dans notre vie quotidienne.
 
 Analyse de manière passive les flux entrant et détecter intrusions en temps réel. Écoute tout le trafic réseau. Le NIDS est une machine à parti qui rajoute pas de la charge. Très efficace.
 
-### HIDS
+### Les systèmes de détection d'intrusions de type hôte (HIDS)
+
+- Un HIDS se base sur une unique machine, n'analysant cette fois plus le trafic réseau, mais l'activité se passant sur cette machine. Il analyse en temps réel les flux relatifs à une machine ainsi que les journaux.
+- Un HIDS a besoin d'un système sain pour vérifier l'intégrité des données. Si le système a été compromis par un pirate, le HIDS ne sera plus efficace. Pour parer à ces attaques, il existe des KIDS (Kernel Intrusion Detection System) et KIPS (Kernel Intrusion PreventionSystem) qui sont fortement liés au noyau. Ces types d'IDS sont décrits un peu plus loin.
 
 Analyse plus le trafic réseau mais uniquement le flux sur une machine. Vérifie intégrité des données mais a besoin d'un système sain. 
 
-### Softwares
+### IDS Software 
 
-NIDS : snort, bro, suricata, check point
+IDS Réseau : (nids ?)
 
-HIDS : Fail2ban, rkhunter, chkrootkit
+- Snort
+- Bro
+- Suricata
+- Check Point 
 
-### Hybrides
+IDS Système : (hids ?)
 
-Généralement utilisés dans envirnnements décentralisés. réunissent infos provenant de NIDS comme HIDS
+- Fail2Ban
+- Rkhunter
+- Chkrootkit
 
-### KIDS, KIPS
+### Les systèmes de détection d'intrusions « hybrides »
 
-Systèmes de prévention d'intrusion Kernel.
+- Généralement utilisés dans un environnement décentralisé, ils permettent de réunir les informations de diverses sondes placées sur le réseau. Leur appellation « hybride » provient du fait qu'ils sont capables de réunir aussi bien des informations provenant d'un système HIDS qu'un NIDS.
+- L'exemple le plus connu dans le monde Open-Source est Prelude. Ce framework permet de stocker dans une base de données des alertes provenant de différents systèmes relativement variés. Utilisant Snort comme NIDS, et d'autres logiciels tels que Samhain en tant que HIDS, il permet de combiner des outils puissants tous ensemble pour permettre une visualisation centralisée des attaques.
+
+### Les systèmes de prévention d'intrusions « kernel » (KIDS/KIPS)
+
+- Nous l'évoquions précédemment dans le cadre du HIDS, l'utilisation d'un détecteur d'intrusions au niveau noyau peut s'avérer parfois nécessaire pour sécuriser une station.
+- Le KIPS peut reconnaître des motifs caractéristiques du débordement de mémoire, et peut ainsi interdire l'exécution du code. Le KIPS peut également interdire l'OS d'exécuter un appel système qui ouvrirait un shell de commandes.
+- Puisqu'un KIPS analyse les appels systèmes, il ralentit l'exécution. C'est pourquoi ce sont des solutions rarement utilisées sur des serveurs souvent sollicités.
+- Exemple de KIPS : SecureIIS, qui est une surcouche du serveur IIS de Microsoft.
 
 Encore plus sécurisé et complémentaire à l'IDS. Peuvent faire pas mal de trucs mais solution rares qui utilisent des serveurs, des machines à part. 
 
+### Les technologies complémentaires
 
+Dans l'objectif de décourager le hacker.
 
-Nombreuses technologies complémentaires à voir sur PDF, dans l'objectif de décourager le hacker.
+- Les scanners de vulnérabilités : systèmes dont la fonction est d'énumérer les vulnérabilités présentes sur un système. Ces programmes utilisent une base de vulnérabilités connues (exemple : Nessus).
+- Les systèmes de leurre : le but est de ralentir la progression d'un attaquant, en générant des fausses réponses telles que renvoyer une fausse bannière du serveur Web utilisé.
+- Les systèmes de leurre et d'étude (Honeypots) : le pirate est également leurré, mais en plus, toutes ses actions sont enregistrées. Elles seront ensuite étudiées afin de connaître les mécanismes d'intrusion utilisés par le hacker. Il sera ainsi plus facile d'offrir des protections par la suite.
+- Les systèmes de corrélation et de gestion des intrusions (SIM - Security Information Manager) : centralisent et corrèlent les informations de sécurité provenant de plusieurs sources (IDS, firewalls, routeurs, applications…). Les alertes sont ainsi plus faciles à analyser.
+- Les systèmes distribués à tolérance d'intrusion : l'information sensible est répartie à plusieurs endroits géographiques, mais des copies de fragments sont archivées sur différents sites pour assurer la disponibilité de l'information. Cependant, si un pirate arrive à s'introduire sur le système, il n'aura qu'une petite partie de l'information et celle-ci lui sera inutile.
 
-Pour le temps d'apprentissage n heuristique, faut bien compter 3 mois (commencer en IDS, pis au bout de 3 mois passer en IPS)
+### Conclusion
 
-## WAF WAF
+- IDS est une couche supplémentaire de sécurité bien à part d’un pare-feu ou d’un antivirus.
+- Ils sont complémentaires 
+- Peut même les « superviser »
+- Permet de clarifier, mettre à plat les flux, les comportements, les évènements d’une infrastructure.
+- Permet de notifier un changement d’état, une violation de sécurité, un comportement suspect
 
-J'étais pas là
+### Noël ?
 
-### 
+Pour le temps d'apprentissage en heuristique, faut bien compter 3 mois (commencer en IDS, pis au bout de 3 mois passer en IPS)
+
+## Filtrage applicatif
+
+### Définition 
+
+- Wikipédia : Dernière génération de pare-feu, ils vérifient la complète conformité du paquet à un protocole attendu. Par exemple, ce type de pare-feu permet de vérifier que seul le protocole [HTTP](https://www.wikiwand.com/fr/Hypertext_Transfer_Protocol) passe par le port [TCP](https://www.wikiwand.com/fr/Transmission_Control_Protocol) 80.
+- La parfaite : Le filtrage applicatif permet de filtrer les communications application par application. Il opère au niveau 7 du modèle osi « APPLICATION ».
+
+### Avantages
+
+- Contrôle complet sur chaque service 
+- Permet l’installation de procédures d’authentification extrêmement poussées.
+- Bien plus faciles à configurer et à tester que pour un firewall filtre de paquets.
+
+### Inconvénients
+
+- Augmentent considérablement le coût du firewall, ce coût étant principalement lié à celui de la plate-forme matérielle de la passerelle, des services proxy et du temps et des connaissances requises pour configurer cette passerelle.
+- Les filtres au niveau application ont tendance à réduire la qualité du service offert aux utilisateurs tout en diminuant la transparence du système.
+- Une analyse fine des données applicatives requiert une grande puissance de calcul et se traduit donc souvent par un ralentissement des communications . 
+- De plus, collecter et analyser  demande aussi une expertise humaine et la mise en place de processus
+
+### Pourquoi ?
+
+Les pare-feu classiques, «réseau » et « UTM », sont pour la plupart totalement aveugles et inefficaces face à ces attaques.
+
+Les nouveaux risques encourus sont les suivants :
+
+- Le déni de service : attaque massive provoquant une indisponibilité de votre site,
+- Les tentatives d’intrusion,
+- Les vols et remplacement de données sensibles : fichiers clients, données RH, données comptables,…
+- L’altération des sites Web, 
+- L’utilisation frauduleuse de données bancaires,
+- etc.
+
+### Filtrage applicatif type proxy
+
+- Niveau 7 du modèle OSI (Application)
+- Requêtes traitées par des processus dédiés.
+- Rejet de toutes les requêtes qui ne sont pas conformes aux spécifications d’un protocole (http, https …)
+
+### Solution WAF
+
+Web application Firewall
+
+- Permet de définir et d’appliquer des politiques de sécurité correspondant aux applications web
+- Un WAF inspecte chaque paquet de données HTML, HTTPS, SOAP et XML-RPC.
+- Généralement déployé via un proxy
+
+D’un point de vue configuration, un WAF pourra opérer suivant deux modes : logging ou blocking.
+Dans le mode logging, les requêtes suspectes seront enregistrées, mais pas bloquées. Ce type de configuration est généralement adopté lors de l’installation d’un WAF, pour éviter dans un premier temps les “faux positifs” et donc éviter de bloquer du traffic légitime.​
+Dans le mode blocking, les attaques détectées sont bloquées, et le traffic dangereux ne parvient pas à l’application web.
+
+Chaque demande envoyée est d'abord examinée par le WAF avant qu'elle n'atteigne l'application Web. Si cette demande est conforme avec l'ensemble de règles du pare-feu, ce dernier peut alors transmettre la demande à l'application
+
+Les WAF peuvent être installés comme un équipement autonome sur le réseau, comme un logiciel, ou encore connectés à partir d’un service disponible sous forme de service cloud.
+
+### Conclusion
+
+- C’une véritable barrière entre un réseau de confiance et d'autres réseaux de confiance nulle
+- Mais ne dispense pas d’ajouter d’autres outils de sécurité :
+- ANTIVIRUS
+- IDS
+- Supervision
+- Logs
+
+Mettre en place un firewall applicatif demandera du temps, des compétences et la mise en place de processus pour qu'il soit efficace et ne pénalise pas les utilisateurs.
 
 # OS
 
