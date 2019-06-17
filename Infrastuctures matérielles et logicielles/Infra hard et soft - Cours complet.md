@@ -22,6 +22,226 @@ Fonctionnement :
 - Analyse spectrale
 - Analyse heuristique
 
+## L'Algorithme AHO-CORASICK
+
+### 1 - Qu'est-ce que Aho Corasick ?
+
+- Algorithme de recherche de mot (String-searching algorithm). Qui sert à rechercher toutes les occurrences d’un nombre arbitraire de motifs (ou mots-clés) dans un flux d’information (un texte).
+- Inventé par Alfred Aho & Margaret J.Corasick en 1975 - "Efficient string matching: An aid to bibliographic search".
+- Usage :
+  -  Signature based anti-virus.
+  -  Deep Packet Analyzer (DPA - détection / prévention d'intrusion).
+  - GPU (GTX 285 – optimisation accès mémoire).
+  - Fuzzification (Tentative d'implémentation dans un "système flou").
+  - Détection d'attaque par injection.
+- Automate fini non déterministe
+  - Automate : c'est une machine abstraite au fonctionnement programmé passant par des changements d'état
+  - Fini : il contient un nombre fini d'états, sa mémoire a des limites. Il part d'un état initial et passe par une succession d'états pour aboutir sur un état final.
+  - Non-déterministe : parce qu'il n'est pas déterministe : à chaque état il peut y avoir une à plusieurs transitions. Un déterministe n'en aura qu'une seule : en partant d'un état et pour une lettre, il n'y a qu'un seul chemin possible.
+
+### 2 - Fonctionnement
+
+C'était tout à l'oral, si personne a pris de note pendant nos exposés vous êtes dans la merde les gars. Nous on sait comment ça marche.
+
+## Offuscation et Polymorphisme
+
+### Qu'est-ce que l'offuscation et le polymorphisme ?
+
+#### Offuscation
+
+- Procédé pour rendre du code impénétrable (raison malveillante ou éviter rétro-ingénierie).
+- Difficilement compréhensible pour un humain.
+- Mais, compilable pour un ordinateur.
+
+Le code impénétrable d'un programme informatique est un code dont la compréhension est très difficile pour un humain tout en restant parfaitement compilable par un ordinateur.
+
+Plusieurs raisons :
+
+- protéger les investissements de développement d'un logiciel par des techniques de génération de code objet rendant plus difficile la rétro-ingénierie. 
+- Code malveillant.
+
+Deux formes : 
+
+- le code objet généré à fin de distribution d'un programme
+- le code source. 
+
+#### Polymorphisme
+
+- Sens propre : capacité à se présenter sous différentes formes.
+- Virus : modifie sa représentation lors de sa réplication.
+
+Modification du code d'un virus sans modifier son fonctionnement. La plupart des logiciels antivirus tentent d'identifier un virus en recherchant sa signature. Le polymorphisme de certains virus empêche la définition de telles signatures. Car il n'existe plus de séquence invariable suffisamment longue pour être spécifique au virus. Le code viral dispose d'un moteur de codage et de décodage en fonction de la technique employée afin de varier son code. 
+
+Cependant, ce moteur constitue en lui-même une invariance généralement utilisée par les éditeurs d'antivirus afin de donner une signature sur les code viraux, ce problème est alors traité par une catégorie spécifique appelée virus métamorphes.
+
+###  Le polymorphisme
+
+- Le virus polymorphe :  ninja des bases virales
+- La mutation, cette inconnue
+  - Par chiffrement
+  - Par métamorphisme
+
+### Fonctionnement d'un RunPE
+
+#### Problématique des ‘black-hats’
+
+- La problématique d’un utilisateur malicieux est d’exécuter son code malveillant sans éveiller les soupçons de l’antivirus
+- Bypasser les méthodes de scans des antivirus :
+  - Scantime : éviter la détection par l’AV du fichier sur le disque dur
+  - Runtime : éviter la détection par l’AV du malware en tant que processus actif
+
+#### Objectifs d’un RunPE
+
+Buts :
+
+- bypass scantime : chiffrement du code malveillant sur disque
+- bypass runtime : injection du code malveillant dans un processus légitime (calc.exe, svchost.exe…)
+
+Problèmes :
+
+- Un code chiffré est ininterprétable par l’OS
+- Nécessite un ‘loader’ (le RunPE) pour l’injection
+
+#### Structure d'un fichier Portable Executable
+
+- Un fichier Portable Exécutable est un fichier .exe
+- Permet au système d'exploitation (ici Windows) de :
+  - Charger l'executable
+  - Charger les librairies nécessaires (user32.dll, gdi.dll...)
+  - Naviguer entre les différentes sections de code qu'il contient, organisées lors de la compilation du programme
+
+#### Workflow d’un RunPE
+
+1. Lecture du malware.exe chiffré
+2. Déchiffage, via clé de déchiffrement, directement en RAM
+3. Analyse du fichier malware.exe au format PE (toujours en mémoire)
+4. Récupération des sections et leur taille du malware.exe (toujours en mémoire)
+5. Lancement de calc.exe en mode suspendu
+6. Récupération des registres processeur du processus calc.exe
+7. Récupération de l’adresse mémoire de base de calc.exe
+8. Unmapping des sections de code de calc.exe
+9. Allocation d’espace mémoire de la taille de malware.exe, dans calc.exe
+10. Ecriture des sections de code malware.exe dans calc.exe
+11. Modification d’AddressOfEntryPoint de calc.exe pour pointer sur les nouvelles sections de code (malveillant) 
+12. Modification de calc.exe pour passer de l’état suspended à running
+13. Le code du malware.exe a été injecté en mémoire dans calc.exe et fait ses affaires
+
+### Résumé
+
+- On charge en mémoire RAM le malware chiffré
+- On le déchiffre en RAM
+- On l’analyse en RAM (sections de code, taille en bytes…)
+- On lance un logiciel légitime non suspicieux par les AV (explorer.exe, calc.exe…) en suspendu 
+- On supprime le code du logiciel quand il a été chargé en RAM
+- On remplace le code légitime par le code du malware
+- On ‘dé-suspend’ l’état du processus légitime (running) et son exécution va continuer… en chargeant le code du malware
+
+### Problèmes d’un RunPE
+
+- Un RunPE embarque souvent lui-même le code du malware, chiffré en AES-256, 3DES…
+- AV sensibles aux fichiers .exe embarquant avec eux un payload chiffré
+- Tip (testé par moi-même) : leurrer les antivirus en modifiant le code chiffré, par exemple en ajoutant un fakeheader JPEG au code…
+  - Code du malware chiffré en hexa : 49 46 FF DB E4 A6 => Un .exe qui embarque des données chiffrées ?! ALERTE
+  - Code du malware avec entête JPEG : FF D8 FF 49 46 FF DB E4 A6 => Mouais c’est une tête JPEG, c’est OK !
+
+## Virus par cavité et par recouvrement
+
+### Qu'est-ce qu'un virus par cavité et par recouvrement ?
+
+#### 1 – Virus par recouvrement
+
+- Technique archaïque utilisée par virus et vers
+- Infecte les fichiers exécutables
+- Destructeur (un vrai verre de lait....)
+- Vole le travail du programme infecte - "they took our job"
+- One shot
+- N'est pas dans la ram de la machine
+- Faible contre du contrôle d'intégrité
+
+#### 2 – Virus par cavité
+
+- Technique utilisé par virus et vers
+- Infecte les fichiers exécutables
+- Fourbe (pas destructeur)
+- Développement parallèle avec 32bits
+- Connait d'avance la structure des programmes
+- Morcelle son code là où il y a des zéros binaires
+- Faible contre du contrôle d'intégrité
+
+### Fonctionnement du recouvremment
+
+1. Se met a la place du code de l'exe
+2. Le virus pourri l'exe
+3. L'utilisateur lance l'exe
+4. Le virus se lance
+5. L'exe se lance pas
+6. L'utilisateur clique 20 fois sur l'exe
+7. Il dit que rien marche et l'informatique c'est caca
+
+### Exemple de recouvrement
+
+- BadGuy: les 264 premiers octets des fichiers com sont tous ecrasés
+- W32/HLL.ow.Jetto: les 7170 premiers octets de chaque fichier sont ecrasés
+- Linux/Radix.ow:comme w32/hll.ow.Jetto mais pour les pingouins
+- Tri reboot,trivial.88.D,VBS/Entice.ow
+
+### Fonctionnement de la cavité
+
+1. Cherche des programmes pouvant l'accueilir chaudement
+2. Modifie le point d'entrée du programme
+3. Insère son code dans les partie 'libre' ou 'a vide'
+4. Se morcelle dans le programme
+5. N'altere pas le fonctionnement du programme
+6. L'utilisateur l'exécute
+
+## Analyse comportementale et mode sandbox
+
+### Analyse comportementale (généralité)
+
+- Cherche à aller au-delà des limites du Pattern-Matching (qui recherche des signatures au sein des fichiers).
+- Basé sur un processus d'apprentissage (Machine Learning). 
+- Deux types :
+  - Analyse comportementale des virus ou code malveillant.
+  - Analyse comportementale des utilisateurs (User Behavior Analytics).
+
+#### Analyse comportementale (utilisateurs)
+
+- Détection des comportements anormaux ou susceptible de générer un contexte de vulnérabilité.
+- Idée d'analyser "l'historique de vie" après l'infection du système afin de minimiser les risques futurs. 
+- Idée aussi de corriger les défaillances liées aux utilisateurs (système de Dashboard / d'alerte). 
+
+### Analyse comportementale (virus)
+
+- Idée de détecter et de supprimer la menace avant qu'elle ne s'exécute. 
+- Basé sur l'analyse du fichier, le moyen de transport et toutes autres informations disponibles sur ce fichier. 
+- Système de détection et de classification des virus.
+
+- Exemple de la solution "VPS" d'ISS : 
+  - Le code malveillant va s'exécuter sur une machine virtuelle, sans causer de dommage (sandbox). 
+  - L'algorithme de la solution VPS va analyser le comportement du code malveillant en profondeur.
+  - Va comparer le comportement à des scénarios d'attaque et générer une signature dynamique.
+  - La prochaine fois que ce code malveillant ou une variante se présentera, il sera supprimé avant de pouvoir s'exécuter. 
+
+### Mode sandbox
+
+- Environnement virtuel contrôlé pour évaluer les risques
+- Piège passif : le code exécuté ne se rend (idéalement) compte de rien
+- Principale limite : si le malware s'en rend compte, c'est foutu
+- Le mode Sandbox selon ISS : logs et machine learning
+
+### Cukoo
+
+- Framework d'analyse automatisé de fichiers
+- Python !  pip install -U cuckoo
+- Environnement sandboxé mais réaliste
+- Analyse plusieurs types de fichiers (.exe, .pdf, .docx...) sous plusieurs environnement virtualisés (Windows, Mac OS et Android)
+- Trace les appels aux API (LowLevelKeyboardProc, ZwUnmapViewOfSection…)
+- Dump et analyse le trafic réseau, avec MITM pour SSL/TLS. Peut transmettre le trafic réseau sur une interface réseau
+- Analyse RAM avec YARA
+- malwr.com : site basé sur Cuckoo mais en rework depuis des  mois...
+- https://cuckoo.cert.ee en moins bien
+
+
 #  SGBD
 
 ##  Présentation
@@ -1297,8 +1517,8 @@ Fonctionnement :
 - On décrit un ensemble de mots par une expression.
 - On associe à chaque expression une action.
 -  L'exécutable produit par lex lit le fichier d'entrée et pour chaque mot reconnu, effectue une action précisée par l'utilisateur.   
-  expression -> action  
-  Exemple : transformer tous les 'A' en 'a’ 
+    expression -> action  
+    Exemple : transformer tous les 'A' en 'a’ 
 
 ### Analyse syntaxique 
 
