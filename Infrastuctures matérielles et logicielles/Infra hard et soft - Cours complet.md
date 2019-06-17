@@ -1263,13 +1263,18 @@ Windows utilise une signature numérique valide pour vérifier les éléments su
 
 ## Présentation
 
-Le compilateur traduit du texte >> il le convertit.
+### Qu’est-ce qu’un compilateur ?
 
-Types ?
+Compilateur = vérificateur et traducteur 
 
-- Interpréteurs
-- Formateurs de texte
-- Préprocesseurs
+### Cousins
+
+- Interpréteurs  
+  Diffèrent d'un compilateur par l'intégration de l'exécution et de la traduction. Utilisés pour les langages de commande
+- Formateurs de texte  
+  Traduit le code source dans le langage de commande d'une imprimante
+- Préprocesseurs  
+  Effectuent des substitutions de définitions, des transformations lexicales, des définitions de macros, etc.
 
 Fonctionnement :
 
@@ -1277,41 +1282,259 @@ Fonctionnement :
 2. Syntaxe (backend) : regarde comment sont formés les mots pour en déduire la "grammaire", la structure du texte. Création d'un arbre syntaxique, ou arbre de dépendance.
 3. Analyse sémantique : vérifie que la syntaxe est OK puis checke le sens. Regarde le contexte, voit la globalité : est-ce **logique** ?
 
-L'optimisation passe 
+### Analyse lexicale (scanners) 
 
-- Par la vitesse d'exécution 
-- Par la taille du code (minify)
+- Rôle : grouper les lettres pour former des mots. 
+- Au passage : 
+  - reconnaît et signale les mots mal orthographiés
+  - peut supprimer les commentaires. 
+  - peut préprocesser le texte : expansion de macros.
+
+#### Lex : un outil pour construire un analyseur lexical
+
+Fonctionnement :
+
+- On décrit un ensemble de mots par une expression.
+- On associe à chaque expression une action.
+-  L'exécutable produit par lex lit le fichier d'entrée et pour chaque mot reconnu, effectue une action précisée par l'utilisateur.   
+  expression -> action  
+  Exemple : transformer tous les 'A' en 'a’ 
+
+### Analyse syntaxique 
+
+Vise à reproduire une représentation (arbre) des relations grammaticales entre les mots.
+
+- La syntaxe est l’étude de la façon avec laquelle les mots sont composés pour construire des phrases.
+- La syntaxe ne s’interesse pas à la sémantique des mots.
+- Parcontre, une analyse syntaxique peut apporter de l’information utile à la compréhension d’une phrase
+- (utile en traduction automatique, système de réponse automatique..)
+- L’analyse syntaxique va permettre d’exposer et de manipuler de nouveaux concepts linguistiques utiles :
+- Les constituants qui sont des groupes de mots agissant comme une unité à part entière, tels les noun phrases.
+- Les relations grammaticales telles les relations d’objet et de sujet d’un verbe
+- D’autres propriétés sur la relation entre les mots d’une phrase telle les relations de dépendance.
+
+### Analyse sémantique
+
+À la sortie de l’analyse syntaxique, on se trouve avec un arbre syntaxique (abstrait) qui contient toutes les informations pertinentes sur la structure syntaxique du programme   
+On a donc vérifié qu’il est syntaxiquement correct. . . . . . ce qui ne veut pas dire qu’il est sémantiquement correct !   
+De même, on a compris sa structure syntaxique. . . . . . ce qui ne veut pas dire qu’on a compris sa signification !
+
+### Optimisation de code
 
 Le code est généré d'abord dans un langage intermédiaire, puis en code binaire pour la machine. À chaque fois il est généré puis optimisé.
 
+L’optimisation de code peut être soit par :
+
+1. #### Optimisations de la vitesse d'exécution
+
+Un compilateur peut optimiser plusieurs choses :
+
+- la taille du programme 
+- la vitesse d’exécution 
+- la consommation énergétique du programme.
+
+Si les compilateurs sont très bons pour optimiser la vitesse d’exécution, il n’en est pas vraiment de même pour la taille du code ou la consommation énergétique. Quoiqu’il en soit, il existe plusieurs façons pour optimiser la vitesse d’exécution :
+
+- utiliser au mieux les instructions du processeur ;
+- diminuer le temps processeur passé à faire des calculs ;
+- virer des branchements et fonctions pour obtenir un code le plus linéaire possible ;
+- utiliser au mieux la hiérarchie mémoire, que ce soit au niveau des registres, du cache ou de la DRAM.
+
+2. #### Optimisations de la taille du code
+
+Si la vitesse des programmes peut être optimisée, les compilateurs peuvent aussi jouer sur la taille du programme. La taille d’un programme en elle-même n’est pas importante pour des programmes PC puisque la majorité d’entre eux possèdent plusieurs gibioctets1 de RAM, ce qui laisse une grande marge. Par contre, diminuer la taille du code a des effets indirects sur les performances en économisant de la mémoire cache. Mais dans la réalité, les optimisations de la taille du code entrent souvent en conflit avec les optimisations de vitesse d’exécution et on a :
+
+- Choix des instructions
+- Jonction de branchements 
+- Abstraction de procédure
+- Suppression de code mort
+
+### Génération de code
+
+Se passe en plusieurs étapes : 
+
+1. Génération du code intermédiaire 
+2. Optimisation du code intermédiaire
+3. Génération du code machine 
+4. Optimisation du code machine
+
+### Pile d’execution
+
+Zone de mémoire supposée très grande.  
+Le registre traditionnellement utilise pour le haut de pile s’appelle $sp.
+
+Par convention, il pointe vers le mot (4 octets) le plus en haut.  
+Attention, on compte a l’envers en MIPS ! On augmente la pile en​
+diminuant $sp 
+
+### Appel de fonction
+
+Les fonctions (et procédures) en assembleur sont simplement des adresses dans le code.  
+le passage des arguments se fait a la main, la récupération du résultat aussi, il n’y a pas de “variable locale”.
+
+On utilise la pile pour stocker
+
+- le résultat,
+- les arguments,
+- les variables locales
+
+### Arbre d’activation
+
+A n’importe quel moment, une seule fonction est active  
+Elle est representée par une trame de pile ou trame d’activation  
+Les activations successives forment un arbre d’activation  
+Une trame de pile est crée lors d’un appel  a fonction   
+La trame est ecrasée quand la fonction finit son activation   
+
+### Outils logiciels
+
+- Générateurs d’analyseurs lexicaux  
+  Engendrent un analyseur lexical (scanner, lexer) sous forme d’automate fini à partir d’une spécification sous forme d’expressions rationnelles  
+  Flex, Lex
+
+- Générateurs d’analyseurs syntaxiques  
+  Engendrent un analyseur syntaxique (parser) à partir d’une grammaire  
+  Bison, Yacc
+
+- Générateurs de traducteurs  
+  Engendrent un traducteur à partir d’un schéma de traduction (grammaire + règles sémantiques)  
+  Bison, Yacc
+
 ## Analyse lexicale
 
-C'est la première partie de la compilation, le point d'entrée, juste après le source code.
-
+Analyse lexical = Transformation d’une suite de caractères en une suite de mots.  
+C'est la première partie de la compilation, le point d'entrée, juste après le source code.  
 Un analyseur lexical est un automate fini
 
-### Les REGEX
+### Les enjeux 
 
-...explique ce que c'est.
+- La production d’un arbre (de syntaxe abstraite) à partir de caractères 
+- Création des automates finies à partir des expressions régulières qui sont utilisés souvent dans les éditeurs des textes et les grep d'Unix .
+
+### Les langages formels 
+
+On se donne un ensemble Σ appelé alphabet, dont les éléments sont appelés caractères. Un mot (sur Σ) est une séquence de caractères (de Σ). On note є le mot vide, uv la concaténation des mots u et v (la concaténation est associative avec є pour élément neutre). On note Σ∗ l’ensemble des mots sur Σ.
+
+Un langage sur Σ est un sous-ensemble L de Σ∗. On se donne quelques opérations sur les langages. Si U et V sont des langages sur Σ, on note U V l’ensemble des mots obtenus par la concaténation d’un mot de U et d’un mot de V; U∗ (resp. U +), l’ensemble des mots obtenus par la concaténation d’un nombre arbitraire, éventuellement nul (resp. non nul) de mots de U.
+
+### Les expressions régulières  (regex) :
+
+Rôle : permettent de représenter des modèles de chaînes de caractère. Ce sont des outils très puissants et très utilisés.
+
+Syntaxe : 
+
+- Une lettre de l’alphabet a désigne le langage {a}.
+- Epsilon є désigne le langage {є}
+- Concaténation : M N désigne le langage [[M]] [[N]].
+- Alternative : M ∣ N désigne le langage [[M]] ∪ [[N]].
+- Répétition : M∗ désigne le langage [[M]] ∗.
+- Autres constructions tel que a ou b : a|b , un ou plus a+ , a?, $,^, etc
+- Exemple:  Adresse email : `^[a-zA-Z-]+@[a-zA-Z-]+\.[a-zA-Z]{2,6}$`
 
 ### Les automates
 
-DFA automate fini déterministe
+#### DFA automate fini déterministe
 
-NFA fini non déterministe
+Nombre fini d'états et un état ne peut aller que vers un autre état (ex: feu tricolore)
 
-## Compilateur : Analyse syntaxique
+#### NFA fini non déterministe
 
-Après l'analyse lexicale
+La définition est la même que celle de automates déterministes, compte tenu des deux détails suivants :
 
-Construit un arbre des relations grammaticales entre les mots. 
+1. Les transitions sont définies par une relation et non plus par une fonction, c’est à dire que plusieurs transitions issues d’un état donné peuvent porter la même étiquette.
+2. Il existe des transitions « spontanées » qui portent une étiquette spéciale, classiquement є.
 
-Il définit ce qu'est un sujet, un verbe.. donc un objets, une classe... ?
+## Analyse syntaxique
 
-### Rôle
+Analyse syntaxique = fait suite à l’analyse lexical et qui permet de connaître la structure syntaxique d’un énoncé et par suite expliciter les relations de dépendances entre les différents lexèmes et de construire la représentation du sens d'énoncé   
+Vise à reproduire une représentation (arbre) des relations grammaticales entre les mots.
+
+Il définit ce qu'est un sujet, un verbe.. donc un objet, une classe... ?
+
+### Le rôle de l’analyseur syntaxique  
 
 prépare la traduction : si des mots sont pas compwris, communication possible via la table des symboles.
 
+Rôle central de la partie frontale :
+
+1. active l’analyseur lexical;
+2. vérifie la conformité syntaxique;
+3. construit l’arbre d’analyse ;
+4. prépare ou anticipe la traduction ;
+5. gère les erreurs communes de syntaxe.  
+6. Traitement des erreurs :
+   - diagnostic (messages) ;
+   - redémarrage : mode panique, jusqu’à resynchronisation ;  
+     correction, difficile si l’erreur est antérieure à sa détection ;  
+     règles d’erreurs, intégrées à la grammaire.  
+
 ### Grammaires
 
+Syntaxe spécifiée par des règles de grammaire.
 
+- Symboles terminaux (= unités lexicales) alphabet A ;
+- Symboles intermédiaires ou variables (= catégories
+  grammaticales) alphabet X ;
+- Règles de grammaire x ® w , où x Î X et où w Î (AÈ X)*
+  w est un mot quelconque, même vide.
+
+Exemples :  
+instr ⇾ si expr alors instr sinon instr  
+phrase ⇾ gsujet gverbe gcomplément  
+
+Axiome (= programme)  
+Langage engendré = mots terminaux dérivant de l’axiome
+
+### L’analyse descendante  
+
+Une procédure par terme.  
+Problème : récursivité directe à gauche ;​ nécessité d’une transformation pour l’éliminer.
+
+Procédures correspondantes : deux procédures supposées éc
+
+- prévision retourne l’unité lexicale suivante sans l’enlever ;
+- correspond(x) lit l’unité lexicale suivante, l’enlève et signale erreur si elle ne vaut pas x. Ici plus, nombre, etc. sont les​ codes d’unités lexicales renvoyés par l’analyseur lexical
+
+### L’analyse ascendante  
+
+On utilise une pile, et une table de transition entre états. (Automate déterministe à une pile)
+
+En fonction du symbole de prévision, 
+
+- on empile un état en lisant un caractère de l’entrée (décalage)
+- on dépile autant de symboles que la longueur de la règle qu’on a reconnue, et on empile un nouvel état (réduction)  
+
+## Analyse sémantique
+
+La sémantique est l’étude du sens des mots, dans une phrase et dans le contexte de cette phrase. L’analyse sémantique d’un texte consiste à établir sa signification en utilisant le sens des éléments du texte ; a contrario, les analyses lexicales ou grammaticales ne font que décomposer le message à l’aide d’un lexique (dictionnaire) ou d’une grammaire
+
+Un programme peut être syntaxiquement correct mais contenir des erreurs “sémantiques” :
+
+- Variables/fonctions non déclarées
+-  Fonctions avec mauvais nombre/type de paramètres 
+- Opérateurs appliqués à des types incompatibles (int + string) 
+- Pas de return alors que la fonction n’est pas void (ou vice-versa) 
+- Pas de main 
+
+### Système de types
+
+Les variables, fonctions et expressions ont des types associés 
+
+- Types : déclarés ou inférés ? modifiables ?   
+  - Déclarés : identificateurs déclarés avec un type (C, Java)  	
+  - Inférés : types sont inférés selon leur utilisation (Perl, Python, PHP) 
+  - Modifiables : changement de type dans la même portée (Python) 
+
+- Vérifications : statiques (compilation) ou dynamiques (exécution) ? 
+  - Statiques : compatibilité types utilisés/déclarés des variables 
+  - Dynamiques : dépassement des bornes d’un tableau 
+- Conversions de types 
+  - Implicites (coercitions) : x = 1 + 5.3 
+  - Explicites (cast) : x = (int)y + 1 
+  - Polymorphisme (fonctions, opérateurs, types complexes)
+
+### Table des symboles
+
+- Elle rassemble toutes les informations utiles concernant les variables et les fonctions du programme. Pour toute variable, elle garde l’information de : son nom son type sa portée son adresse en mémoire.
+- Pour toute fonction, elle garde l’information de : son nom sa portée le nom et le type de ses arguments, ainsi que leur mode de passage le type du résultat qu’elle fournit La table des symboles est construite lors du parcours de l’arbre abstrait. 
+- Elle grandit pendant la compilation des parties déclaratives : déclaration de variables, définition de fonctions. Elle est consultée pendant la compilation des parties exécutables : appel de fonction, référence à une variable. La table des symboles doit être réalisée avec soin : on estime qu’un compilateur passe la moitié de son temps à la consulter
